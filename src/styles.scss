@@ -1,0 +1,98 @@
+$color-dark-blue:  #3b556f;
+$color-light-blue:  #60ccf3;
+$color-dark-black: #212428;
+$color-light-black: #3d3d3d;
+$color-light-pink: #dd5790;
+$color-dark-pink: #da387d;
+
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  /* font-family: 'Nunito', sans-serif; */
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+a{
+  text-decoration: none;
+  transition: all .3s;
+}
+
+/*BUTTON*/
+
+.btn {
+  text-decoration: none;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  color: white;
+  text-align: center;
+  min-width: 11rem;
+  transition: all .3s;
+}
+
+.btn:active, .btn:visited{
+  text-decoration: none;
+}
+
+.btn-dark{
+  background-color: #3b556f;
+}
+
+.btn-dark:hover{
+  background-color: rgba(59, 85, 111, 0.8);
+}
+
+.btn-light{
+  background-color: #60ccf3;
+}
+
+.btn-light:hover{
+  background-color:  rgba(96, 204, 243, 0.8);
+}
+
+.btn-light-empty{
+  border: 2px solid $color-light-blue;
+}
+
+.btn-light-empty:hover{
+  background-color:$color-light-blue;
+}
+
+.btn-pink{
+  background-color: $color-light-pink;
+  border: 2px solid $color-light-pink;
+}
+
+.btn-pink:hover{
+  background-color: white;
+  color: black;
+}
+
+/*MARGINS*/
+.mb-5{
+  margin-bottom: 5rem;
+}
+
+/*INPUT*/
+.input {
+  height: 4.5rem;
+  border-radius: 5px;
+  border: 2px solid #dbdbdb;
+  padding: 0.5rem;
+  font-size: 1.8rem;
+  outline-offset: 0px !important;
+  outline: none !important;
+}

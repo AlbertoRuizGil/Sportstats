@@ -10,10 +10,16 @@ import { environment } from '../environments/environment';
 
 /*Modulos*/
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
