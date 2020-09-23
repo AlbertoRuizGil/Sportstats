@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "sportstats-89f60": {
+      "hosting": {
+        "sportstats": [
+          "sportstats-89f60"
+        ]
+      }
+    }
+  }
+}
