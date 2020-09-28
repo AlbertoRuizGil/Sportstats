@@ -1,0 +1,37 @@
+<div class="container-session">
+  <form [formGroup]="register_form" (ngSubmit)="register()"
+        class="form-session form-session animated fadeInLeft">
+    <div class="logo">
+      <a href="" [routerLink]="['/home']">
+        <img src="../../../assets/img/logo.svg" alt="logo" class="logo-img">
+      </a>
+      <p class="logo-title">sportstats</p>
+      
+    </div>
+
+    <label for="name" class="form-session-label">Nombre</label>
+    <span class="wrong" *ngIf="not_valid_name">Debe contener al menos 2 letras</span>
+    <input type="text" 
+           class="input form-session-input" 
+           formControlName="name">
+
+    <label for="email" class="form-session-label">Email</label>
+    <span class="wrong" *ngIf="not_valid_email">No es un email válido</span>
+    <input type="email" 
+           class="input form-session-input" 
+           formControlName="email">
+
+    <label for="password" class="form-session-label">Contraseña</label>
+    <span class="wrong" *ngIf="not_valid_password">Debe contener al menos 6 letras</span>
+    <input type="password" 
+           class="input form-session-input" 
+           formControlName="password">
+
+    <button type="submit" class="form-session-submit btn">Registrarse</button>
+    <!-- REVISAR -->
+    <!-- <span class="wrong" *ngIf="empty_fields">Debe rellenar todos los campos</span> -->
+    <hr>
+    <p class="form-session-text">¿Ya te registraste? <a href="#" [routerLink]="[ '/login']" class="form-session-link">Inicia sesión aquí</a></p>
+    <p class="form-session-text"><a [routerLink]="[ '/home' ]" class="form-session-link">Volver al inicio</a></p>
+  </form>
+</div>
