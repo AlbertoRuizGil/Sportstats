@@ -1,0 +1,40 @@
+.teams-header{
+  height: 40rem;
+  background: linear-gradient(to right bottom, #264c72 50%, #2f3c49 100%);
+  
+  &_title{
+    font-size: 5rem;
+  }
+}
+
+
+
+.teams-container{
+  display: flex;
+  justify-content: space-around;
+  justify-self: center;
+}
+
+.team-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 2rem;
+  height: 27rem;
+  width: 27rem;
+  background-color: royalblue;
+  border-radius: 3rem;
+  text-align: center;
+
+  &_plus{
+    font-size: 7rem;
+  }
+
+  &_name{
+    font-size: 3.5rem;
+  }
+
+  &_sport{
+    font-size: 3rem;
+  }
+}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,9 +12,10 @@ export class LoginComponent implements OnInit {
 
   login_form: FormGroup;
   isvalidform = true;
+  isloading = false;
 
   constructor(private fb: FormBuilder,
-              private auth: AngularFireAuth,
+              public auth: AuthService,
               private router: Router) {
     this.createForm();
   }
@@ -35,20 +36,20 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    console.log( this.login_form )
+
+    this.isloading = true;
     if(this.login_form.valid){
-      this.auth.signInWithEmailAndPassword(this.login_form.value.email, this.login_form.value.password)
+        this.auth.tryLogin(this.login_form.value.email, this.login_form.value.password)
         .then(resp => {
-          console.log( "TOKEN: ",resp.user.refreshToken, "UID: ", resp.user.uid );
-          /* this.router.navigateByUrl("/userTeams") */
+          this.auth.saveToken(resp.user.refreshToken);
+          this.isloading = false;
+          this.router.navigateByUrl("/userTeams");
         })
-        .catch( err => {
-          console.log ( err.message );
-          this.isvalidform = false;
-        })
+        .catch(() => this.isvalidform = false)
     }else {
       this.isvalidform = false;
     }
+
   }
 
   
