@@ -75,7 +75,7 @@ export class RegisterComponent implements OnInit {
               email: this.register_form.value.email,
             };
             this._us.addUser(newUser, resp.user.uid);
-            this._as.saveToken(resp.user.refreshToken);
+            this._as.saveUserId(resp.user.uid);
             Swal.fire({
               icon: 'success',
               text: 'Usuario registrado correctamente',

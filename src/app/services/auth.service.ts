@@ -16,9 +16,9 @@ export class AuthService {
     return this.auth.signInWithEmailAndPassword(email, password);
   }
 
-  saveToken(idToken : string){
-    this.userToken = idToken;
-    localStorage.setItem('token', idToken);
+  saveUserId(userId : string){
+    this.userToken = userId;
+    localStorage.setItem('userId', userId);
   }
 
   readToken(){
@@ -31,10 +31,6 @@ export class AuthService {
 
   registerUser(email: string, password: string){
     return this.auth.createUserWithEmailAndPassword(email, password);
-  }
-
-  isAuthenticated(){
-    return this.userToken.length > 2;
   }
 
   logout(){

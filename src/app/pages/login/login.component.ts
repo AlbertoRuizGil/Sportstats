@@ -49,8 +49,8 @@ export class LoginComponent implements OnInit {
         Swal.showLoading();
         this._as.tryLogin(this.login_form.value.email, this.login_form.value.password)
         .then(resp => {
-          this._as.saveToken(resp.user.refreshToken);
-          Swal.close();  
+          this._as.saveUserId(resp.user.uid);
+          Swal.close();
           this.router.navigateByUrl(`/userTeams/${resp.user.uid}`);
         })
         .catch(() => {

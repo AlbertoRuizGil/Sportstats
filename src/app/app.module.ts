@@ -17,6 +17,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { UserTeamsComponent } from './pages/user-teams/user-teams.component';
 import { UsersService } from './services/users.service';
+import { CreateTeamComponent } from './pages/create-team/create-team.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { UsersService } from './services/users.service';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    UserTeamsComponent
+    UserTeamsComponent,
+    CreateTeamComponent
   ],
   imports: [
     BrowserModule,

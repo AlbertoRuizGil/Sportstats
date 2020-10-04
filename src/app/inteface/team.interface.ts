@@ -5,6 +5,6 @@ export interface Team {
 }
 
 export enum Sport{
-  Basketball = "basketball",
-  Football = "football"
+  Basketball = "baloncesto",
+  Football = "futbol"
 } ;
