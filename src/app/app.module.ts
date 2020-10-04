@@ -16,6 +16,7 @@ import { TeamsService } from './services/teams.service';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { UserTeamsComponent } from './pages/user-teams/user-teams.component';
+import { UsersService } from './services/users.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { UserTeamsComponent } from './pages/user-teams/user-teams.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
   ],
-  providers: [TeamsService],
+  providers: [TeamsService, UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

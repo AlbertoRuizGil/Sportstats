@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from '../../inteface/user.interface';
+import { AuthService } from 'src/app/services/auth.service';
+import { UsersService } from 'src/app/services/users.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -11,10 +14,11 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   register_form : FormGroup;
-  loading: boolean;
+  areFieldsEmpty = false;
   
   constructor (private fb: FormBuilder,
-               private auth: AngularFireAuth,
+               private _as: AuthService,
+               private _us: UsersService,
                private router: Router ){
     this.createForm();
   }
@@ -35,12 +39,6 @@ export class RegisterComponent implements OnInit {
     return this.register_form.get('password').invalid && this.register_form.get('password').touched
   }
 
-  get empty_fields(): boolean{
-    return !(this.register_form.controls.name.pristine &&
-           this.register_form.controls.email.pristine &&
-           this.register_form.controls.password.pristine)
-  }
-
   createForm(){
     this.register_form = this.fb.group({
       name: ['', [ Validators.required, Validators.minLength(2) ] ],
@@ -50,20 +48,60 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
-    console.log( this.register_form );
-    if(this.register_form.valid){
-      this.auth.createUserWithEmailAndPassword(this.register_form.value.email, this.register_form.value.password)
-        .then(resp => {
-          console.log( resp );
-          /* UID: resp.user.uid */
-          /* TOKEN: resp.user.refreshToken */
-          this.router.navigateByUrl("/userTeams");
-        })
-        .catch( err => {
-          console.log ( err.message );
-          
-        })
+    Swal.fire({
+      title: 'Cargando...',
+      icon: 'question',
+      customClass: {
+        popup: 'alert-popup',
+        title: 'alert-title',
+      }
+    });
+
+    Swal.showLoading();
+    if(this.register_form.controls.name.pristine &&
+      this.register_form.controls.email.pristine &&
+      this.register_form.controls.password.pristine){
+
+        this.areFieldsEmpty = true;
+        Swal.close();
+      
+    }else{
+      this.areFieldsEmpty = false;
+      if(this.register_form.valid){
+        this._as.registerUser(this.register_form.value.email, this.register_form.value.password)
+          .then(resp => {
+            let newUser : User = {
+              name: this.register_form.value.name,
+              email: this.register_form.value.email,
+            };
+            this._us.addUser(newUser, resp.user.uid);
+            this._as.saveToken(resp.user.refreshToken);
+            Swal.fire({
+              icon: 'success',
+              text: 'Usuario registrado correctamente',
+              showConfirmButton: true,
+              customClass: {
+                popup: 'alert-popup',
+                title: 'alert-title'
+              }
+            })
+            this.router.navigateByUrl(`/userTeams/${resp.user.uid}`);
+          })
+          .catch(err => {
+            Swal.fire({
+            icon: 'error',
+            title: 'Usuario existente',
+            showConfirmButton: true,
+            text: err.message,
+            customClass: {
+              popup: 'alert-popup',
+              title: 'alert-title'
+            }})
+            console.log(err);
+          })
+      }
     }
+    
   }
 
 }

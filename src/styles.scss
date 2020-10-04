@@ -148,3 +148,20 @@ a{
 .fadeInLeft {
   animation-name: fadeInLeft;
 }
+
+.alert {
+  
+  &-popup{
+    font-size: 1.5rem !important;
+  }
+
+  &-title{
+    font-size: 2.5rem !important;
+  }
+
+  &-confirmButton{
+    width: 6rem !important;
+    height: 4rem !important;
+  }
+  
+}

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -12,17 +13,14 @@ export class LoginComponent implements OnInit {
 
   login_form: FormGroup;
   isvalidform = true;
-  isloading = false;
 
   constructor(private fb: FormBuilder,
-              public auth: AuthService,
+              public _as: AuthService,
               private router: Router) {
     this.createForm();
   }
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void { }
 
   createForm(){
     this.login_form = this.fb.group({
@@ -37,15 +35,28 @@ export class LoginComponent implements OnInit {
 
   login(){
 
-    this.isloading = true;
+    Swal.fire({
+      title: 'Cargando...',
+      icon: 'question',
+      customClass: {
+        popup: 'alert-popup',
+        title: 'alert-title'
+      }
+    });
+    
     if(this.login_form.valid){
-        this.auth.tryLogin(this.login_form.value.email, this.login_form.value.password)
+
+        Swal.showLoading();
+        this._as.tryLogin(this.login_form.value.email, this.login_form.value.password)
         .then(resp => {
-          this.auth.saveToken(resp.user.refreshToken);
-          this.isloading = false;
-          this.router.navigateByUrl("/userTeams");
+          this._as.saveToken(resp.user.refreshToken);
+          Swal.close();  
+          this.router.navigateByUrl(`/userTeams/${resp.user.uid}`);
         })
-        .catch(() => this.isvalidform = false)
+        .catch(() => {
+          this.isvalidform = false;
+          Swal.close();
+        })
     }else {
       this.isvalidform = false;
     }

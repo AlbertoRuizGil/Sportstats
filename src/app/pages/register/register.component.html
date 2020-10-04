@@ -28,8 +28,7 @@
            formControlName="password">
 
     <button type="submit" class="form-session-submit btn">Registrarse</button>
-    <!-- REVISAR -->
-    <!-- <span class="wrong" *ngIf="empty_fields">Debe rellenar todos los campos</span> -->
+    <span class="wrong" *ngIf="areFieldsEmpty" >Debe rellenar todos los campos</span>
     <hr>
     <p class="form-session-text">¿Ya te registraste? <a href="#" [routerLink]="[ '/login']" class="form-session-link">Inicia sesión aquí</a></p>
     <p class="form-session-text"><a [routerLink]="[ '/home' ]" class="form-session-link">Volver al inicio</a></p>

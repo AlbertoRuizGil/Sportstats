@@ -25,6 +25,11 @@
   background-color: royalblue;
   border-radius: 3rem;
   text-align: center;
+  cursor: pointer;
+
+  &:hover{
+    transform: scale(10%);
+  }
 
   &_plus{
     font-size: 7rem;

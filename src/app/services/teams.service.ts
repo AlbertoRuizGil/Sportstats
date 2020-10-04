@@ -1,20 +1,25 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { Team } from '../inteface/team.interface';
+import { Params } from '@angular/router';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class TeamsService {
 
-  private teamsCollection: AngularFirestoreCollection<any>;
-  public teams: any[] = [];
+  private teamsCollection : AngularFirestoreCollection<any>;
   
   constructor(private firestore: AngularFirestore) {  }
 
-  get_teams() {
-    this.teamsCollection = this.firestore.collection<Team>('teams');
+  getTeams(userId : string) {
+    this.teamsCollection = this.firestore.collection('users')
+      .doc(userId)
+      .collection('teams');
+    return this.teamsCollection;
+  }
 
-    return this.teamsCollection.valueChanges({idField: 'idTeam'});
+  addTeam(){
+    
   }
 }
