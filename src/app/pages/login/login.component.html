@@ -1,27 +1,41 @@
 <div class="container-session">
 
-  <form [formGroup]="login_form" (ngSubmit)="login()"
+  <form [formGroup]="loginForm"
+        (ngSubmit)="login()"
         class="form-session animated fadeInRight">
     <div class="logo">
-      <a href="" [routerLink]="['/home']">
-        <img src="../../../assets/img/logo.svg" alt="logo" class="logo-img">
+      <a [routerLink]="['/home']">
+        <img src="/assets/img/logo.svg"
+             alt="logo"
+             class="logo-img">
       </a>
       <p class="logo-title">sportstats</p>
-      
+
     </div>
-      <label for="email" class="form-session-label">Email</label> 
-      <input class="input form-session-input"
-             type="email"
-             formControlName="email">
-      <label for="password" class="form-session-label">Contraseña</label>
-      <input class="input form-session-input"
-             type="password"
-             formControlName="password">
-      <button type="submit" class="form-session-submit btn">Iniciar sesión</button>
-      <span class="wrong" *ngIf="!isvalidform">Credenciales no válidas</span> 
+    <label for="email"
+           class="form-session-label">Email</label>
+    <span class="wrong"
+          *ngIf="email.invalid && (email.dirty || email.touched)">El email es obligatorio</span>
+    <input class="input form-session-input"
+           type="email"
+           formControlName="email">
+    <label for="password"
+           class="form-session-label">Contraseña</label>
+    <span class="wrong"
+          *ngIf="password.invalid && (password.dirty || password.touched)">El password es obligatorio</span>
+    <input class="input form-session-input"
+           type="password"
+           formControlName="password">
+    <button type="submit"
+            [disabled]="loginForm.invalid"
+            class="form-session-submit btn">Iniciar sesión</button>
+    <span class="wrong"
+          *ngIf="!isValidForm">Credenciales no válidas</span>
     <hr>
-    <p class="form-session-text">¿No tienes cuenta? <a href="#" [routerLink]="[ '/register']" class="form-session-link">Registrate</a></p>
-    <p class="form-session-text"><a [routerLink]="[ '/home' ]" class="form-session-link">Volver al inicio</a></p>
+    <p class="form-session-text">¿No tienes cuenta? <a [routerLink]="['/register']"
+         class="form-session-link">Regístrate</a></p>
+    <p class="form-session-text"><a [routerLink]="['/home']"
+         class="form-session-link">Volver al inicio</a></p>
   </form>
 
 </div>

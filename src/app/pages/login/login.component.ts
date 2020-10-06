@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,30 +12,32 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
 
-  login_form: FormGroup;
-  isvalidform = true;
+  loginForm: FormGroup;
+  email: AbstractControl;
+  password: AbstractControl;
+  isValidForm = true;
 
-  constructor(private fb: FormBuilder,
-              public _as: AuthService,
-              private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
+  }
+
+  ngOnInit(): void {
     this.createForm();
   }
 
-  ngOnInit(): void { }
-
-  createForm(){
-    this.login_form = this.fb.group({
-      email: ['', Validators.required ],
-      password: ['', Validators.required ]
-    })
+  private createForm(): void {
+    this.email = this.fb.control('', Validators.required);
+    this.password = this.fb.control('', Validators.required);
+    this.loginForm = this.fb.group({
+      email: this.email,
+      password: this.password
+    });
   }
 
-  get not_valid_email(){
-    return this.login_form.get('email').invalid && this.login_form.get('email').touched
-  }
-
-  login(){
-
+  login(): void {
     Swal.fire({
       title: 'Cargando...',
       icon: 'question',
@@ -43,26 +46,18 @@ export class LoginComponent implements OnInit {
         title: 'alert-title'
       }
     });
-    
-    if(this.login_form.valid){
 
-        Swal.showLoading();
-        this._as.tryLogin(this.login_form.value.email, this.login_form.value.password)
-        .then(resp => {
-          this._as.saveUserId(resp.user.uid);
+    if (this.loginForm.valid) {
+      Swal.showLoading();
+      this.authService.tryLogin(this.loginForm.value.email, this.loginForm.value.password)
+        .then(() => {
           Swal.close();
-          this.router.navigateByUrl(`/userTeams/${resp.user.uid}`);
+          this.router.navigate(['/userTeams']);
         })
         .catch(() => {
-          this.isvalidform = false;
+          this.isValidForm = false;
           Swal.close();
-        })
-    }else {
-      this.isvalidform = false;
+        });
     }
-
   }
-
-  
-
 }

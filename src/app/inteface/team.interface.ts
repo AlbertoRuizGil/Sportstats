@@ -1,10 +1,10 @@
 export interface Team {
-  sport: Sport,
-  name: string,
-  id_trainer: string
+  sport: Sport;
+  name: string;
+  idTrainer: string;
 }
 
-export enum Sport{
-  Basketball = "baloncesto",
-  Football = "futbol"
-} ;
+export enum Sport {
+  Basketball = 'baloncesto',
+  Football = 'futbol'
+}

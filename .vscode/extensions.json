@@ -1,0 +1,26 @@
+{
+  "recommendations": [
+    "Angular.ng-template",
+    "DavidAnson.vscode-markdownlint",
+    "donjayamanne.githistory",
+    "eamodio.gitlens",
+    "EditorConfig.EditorConfig",
+    "eg2.vscode-npm-script",
+    "firefox-devtools.vscode-firefox-debug",
+    "HookyQR.beautify",
+    "ionutvmi.path-autocomplete",
+    "johnpapa.Angular2",
+    "kisstkondoros.typelens",
+    "ktriek.ng-bootstrap-snippets",
+    "lacroixdavid1.vscode-format-context-menu",
+    "ms-vscode.vscode-typescript-tslint-plugin",
+    "ms-vsliveshare.vsliveshare-pack",
+    "msjsdiag.debugger-for-chrome",
+    "natewallace.angular2-inline",
+    "rbbit.typescript-hero",
+    "thekalinga.bootstrap4-vscode",
+    "vscode-icons-team.vscode-icons",
+    "xabikos.JavaScriptSnippets",
+    "Zignd.html-css-class-completion"
+  ]
+}

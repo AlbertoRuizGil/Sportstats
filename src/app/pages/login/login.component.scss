@@ -1,10 +1,12 @@
-.container-session{
+@import 'variables.scss';
+
+.container-session {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(to right bottom , rgba(250, 250, 250, 0.5), rgba(219, 219, 219, 0.9)), url(../../../assets/img/football.jpg);
+  background-image: linear-gradient(to right bottom, rgba(250, 250, 250, 0.5), rgba(219, 219, 219, 0.9)), url(/assets/img/football.jpg);
   background-size: cover;
   background-position: initial;
 }
@@ -13,14 +15,14 @@
   display: flex;
   align-items: center;
 
-  &-img{
+  &-img {
     width: 5rem;
     height: 5rem;
   }
-  
+
   &-title {
     font-family: 'Ranchers', cursive;
-    color: white;
+    color: $color-white;
     text-transform: uppercase;
     margin-left: 1rem;
     font-size: 3rem;
@@ -28,7 +30,7 @@
 }
 
 
-.form-session{
+.form-session {
   position: absolute;
   left: 50%;
   top: 45%;
@@ -38,61 +40,61 @@
   min-height: 450px;
   padding: 4rem;
   background: linear-gradient(to right bottom, #264c72 50%, #2f3c49 100%);
-  border: 4px solid #60ccf3;
+  border: 4px solid $color-light-blue;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 
-  &-input{
-    background-color: white;
+  &-input {
+    background-color: $color-white;
     font-family: 'Kumbh Sans', sans-serif;
-    &:focus{
-      border: 4px solid #60ccf3;
+
+    &:focus {
+      border: 4px solid $color-light-blue;
     }
   }
 
-  &-label{
+  &-label {
     font-size: 2rem;
     font-weight: bold;
-    color: white;
+    color: $color-white;
   }
 
-  &-submit{
+  &-submit {
     box-shadow: none;
     border: none;
     font-size: 1.6rem;
     font-family: inherit;
     min-height: 40px;
     border-radius: 7px;
-    color: white;
+    color: $color-white;
     background-color: rgb(218, 56, 125);
 
-    &:hover{
-      background-color:  rgba(218, 56, 125, 0.8);
+    &:hover {
+      background-color: rgba(218, 56, 125, 0.8);
     }
   }
 
-  &-text{
-    color: white;
+  &-text {
+    color: $color-white;
     font-size: 1.4rem;
     margin-right: 5px;
   }
 
-  &-link{
-    color: #60ccf3;
+  &-link {
+    color: $color-light-blue;
     font-weight: bold;
-    &:hover{
+
+    &:hover {
       text-decoration: underline;
     }
   }
 }
 
 
-.wrong{
+.wrong {
   font-size: 1.5rem;
   color: red;
   text-align: right;
 }
-
-

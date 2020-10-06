@@ -1,17 +1,16 @@
 <header class="teams-header">
   <h2 class="teams-header_title">SPORTSTATS</h2>
+  <button (click)="exit()" class="btn btn-pink">Logout</button>
 </header>
 
 <div class="teams-container">
-
   <div class="team-box" (click)="createTeam()">
     <h4 class="team-box_name">Añadir equipo</h4>
     <p class="team-box_plus">+</p>
   </div>
 
   <div class="team-box" *ngFor="let team of teams | async">
-    <h4 class="team-box_name">{{team.name}}</h4>
-    <p class="team-box_sport">{{team.sport}}</p>
+    <h4 class="team-box_name">{{ team.name }}</h4>
+    <p class="team-box_sport">{{ team.sport }}</p>
   </div>
-  
 </div>

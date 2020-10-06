@@ -2,15 +2,19 @@
   <nav class="navbar">
 
     <div class="logo">
-      <a href="#">
-        <img src="../../../assets/img/logo.svg" alt="logo" class="logo-img">
+      <a routerLink="/">
+        <img src="/assets/img/logo.svg"
+             alt="logo"
+             class="logo-img">
       </a>
       <h2 class="logo-title">sporstats</h2>
     </div>
 
     <div class="session">
-      <a href="#" [routerLink]="[ '/login']" class="btn btn-light-empty">Iniciar sesión</a>
-      <a href="#" [routerLink]="[ '/register']" class="btn btn-pink">Registrarse</a>
+      <a [routerLink]="['/login']"
+         class="btn btn-light-empty">Iniciar sesión</a>
+      <a [routerLink]="['/register']"
+         class="btn btn-pink">Registrarse</a>
     </div>
 
   </nav>
@@ -20,10 +24,16 @@
     <header class="header mb-5">
       <div class="header-left-side">
         <h1 class="header-main-title mb-5">Lleva a tu equipo al siguiente nivel</h1>
-        <p class="header-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae eum atque ab vel culpa odio deleniti dolores. Quae, quibusdam exercitationem ipsa, nihil modi optio fugiat et repudiandae suscipit quod voluptas! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur voluptatem repudiandae delectus nobis autem dignissimos accusantium, error reiciendis minus? Eius voluptatem excepturi mollitia voluptas itaque ex dolorum praesentium vel voluptates?</p>
+        <p class="header-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae eum atque ab
+          vel culpa odio deleniti dolores. Quae, quibusdam exercitationem ipsa, nihil modi optio fugiat et repudiandae
+          suscipit quod voluptas! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur voluptatem
+          repudiandae delectus nobis autem dignissimos accusantium, error reiciendis minus? Eius voluptatem excepturi
+          mollitia voluptas itaque ex dolorum praesentium vel voluptates?</p>
       </div>
       <div class="header-right-side">
-        <img src="../../../assets/img/basketball-player.jpg" alt="basketball player" class="header--img">
+        <img src="/assets/img/basketball-player.jpg"
+             alt="basketball player"
+             class="header--img">
       </div>
     </header>
 
@@ -37,5 +47,3 @@
 
   </div>
 </div>
-
-

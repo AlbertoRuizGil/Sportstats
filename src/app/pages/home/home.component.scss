@@ -1,6 +1,8 @@
+@import 'variables.scss';
+
 .navbar {
-  background-color: #3b556f;
-  height: 10vh; 
+  background-color: $color-dark-blue;
+  height: 10vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -10,14 +12,14 @@
   display: flex;
   align-items: center;
 
-  &-img{
+  &-img {
     width: 5rem;
     height: 5rem;
   }
-  
+
   &-title {
     font-family: 'Ranchers', cursive;
-    color: white;
+    color: $color-white;
     text-transform: uppercase;
     margin-left: 1rem;
     font-size: 3rem;
@@ -31,18 +33,18 @@
 }
 
 
-.header{
+.header {
   width: 100%;
   height: 90vh;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  color: black;
+  color: $color-black;
   padding-top: 2rem;
-  background: linear-gradient(315deg, #60ccf3 0, #60ccf3 100%);
-  
+  background: linear-gradient(315deg, $color-light-blue 0, $color-light-blue 100%);
 
-  &-left-side{
+
+  &-left-side {
     padding-top: 2rem;
     background-color: rgb(205, 220, 233);
     height: 50vh;
@@ -52,28 +54,28 @@
     /* box-shadow: 7px 10px rgba(5, 5, 5, 0.3); */
   }
 
-  &-main-title{
+  &-main-title {
     font-size: 3.9rem;
     text-align: center;
     text-transform: uppercase;
     background-color: #212428;
-    color: white;
+    color: $color-white;
     /* transform: skewY(-2deg); */
   }
 
-  &--img{
+  &--img {
     width: 50rem;
     transform: skewY(-5deg);
-    /* box-shadow: 7px 10px rgba(5, 5, 5, 0.3); */ 
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
+    /* box-shadow: 7px 10px rgba(5, 5, 5, 0.3); */
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.5);
   }
 
-  &-paragraph{
+  &-paragraph {
     font-size: 2.3rem;
     margin: 3rem auto;
   }
 
-  &-btn{
+  &-btn {
     position: relative;
     left: 50%;
     top: 75%;
@@ -81,7 +83,7 @@
 }
 
 
-.section{
+.section {
   height: 90vh;
 }
 
