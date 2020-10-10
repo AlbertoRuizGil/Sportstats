@@ -12,16 +12,36 @@ const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToItems = () => redirectLoggedInTo(['userTeams']);
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent, ...canActivate(redirectLoggedInToItems) },
-  { path: 'login', component: LoginComponent, ...canActivate(redirectLoggedInToItems) },
-  { path: 'register', component: RegisterComponent, ...canActivate(redirectLoggedInToItems) },
-  { path: 'userTeams', component: UserTeamsComponent, ...canActivate(redirectUnauthorizedToLogin) },
-  { path: 'createTeam/:userId', component: CreateTeamComponent, ...canActivate(redirectUnauthorizedToLogin) },
-  { path: '**', redirectTo: 'home' }
+  {
+    path: 'home',
+    component: HomeComponent,
+    ...canActivate(redirectLoggedInToItems),
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    ...canActivate(redirectLoggedInToItems),
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
+    ...canActivate(redirectLoggedInToItems),
+  },
+  {
+    path: 'userTeams',
+    component: UserTeamsComponent,
+    ...canActivate(redirectUnauthorizedToLogin),
+  },
+  {
+    path: 'createTeam',
+    component: CreateTeamComponent,
+    ...canActivate(redirectUnauthorizedToLogin),
+  },
+  { path: '**', redirectTo: 'home' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

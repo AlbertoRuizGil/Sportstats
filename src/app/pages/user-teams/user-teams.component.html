@@ -4,13 +4,17 @@
 </header>
 
 <div class="teams-container">
-  <div class="team-box" (click)="createTeam()">
+  <a class="team-box" (click)="createTeam()" [routerLink]="['/createTeam']">
     <h4 class="team-box_name">Añadir equipo</h4>
     <p class="team-box_plus">+</p>
-  </div>
+  </a>
 
-  <div class="team-box" *ngFor="let team of teams | async">
+  <a
+    class="team-box"
+    *ngFor="let team of teams | async"
+    [routerLink]="['/team']"
+  >
     <h4 class="team-box_name">{{ team.name }}</h4>
     <p class="team-box_sport">{{ team.sport }}</p>
-  </div>
+  </a>
 </div>

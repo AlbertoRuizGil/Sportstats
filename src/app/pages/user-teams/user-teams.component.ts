@@ -9,17 +9,16 @@ import { TeamService } from '../../services/team.service';
 @Component({
   selector: 'app-user-teams',
   templateUrl: './user-teams.component.html',
-  styleUrls: ['./user-teams.component.scss']
+  styleUrls: ['./user-teams.component.scss'],
 })
 export class UserTeamsComponent implements OnInit {
-
   public teams: Observable<Team[]>;
 
   constructor(
     public teamService: TeamService,
     private authService: AuthService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.authService.currentUser$.subscribe((user: firebase.User) => {
@@ -35,9 +34,5 @@ export class UserTeamsComponent implements OnInit {
     });
   }
 
-  createTeam() {
-
-  }
-
-
+  createTeam() {}
 }

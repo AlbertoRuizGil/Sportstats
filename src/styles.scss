@@ -1,5 +1,5 @@
-$color-dark-blue:  #3b556f;
-$color-light-blue:  #60ccf3;
+$color-dark-blue: #3b556f;
+$color-light-blue: #60ccf3;
 $color-dark-black: #212428;
 $color-light-black: #3d3d3d;
 $color-light-pink: #dd5790;
@@ -24,9 +24,13 @@ body {
   box-sizing: border-box;
 }
 
-a{
+a {
   text-decoration: none;
   transition: all .3s;
+
+  &:visited {
+    color: white;
+  }
 }
 
 /*BUTTON*/
@@ -36,6 +40,7 @@ a{
   padding: 1rem;
   font-size: 1.5rem;
   font-weight: bold;
+  border: none;
   border-radius: 1rem;
   color: white;
   text-align: center;
@@ -43,52 +48,66 @@ a{
   transition: all .3s;
 }
 
-.btn:active, .btn:visited{
+.btn:active,
+.btn:visited {
   text-decoration: none;
 }
 
-.btn-dark{
+.btn-dark {
   background-color: #3b556f;
 }
 
-.btn-dark:hover{
-  background-color: rgba(59, 85, 111, 0.8);
+.btn-dark:hover {
+  background-color: rgba(94, 118, 143, 0.8);
 }
 
-.btn-light{
+.btn-light {
   background-color: #60ccf3;
+  border: 2px solid #60ccf3;
 }
 
-.btn-light:hover{
-  background-color:  rgba(96, 204, 243, 0.8);
+.btn-light:hover {
+  background-color: rgba(58, 191, 240, 0.8);
+  border-color: rgba(58, 191, 240, 0.8);
 }
 
-.btn-light-empty{
+.btn-light-empty {
   border: 2px solid $color-light-blue;
 }
 
-.btn-light-empty:hover{
-  background-color:$color-light-blue;
+.btn-light-empty:hover {
+  background-color: $color-light-blue;
 }
 
-.btn-pink{
+.btn-pink {
   background-color: $color-light-pink;
   border: 2px solid $color-light-pink;
 }
 
-.btn-pink:hover{
+.btn-pink:hover {
   background-color: white;
   color: black;
 }
 
 /*MARGINS*/
-.mb-5{
+.mb-5 {
   margin-bottom: 5rem;
+}
+
+.mb-7 {
+  margin-bottom: 7rem;
+}
+
+.mb-10 {
+  margin-bottom: 10rem;
+}
+
+.m-2 {
+  margin: 2rem;
 }
 
 /*INPUT*/
 .input {
-  height: 4.5rem;
   border-radius: 5px;
   border: 2px solid #dbdbdb;
   padding: 0.5rem;
@@ -97,10 +116,6 @@ a{
   outline: none !important;
 }
 
-.label-input{
-  display: flex;
-  justify-content: center;
-}
 
 //ANIMACIONES
 
@@ -155,18 +170,18 @@ a{
 }
 
 .alert {
-  
-  &-popup{
+
+  &-popup {
     font-size: 1.5rem !important;
   }
 
-  &-title{
+  &-title {
     font-size: 2.5rem !important;
   }
 
-  &-confirmButton{
+  &-confirmButton {
     width: 6rem !important;
     height: 4rem !important;
   }
-  
+
 }
