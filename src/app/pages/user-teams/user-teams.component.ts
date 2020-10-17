@@ -33,6 +33,4 @@ export class UserTeamsComponent implements OnInit {
       this.router.navigateByUrl('/home');
     });
   }
-
-  createTeam() {}
 }

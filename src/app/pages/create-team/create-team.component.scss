@@ -1,5 +1,5 @@
 .header-form {
-  height: 15rem;
+  height: 10vh;
   background-color: #3b556f;
   border-bottom: 5px solid black;
 }
@@ -10,9 +10,11 @@
   display: flex;
   justify-content: center;
   background-image: linear-gradient(to bottom, rgba(250, 250, 250, 0.5), rgba(219, 219, 219, 0.9)),
-    url(/assets/img/football-game.jpg);
+    url(/assets/img/football-team.jpg);
   background-position: center;
   background-size: cover;
+  background-attachment: fixed;
+
 }
 
 .hr-form {
@@ -27,13 +29,14 @@
 }
 
 .team-form {
-  padding: 10rem 15rem;
+  padding: 10rem 10rem;
   width: 60%;
   height: 100%;
-  background-image: linear-gradient(to bottom, #1f87ad, rgb(96, 204, 243));
+  background-image: linear-gradient(to bottom, #2392bb, rgb(96, 204, 243));
   border-radius: 2rem;
   border: 5px solid black;
   box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.425);
+  opacity: 95%;
 
   &-form {
     display: flex;
@@ -109,7 +112,7 @@
     font-weight: bold;
     text-align: center;
     color: white;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     border: 3px solid black;
     background-color: #3b556f;
     cursor: pointer;
@@ -199,7 +202,7 @@
       }
 
       &-title {
-        font-size: 3rem;
+        font-size: 2.5rem;
         font-weight: bold;
       }
     }
@@ -239,10 +242,22 @@
 
   &-input {
     width: 15rem;
+
+    &:hover,
+    &:focus {
+      border-color: #da387d;
+      ;
+    }
   }
 
   &-input-number {
     width: 5rem;
+
+    &:hover,
+    &:focus {
+      border-color: #da387d;
+      ;
+    }
   }
 
   &-label-file {
@@ -253,7 +268,7 @@
     font-weight: bold;
     text-align: center;
     color: white;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     border: 3px solid black;
     background-color: #3b556f;
     cursor: pointer;
@@ -273,6 +288,63 @@
     z-index: -1;
   }
 
+}
+
+.matches {
+  width: 100%;
+
+  &-data {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-field {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border-radius: 1.5rem;
+    border: 3px solid black;
+    background-color: rgb(215, 229, 235);
+
+    &-new {
+      background-color: rgb(215, 229, 235);
+      height: 100%;
+      padding: 1rem 1.5rem;
+      border-radius: 1.5rem;
+      border: 3px solid black;
+
+      &:hover {
+        border-color: #da387d;
+        cursor: pointer;
+      }
+    }
+
+    &-new-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+
+  }
+
+}
+
+.match {
+  &-data {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  &-label {
+    font-size: 1.9rem;
+    font-weight: bold;
+    margin-right: 2rem;
+  }
+
+  &-input {}
 }
 
 .buttons {

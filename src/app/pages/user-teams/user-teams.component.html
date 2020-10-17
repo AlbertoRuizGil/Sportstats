@@ -1,10 +1,17 @@
 <header class="teams-header">
-  <h2 class="teams-header_title">SPORTSTATS</h2>
+  <div class="logo">
+    <a routerLink="/">
+      <img src="/assets/img/logo.svg"
+           alt="logo"
+           class="logo-img">
+    </a>
+    <h2 class="logo-title">sporstats</h2>
+  </div>
   <button (click)="exit()" class="btn btn-pink">Logout</button>
 </header>
 
 <div class="teams-container">
-  <a class="team-box" (click)="createTeam()" [routerLink]="['/createTeam']">
+  <a class="team-box" [routerLink]="['/createTeam']">
     <h4 class="team-box_name">Añadir equipo</h4>
     <p class="team-box_plus">+</p>
   </a>
@@ -18,3 +25,7 @@
     <p class="team-box_sport">{{ team.sport }}</p>
   </a>
 </div>
+
+<footer class="footer">
+  .
+</footer>
