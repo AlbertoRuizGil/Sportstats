@@ -1,0 +1,38 @@
+<app-navbar [status]="'end'" [route]="'/userTeams'" [showBack]="true"></app-navbar>
+
+<div class="container">
+  <div class="team-info">
+    <figure class="team-form-container_img">
+      <img src="/assets/img/genericShield.jpg"
+           alt="Escudo"
+           class="team-form-img" />
+    </figure>
+
+    <div class="team-games">
+      <h3 class="team-games-title">Proximo partido</h3>
+      <hr class="hr">
+      <p *ngIf="nextGame === undefined" class="team-nextgame">No hay próximos partidos</p>
+      <p *ngIf="nextGame != null" class="team-nextgame">{{nextGame.date}} vs {{nextGame.rivalTeam}}</p>
+      <!-- <p *ngFor="let game of games | async">{{game.date}}</p> -->
+      <hr class="hr">
+    </div>
+  </div>
+
+  <div class="average">
+    <table class="average-table">
+      <tr>
+        <th>Tantos a favor</th>
+        <th>Victorias</th>
+        <th>Promedio de victorias</th>
+      </tr>
+      <tr>
+        <td>23</td>
+        <td>5</td>
+        <td>45%</td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
+<app-footer></app-footer>

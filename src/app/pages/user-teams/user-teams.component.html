@@ -1,14 +1,4 @@
-<header class="teams-header">
-  <div class="logo">
-    <a routerLink="/">
-      <img src="/assets/img/logo.svg"
-           alt="logo"
-           class="logo-img">
-    </a>
-    <h2 class="logo-title">sporstats</h2>
-  </div>
-  <button (click)="exit()" class="btn btn-pink">Logout</button>
-</header>
+<app-navbar [status]="'end'" [route]="'/userTeams'" [showBack]="false"></app-navbar>
 
 <div class="teams-container">
   <a class="team-box" [routerLink]="['/createTeam']">
@@ -19,13 +9,11 @@
   <a
     class="team-box"
     *ngFor="let team of teams | async"
-    [routerLink]="['/team']"
+    [routerLink]="['/team/', team.teamId]"
   >
-    <h4 class="team-box_name">{{ team.name }}</h4>
+    <h4 class="team-box_name">{{ (team.name.length > 10) ? (team.name | slice:0:10)+'...':(team.name) }}</h4>
     <p class="team-box_sport">{{ team.sport }}</p>
   </a>
 </div>
 
-<footer class="footer">
-  .
-</footer>
+<app-footer></app-footer>

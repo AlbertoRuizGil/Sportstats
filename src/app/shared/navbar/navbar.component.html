@@ -1,0 +1,28 @@
+<nav class="navbar">
+
+  <div class="logo">
+    <a routerLink="/">
+      <img src="/assets/img/logo.svg"
+           alt="logo"
+           class="logo-img">
+    </a>
+    <h2 class="logo-title">sportstats</h2>
+  </div>
+
+  <div class="session"
+       *ngIf="status === 'start'">
+    <a [routerLink]="['/login']"
+       class="btn btn-light-empty">Iniciar sesión</a>
+    <a [routerLink]="['/register']"
+       class="btn btn-pink">Registrarse</a>
+  </div>
+
+  <div class="session"
+       *ngIf="status === 'end'">
+    <a routerLink= "{{route}}" *ngIf="showBack"
+       class="btn btn-light-empty">Volver</a>
+    <a (click)="exit()"
+       class="btn btn-pink">Cerrar Sesión</a>
+  </div>
+
+</nav>

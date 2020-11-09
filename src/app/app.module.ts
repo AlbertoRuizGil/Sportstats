@@ -12,6 +12,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { UserTeamsComponent } from './pages/user-teams/user-teams.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { SelectedTeamComponent } from './pages/selected-team/selected-team.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { UserTeamsComponent } from './pages/user-teams/user-teams.component';
     LoginComponent,
     RegisterComponent,
     UserTeamsComponent,
-    CreateTeamComponent
+    CreateTeamComponent,
+    NavbarComponent,
+    FooterComponent,
+    SelectedTeamComponent
   ],
   imports: [
     BrowserModule,

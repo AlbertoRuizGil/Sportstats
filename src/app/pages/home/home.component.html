@@ -1,23 +1,4 @@
-<div class="animated fadeIn">
-  <nav class="navbar">
-
-    <div class="logo">
-      <a routerLink="/">
-        <img src="/assets/img/logo.svg"
-             alt="logo"
-             class="logo-img">
-      </a>
-      <h2 class="logo-title">sporstats</h2>
-    </div>
-
-    <div class="session">
-      <a [routerLink]="['/login']"
-         class="btn btn-light-empty">Iniciar sesión</a>
-      <a [routerLink]="['/register']"
-         class="btn btn-pink">Registrarse</a>
-    </div>
-
-  </nav>
+  <app-navbar [status]="'start'"></app-navbar>
 
   <div class="home-container animated fadeIn">
 
@@ -41,9 +22,6 @@
       .
     </section>
 
-    <footer class="footer">
-      .
-    </footer>
+    <app-footer></app-footer>
 
   </div>
-</div>

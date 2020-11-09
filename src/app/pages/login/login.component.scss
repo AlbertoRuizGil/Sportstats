@@ -98,4 +98,102 @@
   font-size: 1.5rem;
   color: red;
   text-align: right;
+  font-weight: bold;
+}
+
+
+@media (max-width: 1024px){
+  .container-session{
+    background-position: center;
+  }
+  .logo{
+    &-img{
+      width: 4rem;
+      height: 4rem;
+    }
+
+    &-title{
+      font-size: 2.5rem;
+    }
+  }
+
+  .form-session{
+    min-width: 40%;
+    height: 65vh;
+    &-label{
+      font-size: 1.8rem;
+    }
+
+    &-inpput{
+      height: 3.5rem;
+      font-size: 1.5rem;
+    }
+
+    &-submit{
+      font-size: 1.5rem;
+    }
+  }
+
+  .wrong{
+
+  }
+}
+
+@media (max-width: 1024px) {
+  .form-session{
+    min-width: 400px;
+
+    &-input{
+      height: 3.5rem;
+      font-size: 1.2rem;
+    }
+  }
+
+  .wrong{
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .logo{
+    &-img{
+      width: 3rem;
+      height: 3rem;
+    }
+    &-title{
+      font-size: 2rem;
+    }
+  }
+  .container-session{
+    background-position: right;
+    padding: 2rem;
+  }
+  .form-session{
+    min-width: 90%;
+    min-height: 70%;
+    top: 50%;
+
+    &-label{
+      font-size: 1.5rem;
+    }
+
+    &-input{
+      font-size: 1.3rem;
+      height: 3rem;
+    }
+
+    &-submit{
+      font-size: 1.2rem;
+    }
+
+    &-text{
+      font-size: 1.2rem;
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  .form-session{
+    min-height: 90%;
+  }
 }

@@ -1,51 +1,36 @@
 @import 'variables.scss';
 
-.logo {
-  display: flex;
-  align-items: center;
-
-  &-img {
-    width: 5rem;
-    height: 5rem;
-  }
-
-  &-title {
-    font-family: 'Ranchers', cursive;
-    color: $color-white;
-    text-transform: uppercase;
-    margin-left: 1rem;
-    font-size: 3rem;
-  }
-}
-
-.teams-header{
-  height: 10vh;
-  background: linear-gradient(to right bottom, #264c72 50%, #2f3c49 100%);
-}
-
 .teams-container{
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
-  justify-self: center;
-  height: 100%;
+  justify-items: center;
+  min-height: 60vh;
   width: 100%;
+  height: 100%;
+  padding: 10rem 2rem;
+  background-image: linear-gradient(to right bottom, #60ccf3 50%, rgba(96, 204, 243, 0.8));
 }
 
 .team-box{
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  margin: 3rem;
   padding: 1.7rem;
-  height: 22rem;
-  width: 22rem;
-  /* background-color: royalblue; */
-  background-color: $color-light-blue;
-  border-radius: 3rem;
+  height: 26rem;
+  width: 26rem;
+  background-color: $color-dark-blue2;
+  border: 6px solid $color-dark-blue;
+  border-radius: 50%;
   text-align: center;
+  color: white;
   cursor: pointer;
 
   &:hover{
-    transform: scale(1.2);
+    transform: scale(1.1);
+    border-color: $color-dark-pink;
+    color:$color-dark-pink;
   }
 
   &_plus{
@@ -58,14 +43,56 @@
 
   &_sport{
     font-size: 3rem;
+    font-style: italic;
   }
 
 }
 
-.footer {
-  width: 100%;
-  height: 10vh;
-  background-color: #3d3d3d;
-  position: fixed;
-  bottom: 0;
+@media (max-width: 1024px) {
+  .team-box {
+    width: 20rem;
+    height: 20rem;
+    &_plus {
+      font-size: 5rem;
+    }
+
+    &_name {
+      font-size: 3rem;
+    }
+
+    &_sport {
+      font-size: 2.5rem;
+      font-style: italic;
+    }
+  }
 }
+
+@media (max-width: 768px) {
+  .teams-container{
+    min-height: 65vh;
+  }
+  .team-box {
+    width: 17rem;
+    height: 17rem;
+
+    &_plus {
+      font-size: 4.5rem;
+    }
+
+    &_name {
+      font-size: 2.5rem;
+    }
+
+    &_sport {
+      font-size: 2rem;
+      font-style: italic;
+    }
+  }
+}
+
+@media (max-width: 425px){
+  .teams-container{
+    min-height: 70vh;
+  }
+}
+

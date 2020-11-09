@@ -1,27 +1,28 @@
-<!-- HEADER -->
-<header class="header-form"></header>
+
+<!-- NAVBAR -->
+<app-navbar [status]="'end'" [route]="'/userTeams'" [showBack]="true"></app-navbar>
 
 <!-- MAIN BODY -->
-<div class="main-container">
+<div class="container">
   <div class="team-form">
     <h4 class="form-title">Equipo</h4>
     <hr class="hr-form mb-5" />
     <div class="team-form-data mb-5">
       <figure class="team-form-container_img">
         <img
-          src="../../../assets/img/genericShield.jpg"
+          src="/assets/img/genericShield.jpg"
           alt="Escudo"
           class="team-form-img"
         />
       </figure>
 
       <div class="team-form-form">
-        <div class="mb-5">
+        <div class="team-form-formlabel mb-5">
           <label class="team-form-label" for="name">Nombre del equipo</label>
           <input class="team-form-text input" type="text" name="teamName" />
         </div>
 
-        <div class="mb-5">
+        <div class="team-form-formlabel mb-5">
           <label class="team-form-label" for="sport">Elige un deporte</label>
           <select class="team-form-select animated" name="sport" id="">
             <option value="futbol">Fútbol</option>
@@ -29,7 +30,7 @@
           </select>
         </div>
 
-        <div class="label-input">
+        <div class="team-form-formlabel">
           <label class="team-form-label" for="">Imagen escudo</label>
           <label class="team-form-file animated" for="shield"
             >Elija imagen</label
@@ -49,22 +50,22 @@
       <hr class="hr-form mb-5" />
       <div class="basket-average mb-5">
         <div class="basket-field">
-          <label for="" class="basket-field-label">Puntos</label>
+          <label for="" class="team-form-label">Puntos</label>
           <input type="number" name="points" class="input basket-field-input" />
         </div>
 
         <div class="basket-field">
-          <label for="" class="basket-field-label">%FG</label>
+          <label for="" class="team-form-label">%FG</label>
           <input type="number" name="" class="input basket-field-input" />
         </div>
 
         <div class="basket-field">
-          <label for="" class="basket-field-label">%3P</label>
+          <label for="" class="team-form-label">%3P</label>
           <input type="number" name="" class="input basket-field-input" />
         </div>
 
         <div class="basket-field">
-          <label for="" class="basket-field-label">%FT</label>
+          <label for="" class="team-form-label">%FT</label>
           <input type="number" name="" class="input basket-field-input" />
         </div>
       </div>
@@ -75,11 +76,11 @@
       <hr class="hr-form mb-5" />
       <div class="players-data mb-5">
         <div class="player-field mb-5">
-          <figure class="player-img">
+          <figure class="team-form-container_img">
             <img
               src="../../../assets/img/avatar-generico.png"
               alt="Foto de jugador"
-              class="player-img-img"
+              class="team-form-img"
             />
           </figure>
           <div class="player-info">
@@ -148,10 +149,10 @@
     </div>
 
     <div class="buttons">
-      <button class="btn btn-pink m-2">Cancelar</button>
-      <button class="btn btn-dark m-2">Guardar</button>
+      <a class="btn btn-pink m-2" [routerLink]="['/user-teams']">Cancelar</a>
+      <a class="btn btn-dark m-2">Guardar</a>
     </div>
   </div>
 </div>
 
-<footer class="footer"></footer>
+<app-footer></app-footer>

@@ -23,14 +23,9 @@ export class UserTeamsComponent implements OnInit {
   ngOnInit(): void {
     this.authService.currentUser$.subscribe((user: firebase.User) => {
       if (user) {
-        this.teams = this.teamService.getTeams(user.uid).valueChanges();
+        this.teams = this.teamService.getTeams(user.uid).valueChanges({idField: 'teamId'});
       }
     });
   }
 
-  exit(): void {
-    this.authService.logout().then(() => {
-      this.router.navigateByUrl('/home');
-    });
-  }
 }

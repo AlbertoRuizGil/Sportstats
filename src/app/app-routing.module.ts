@@ -6,6 +6,7 @@ import { CreateTeamComponent } from './pages/create-team/create-team.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { SelectedTeamComponent } from './pages/selected-team/selected-team.component';
 import { UserTeamsComponent } from './pages/user-teams/user-teams.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
@@ -35,6 +36,11 @@ const routes: Routes = [
   {
     path: 'createTeam',
     component: CreateTeamComponent,
+    ...canActivate(redirectUnauthorizedToLogin),
+  },
+  {
+    path: 'team/:teamId',
+    component: SelectedTeamComponent,
     ...canActivate(redirectUnauthorizedToLogin),
   },
   { path: '**', redirectTo: 'home' },

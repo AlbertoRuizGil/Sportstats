@@ -1,9 +1,4 @@
-$color-dark-blue: #3b556f;
-$color-light-blue: #60ccf3;
-$color-dark-black: #212428;
-$color-light-black: #3d3d3d;
-$color-light-pink: #dd5790;
-$color-dark-pink: #da387d;
+@import 'variables.scss';
 
 
 *,
@@ -45,6 +40,7 @@ a {
   color: white;
   text-align: center;
   min-width: 11rem;
+  cursor: pointer;
   transition: all .3s;
 }
 
@@ -109,11 +105,19 @@ a {
 /*INPUT*/
 .input {
   border-radius: 5px;
-  border: 2px solid #dbdbdb;
+  border: 3px solid #dbdbdb;
   padding: 0.5rem;
   font-size: 1.8rem;
   outline-offset: 0px !important;
   outline: none !important;
+}
+
+.input-blue{
+  border-color: $color-light-blue;
+}
+
+.input-pink{
+  border-color: $color-light-pink;
 }
 
 
@@ -184,4 +188,59 @@ a {
     height: 4rem !important;
   }
 
+}
+
+/*LOGO*/
+
+.logo {
+  display: flex;
+  align-items: center;
+
+  &-img {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  &-title {
+    font-family: 'Ranchers', cursive;
+    color: $color-white;
+    text-transform: uppercase;
+    margin-left: 1rem;
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .logo {
+    &-img{
+      width: 4rem;
+      height: 4rem;
+    }
+    &-title{
+      font-size: 2rem;
+    }
+  }
+  .btn {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .logo {
+    &-img {
+      width: 3rem;
+      height: 3rem;
+    }
+
+    &-title {
+      font-size: 1.7rem;
+    }
+  }
+
+  .btn{
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    min-width: 6rem;
+    border-radius: 0.5rem;
+  }
 }
