@@ -1,17 +1,15 @@
+import { AuthService } from '@/app/shared/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
-import { AuthService } from '../../services/auth.service';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-
   loginForm: FormGroup;
   email: AbstractControl;
   password: AbstractControl;
@@ -21,8 +19,7 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.createForm();
@@ -33,7 +30,7 @@ export class LoginComponent implements OnInit {
     this.password = this.fb.control('', Validators.required);
     this.loginForm = this.fb.group({
       email: this.email,
-      password: this.password
+      password: this.password,
     });
   }
 
@@ -43,13 +40,14 @@ export class LoginComponent implements OnInit {
       icon: 'question',
       customClass: {
         popup: 'alert-popup',
-        title: 'alert-title'
-      }
+        title: 'alert-title',
+      },
     });
 
     if (this.loginForm.valid) {
       Swal.showLoading();
-      this.authService.tryLogin(this.loginForm.value.email, this.loginForm.value.password)
+      this.authService
+        .tryLogin(this.loginForm.value.email, this.loginForm.value.password)
         .then(() => {
           Swal.close();
           this.router.navigate(['/userTeams']);

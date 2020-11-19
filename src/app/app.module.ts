@@ -7,14 +7,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CreateTeamComponent } from './pages/create-team/create-team.component';
-import { HomeComponent } from './pages/home/home.component';
-import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
-import { UserTeamsComponent } from './pages/user-teams/user-teams.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
+import { CreateTeamComponent } from './create-team/create-team.component';
+import { InfoLeagueComponent } from './create-team/info-league/info-league.component';
+import { InfoPlayerComponent } from './create-team/info-players/info-player/info-player.component';
+import { InfoPlayersComponent } from './create-team/info-players/info-players.component';
+import { InfoTeamComponent } from './create-team/info-team/info-team.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { SelectedTeamComponent } from './selected-team/selected-team.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { SelectedTeamComponent } from './pages/selected-team/selected-team.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { UserTeamsComponent } from './user-teams/user-teams.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { SelectedTeamComponent } from './pages/selected-team/selected-team.compo
     CreateTeamComponent,
     NavbarComponent,
     FooterComponent,
-    SelectedTeamComponent
+    SelectedTeamComponent,
+    InfoTeamComponent,
+    InfoPlayersComponent,
+    InfoPlayerComponent,
+    InfoLeagueComponent
   ],
   imports: [
     BrowserModule,

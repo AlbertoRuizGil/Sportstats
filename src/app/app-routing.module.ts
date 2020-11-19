@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { canActivate, redirectLoggedInTo, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { RouterModule, Routes } from '@angular/router';
 
-import { CreateTeamComponent } from './pages/create-team/create-team.component';
-import { HomeComponent } from './pages/home/home.component';
-import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
-import { SelectedTeamComponent } from './pages/selected-team/selected-team.component';
-import { UserTeamsComponent } from './pages/user-teams/user-teams.component';
+import { CreateTeamComponent } from './create-team/create-team.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { SelectedTeamComponent } from './selected-team/selected-team.component';
+import { UserTeamsComponent } from './user-teams/user-teams.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToItems = () => redirectLoggedInTo(['userTeams']);

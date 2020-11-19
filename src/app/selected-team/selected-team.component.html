@@ -1,0 +1,84 @@
+<app-navbar [status]="'end'" [route]="'/userTeams'" [showBack]="true"></app-navbar>
+
+<div class="container">
+  <h3 class="team-name">{{teamInfo?.name}}</h3>
+  <div class="team-info">
+<div>
+    <figure class="team-form-container_img">
+      <img src="/assets/img/genericShield.jpg"
+           alt="Escudo"
+           class="team-form-img" />
+    </figure>
+</div>
+    <div class="team-games">
+      <h3 class="team-games-title">Proximo partido</h3>
+      <hr class="hr">
+      <p *ngIf="nextGame === undefined" class="team-nextgame">No hay próximos partidos</p>
+      <p *ngIf="nextGame != null" class="team-nextgame">{{nextGame.date | date:'dd/MM/yyyy'}} vs {{nextGame.rivalTeam}}</p>
+      <!-- <p *ngFor="let game of games | async">{{game.date}}</p> -->
+      <hr class="hr">
+    </div>
+  </div>
+
+  <div class="average">
+    <table class="average-table">
+      <tr>
+        <th class="average-th">Tantos a favor</th>
+        <th class="average-th">Victorias</th>
+        <th class="average-th">Promedio de victorias</th>
+      </tr>
+      <tr>
+        <td class="average-td">{{goals}}</td>
+        <td class="average-td">{{wins}}</td>
+        <td class="average-td">{{winAverage | percent}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="stats">
+    <h4 class="stats-title">Estadísticas</h4>
+
+    <div class="stats-table-container">
+      <table class="stats-table">
+        <tr>
+          <th class="stats-th">Jugadores</th>
+          <th title="Partidos jugados" class="stats-th">PJ</th>
+          <th class="stats-th">PTS</th>
+          <th class="stats-th">FG%</th>
+          <th class="stats-th">3P%</th>
+          <th class="stats-th">FT%</th>
+          <th class="stats-th">AST</th>
+        </tr>
+        <tr *ngFor="let player of players | async" class="stats-tr">
+          <td class="stats-td stats-name">{{player.name}}</td>
+          <td class="stats-td">4</td>
+          <td class="stats-td">40</td>
+          <td class="stats-td">70%</td>
+          <td class="stats-td">55%</td>
+          <td class="stats-td">80%</td>
+          <td class="stats-td">15</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="players">
+    <h4 class="playersTitle">Jugadores</h4>
+    <div class="playersList">
+      <div class="player-file"
+           *ngFor="let player of players | async">
+        <a href="#">
+          <figure class="player-file-container_img">
+            <img class="player-file-img"
+                 src="../../../assets/img/avatar-generico.png"
+                 alt={{player.name}}>
+          </figure>
+        </a>
+        <h6 class="player-file-name">{{player.name}}</h6>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<app-footer></app-footer>

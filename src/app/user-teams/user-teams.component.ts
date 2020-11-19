@@ -1,10 +1,9 @@
+import { Team } from '@/app/shared/inteface/team.interface';
+import { AuthService } from '@/app/shared/services/auth.service';
+import { TeamService } from '@/app/shared/services/team.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from 'src/app/services/auth.service';
-
-import { Team } from '../../inteface/team.interface';
-import { TeamService } from '../../services/team.service';
 
 @Component({
   selector: 'app-user-teams',
@@ -23,9 +22,10 @@ export class UserTeamsComponent implements OnInit {
   ngOnInit(): void {
     this.authService.currentUser$.subscribe((user: firebase.User) => {
       if (user) {
-        this.teams = this.teamService.getTeams(user.uid).valueChanges({idField: 'teamId'});
+        this.teams = this.teamService
+          .getTeams(user.uid)
+          .valueChanges({ idField: 'teamId' });
       }
     });
   }
-
 }

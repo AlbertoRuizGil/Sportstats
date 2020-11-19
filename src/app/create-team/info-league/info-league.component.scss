@@ -1,0 +1,56 @@
+.basket {
+  &-average {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+}
+
+.basket-field {
+
+  &-label {
+    font-size: 1.7rem;
+    font-weight: bold;
+    margin-right: 1.2rem;
+  }
+
+  &-input {
+    width: 7rem;
+    font-size: 1.5rem;
+
+    &:hover,
+    &:focus {
+      border-color: #da387d;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .basket-field{
+    &-input{
+      width: 5rem;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .basket-field{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-label{
+      font-size: 1.3rem;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+.basket-field {
+  &-input {
+    width: 4rem;
+  }
+}
+}

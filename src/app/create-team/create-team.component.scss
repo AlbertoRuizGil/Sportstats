@@ -8,7 +8,17 @@
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+}
 
+.form-container {
+  padding: 10rem 10rem;
+  width: 60%;
+  height: 100%;
+  background-image: linear-gradient(to bottom, #2392bb, rgb(96, 204, 243));
+  border-radius: 2rem;
+  border: 5px solid black;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.425);
+  opacity: 95%;
 }
 
 .hr-form {
@@ -20,163 +30,6 @@
   margin-bottom: 1rem;
   color: #212428;
   text-transform: uppercase;
-}
-
-.team-form {
-  padding: 10rem 10rem;
-  width: 60%;
-  height: 100%;
-  background-image: linear-gradient(to bottom, #2392bb, rgb(96, 204, 243));
-  border-radius: 2rem;
-  border: 5px solid black;
-  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.425);
-  opacity: 95%;
-
-  &-form {
-    display: flex;
-    flex-direction: column;
-    justify-items: left;
-  }
-
-  &-data {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
-
-  &-container_img {
-    width: 20rem;
-    height: 20rem;
-    border: 5px solid #212428;
-    border-radius: 50%;
-  }
-
-  &-img {
-    height: 100%;
-    shape-outside: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
-  }
-
-  &-label {
-    font-size: 1.9rem;
-    margin-right: 3rem;
-    font-weight: bold;
-    color: #212428;
-    width: 10rem;
-  }
-
-  &-text {
-    height: 3.5rem;
-    font-size: 2rem;
-
-    &:hover,
-    &:focus {
-      border-color: #da387d;
-      ;
-    }
-  }
-
-  &-select {
-    width: 15rem;
-    height: 3rem;
-    margin-left: 7rem;
-    font-size: 1.7rem;
-    font-weight: bold;
-    color: white;
-    border: 3px solid black;
-    border-radius: 0.5rem;
-    background-color: #3b556f;
-    transition: all 0.3s;
-    cursor: pointer;
-
-    &:hover {
-      background-color: rgba(58, 191, 240, 0.8);
-    }
-
-    &>option {
-      font-size: 1.7rem;
-      font-weight: bold;
-      padding: .2rem;
-      background-color: rgba(58, 191, 240, 0.8);
-      border: 4px solid black;
-
-      &:hover{
-         background-color: #3b556f;
-      }
-    }
-  }
-
-  &-file {
-    display: inline-block;
-    width: 17rem;
-    height: 3rem;
-    margin-left: 7rem;
-    font-size: 1.7rem;
-    font-weight: bold;
-    text-align: center;
-    color: white;
-    border-radius: 0.5rem;
-    border: 3px solid black;
-    background-color: #3b556f;
-    cursor: pointer;
-    transition: all 0.3s;
-
-    &:hover {
-      background-color: rgba(58, 191, 240, 0.8);
-    }
-
-    &-real {
-      width: 0.1px;
-      height: 0.1px;
-      opacity: 0;
-      overflow: hidden;
-      position: absolute;
-      z-index: -1;
-    }
-  }
-}
-
-.basket {
-  &-average {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-}
-
-.basket-field {
-
-  &-label {
-    font-size: 1.7rem;
-    font-weight: bold;
-    margin-right: 1.2rem;
-  }
-
-  &-input {
-    width: 7rem;
-    font-size: 1.5rem;
-
-    &:hover,
-    &:focus {
-      border-color: #da387d;
-    }
-  }
-}
-
-.players {
-
-  &-form {
-    width: 100%;
-    height: 100%;
-  }
-
-  &-data {
-    display: flex;
-    flex-direction: column;
-  }
-
 }
 
 .player {
@@ -191,24 +44,6 @@
     border-radius: 1.5rem;
     border: 3px solid black;
     min-height: 35vh;
-
-    &-new {
-      background-color: rgb(215, 229, 235);
-      height: 100%;
-      padding: 1rem 1.5rem;
-      border-radius: 1.5rem;
-      border: 3px solid black;
-      cursor: pointer;
-
-      &:hover {
-        border-color: #da387d;
-      }
-
-      &-title {
-        font-size: 2.5rem;
-        font-weight: bold;
-      }
-    }
 
   }
 
@@ -330,7 +165,6 @@
       font-weight: bold;
     }
 
-
   }
 
 }
@@ -368,7 +202,7 @@
     padding: 8rem 0;
   }
 
-  .team-form {
+  .form-container {
     width: 70%;
   }
 }
@@ -379,48 +213,18 @@
     padding: 4rem 0;
   }
 
-  .team-form {
+  .form-container {
     width: 90%;
-
-    &-label {
-      font-size: 1.7rem;
-      margin-right: 2.5rem;
-    }
-
   }
 
+  .team-form-label {
+    font-size: 1.7rem;
+    margin-right: 2.5rem;
+  }
 }
 
 
 @media (max-width: 1024px) {
-  .team-form {
-    padding: 6rem 6rem;
-    &-container_img {
-      width: 15rem;
-      height: 15rem;
-    }
-
-    &-data{
-      justify-content: space-between;
-    }
-
-    &-label {
-      font-size: 1.5rem;
-      margin-right: 2.3rem;
-    }
-    &-text{
-      height: 3rem;
-      font-size: 1.6rem;
-    }
-
-    &-select{
-      margin-left: 5rem;
-    }
-
-    &-file{
-      margin-left: 5rem;
-    }
-  }
 
   .basket-field {
 
@@ -430,17 +234,21 @@
     }
   }
 
-  .player{
-    &-label{
+  .form-title {
+    font-size: 3.5rem;
+  }
+
+  .player {
+    &-label {
       font-size: 1.5rem;
     }
 
-    &-input{
+    &-input {
       height: 3rem;
       font-size: 1.6rem;
     }
 
-    &-input-number{
+    &-input-number {
       height: 3rem;
       font-size: 1.2rem;
     }
@@ -449,88 +257,53 @@
 }
 
 @media (max-width: 850px) {
-  .team-form{
 
-    &-data{
-      flex-direction: column;
-      min-height: 45vh;
-    }
-
-    &-label{
-      font-size: 1.7rem;
-    }
-
-    &-img{
-      margin-bottom: 5rem;
-    }
-
-    &-form{
-      align-content: flex-start;
-    }
-  }
-
-  .player{
-    &-field{
+  .player {
+    &-field {
       flex-direction: column;
       min-height: 50vh;
     }
 
-    &-field-new-title{
+    &-field-new-title {
       font-size: 2rem;
     }
   }
 }
 
-@media (max-width: 768px){
-  .container{
+@media (max-width: 768px) {
+  .container {
     padding: 0;
   }
 
-  .team-form{
+  .form-container {
     width: 100%;
     border: none;
     border-radius: 0;
     box-shadow: none;
+    padding: 8rem 5rem;
   }
-  .form-title{
+
+  .form-title {
     font-size: 3.5rem;
   }
 }
 
-@media (max-width: 550px){
-  .form-title{
+@media (max-width: 550px) {
+
+  .form-title {
     font-size: 3rem;
   }
 
-  .team-form{
-    padding: 3rem 3rem;
-
-    &-label{
-      width: 100%;
-    }
-
-    &-formlabel{
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      min-height: 10vh;
-    }
-
-    &-select{
-      margin-left: 0;
-    }
-
-    &-file{
-      margin-left: 0;
-    }
+  .form-container {
+    padding: 7rem 3rem;
   }
 
-  .player{
-    &-field{
+  .player {
+    &-field {
       padding-top: 3rem;
     }
 
-    &-data{
+    &-data {
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;

@@ -1,5 +1,3 @@
-import { Timestamp } from 'rxjs';
-
 export interface Team {
   sport: Sport;
   name: string;
@@ -12,8 +10,14 @@ export enum Sport {
 }
 
 export interface Game {
-  date: Timestamp<Date>;
-  goalAgainst: number;
+  date: number;
+  goalsAgainst: number;
   goalsFor: number;
   rivalTeam: string;
+}
+
+export interface Player{
+  name: string;
+  age: number;
+  number: number;
 }

@@ -1,0 +1,35 @@
+<form [formGroup]="form" class="team-form">
+
+    <div class="team-form-data mb-5">
+
+      <figure class="team-form-container_img">
+        <img
+          src="/assets/img/genericShield.jpg"
+          alt="Escudo"
+          class="team-form-img"
+        />
+      </figure>
+
+      <div class="team-form-form">
+        <div class="team-form-formlabel mb-5">
+          <label class="team-form-label" for="name">Nombre del equipo</label>
+          <input class="team-form-text input" formControlName="teamName" type="text" />
+          <span *ngIf="form && (form.get('teamName').dirty || form.get('teamName').touched) && form.get('teamName').errors">error</span>
+        </div>
+
+        <div class="team-form-formlabel">
+          <label class="team-form-label" for="">Imagen escudo</label>
+          <label class="team-form-file animated" for="shield"
+            >Elija imagen</label
+          >
+          <input
+            class="team-form-file-real"
+            type="file"
+            formControlName="teamShield"
+            id="shield"
+          />
+        </div>
+      </div>
+
+    </div>
+</form>

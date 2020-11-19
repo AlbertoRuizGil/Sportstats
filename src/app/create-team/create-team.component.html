@@ -1,0 +1,56 @@
+
+<!-- NAVBAR -->
+<app-navbar [status]="'end'" [route]="'/userTeams'" [showBack]="true"></app-navbar>
+
+<!-- MAIN BODY -->
+<div class="container">
+
+  <form [formGroup]="form" class="form-container">
+
+    <h4 class="form-title">Equipo</h4>
+    <hr class="hr-form mb-5" />
+
+    <app-info-team [form]="formTeam"></app-info-team>
+
+
+    <h4 class="form-title">Liga</h4>
+    <hr class="hr-form mb-5" />
+
+    <app-info-league></app-info-league>
+
+    <h4 class="form-title">Jugadores</h4>
+    <hr class="hr-form mb-5" />
+
+    <app-info-players [form]="formPlayers"></app-info-players>
+
+
+    <h4 class="form-title">Partidos</h4>
+    <hr class="hr-form mb-5" />
+
+    <div class="matches-data mb-5">
+      <div class="matches-field mb-5">
+        <div class="match-data">
+          <label for="rivalTeam" class="match-label"
+            >Nombre del equipo rival</label
+          >
+          <input type="text" name="rivalTeam" class="input match-input" />
+        </div>
+        <div class="match-data">
+          <label for="rivalTeam" class="match-label">Fecha del partido</label>
+          <input type="date" name="rivalTeam" class="input match-input" />
+        </div>
+      </div>
+      <div class="matches-field-new">
+        <p class="matches-field-new-title">+ Añadir partido</p>
+      </div>
+    </div>
+
+
+    <div class="buttons">
+      <a class="btn btn-pink m-2" [routerLink]="['/user-teams']">Cancelar</a>
+      <button class="btn btn-dark m-2" (click)="onSaveTeam()" [disabled]="!formTeam.valid">Guardar</button>
+    </div>
+  </form>
+</div>
+
+<app-footer></app-footer>

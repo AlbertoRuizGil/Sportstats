@@ -1,18 +1,16 @@
+import { User } from '@/app/shared/inteface/user.interface';
+import { UserService } from '@/app/shared/services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
-
-import { User } from '../../inteface/user.interface';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-
   registerForm: FormGroup;
   name: AbstractControl;
   email: AbstractControl;
@@ -22,20 +20,29 @@ export class RegisterComponent implements OnInit {
     private fb: FormBuilder,
     private userService: UserService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.createForm();
   }
 
   createForm(): void {
-    this.name = this.fb.control('', [Validators.required, Validators.minLength(2)]);
-    this.email = this.fb.control('', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]);
-    this.password = this.fb.control('', [Validators.required, Validators.minLength(6)]);
+    this.name = this.fb.control('', [
+      Validators.required,
+      Validators.minLength(2),
+    ]);
+    this.email = this.fb.control('', [
+      Validators.required,
+      Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$'),
+    ]);
+    this.password = this.fb.control('', [
+      Validators.required,
+      Validators.minLength(6),
+    ]);
     this.registerForm = this.fb.group({
       name: this.name,
       email: this.email,
-      password: this.password
+      password: this.password,
     });
   }
 
@@ -46,7 +53,7 @@ export class RegisterComponent implements OnInit {
       customClass: {
         popup: 'alert-popup',
         title: 'alert-title',
-      }
+      },
     });
 
     Swal.showLoading();
@@ -55,7 +62,8 @@ export class RegisterComponent implements OnInit {
         name: this.registerForm.value.name,
         email: this.registerForm.value.email,
       };
-      this.userService.addUser(newUser, this.registerForm.value.password)
+      this.userService
+        .addUser(newUser, this.registerForm.value.password)
         .then(() => {
           Swal.fire({
             icon: 'success',
@@ -63,8 +71,8 @@ export class RegisterComponent implements OnInit {
             showConfirmButton: true,
             customClass: {
               popup: 'alert-popup',
-              title: 'alert-title'
-            }
+              title: 'alert-title',
+            },
           });
           this.router.navigate(['/userTeams']);
         })
@@ -76,8 +84,8 @@ export class RegisterComponent implements OnInit {
             text: err.message,
             customClass: {
               popup: 'alert-popup',
-              title: 'alert-title'
-            }
+              title: 'alert-title',
+            },
           });
           console.log(err);
         });
