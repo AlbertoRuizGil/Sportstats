@@ -25,9 +25,10 @@
           <input
             class="team-form-file-real"
             type="file"
-            formControlName="teamShield"
             id="shield"
+            (change)="onChange($event.target.files)"
           />
+          <div>{{ form?.get('teamShield')?.value?.name }}</div>
         </div>
       </div>
 

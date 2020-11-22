@@ -2,27 +2,29 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-info-player',
-  templateUrl: './info-player.component.html',
-  styleUrls: ['./info-player.component.scss'],
+  selector: 'app-info-game',
+  templateUrl: './info-game.component.html',
+  styleUrls: ['./info-game.component.scss']
 })
-export class InfoPlayerComponent implements OnInit {
+export class InfoGameComponent implements OnInit {
+
   @Input()
   form: FormGroup;
 
   @Input()
-  playerNumber: number;
+  gameNumber: number;
 
   @Output()
   deleteBtn: EventEmitter<number> = new EventEmitter<number>();
 
-  constructor() {}
+
+  constructor() { }
 
   ngOnInit(): void {
-
   }
 
   deleteBtn_Click(){
-    this.deleteBtn.emit(this.playerNumber);
+    this.deleteBtn.emit(this.gameNumber);
   }
+
 }

@@ -14,20 +14,16 @@ import { Observable } from 'rxjs';
 export class SelectedTeamComponent implements OnInit {
   public teamInfo: Team;
   public players: Observable<Player[]>;
+  public games: Game[];
   public nextGame: Game = undefined;
 
-  public wins = 0;
-
-  public goals = 0;
-
-  public winAverage: number;
+  public teamId: string;
 
   constructor(
     public teamService: TeamService,
     private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute,
-
     private playerService: PlayerService
   ) {}
 
@@ -45,8 +41,8 @@ export class SelectedTeamComponent implements OnInit {
           .getGames(user.uid, teamId)
           .valueChanges()
           .subscribe((games: Game[]) => {
+            this.games = games;
             this.getNextGame(games);
-            this.getTableInfo(games);
           });
         this.players = this.playerService
           .getPlayers(user.uid, teamId)
@@ -59,21 +55,13 @@ export class SelectedTeamComponent implements OnInit {
     const today: number = new Date().getTime();
     let difference: number = Number.MAX_VALUE;
     games.forEach((game) => {
+      console.log(game, today);
       if (game.date - today > 0 && game.date - today < difference) {
         this.nextGame = game;
         difference = game.date - today;
       }
-    });
-  }
+      console.log(difference, game.date);
 
-  getTableInfo(games: Game[]) {
-    games.forEach((game) => {
-      if (game.goalsFor > game.goalsAgainst) {
-        this.wins++;
-      }
-      this.goals += game.goalsFor;
     });
-
-    this.winAverage = this.wins / games.length;
   }
 }

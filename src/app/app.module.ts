@@ -19,6 +19,9 @@ import { SelectedTeamComponent } from './selected-team/selected-team.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { UserTeamsComponent } from './user-teams/user-teams.component';
+import { InfoGamesComponent } from './create-team/info-games/info-games.component';
+import { TableInfoTeamComponent } from './selected-team/table-info-team/table-info-team.component';
+import { InfoGameComponent } from './create-team/info-games/info-game/info-game.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { UserTeamsComponent } from './user-teams/user-teams.component';
     InfoTeamComponent,
     InfoPlayersComponent,
     InfoPlayerComponent,
-    InfoLeagueComponent
+    InfoLeagueComponent,
+    InfoGamesComponent,
+    TableInfoTeamComponent,
+    InfoGameComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-info-league',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./info-league.component.scss']
 })
 export class InfoLeagueComponent implements OnInit {
+
+  @Input()
+  form: FormGroup;
 
   constructor() { }
 

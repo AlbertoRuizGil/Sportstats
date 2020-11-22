@@ -1,9 +1,12 @@
 <div class="players-form">
       <div class="players-data mb-5">
-        <app-info-player *ngFor="let playerForm of form.controls" [form]="form"></app-info-player>
 
-        <div class="player-field-new">
-          <button (click)="onNewPlayer()" class="player-field-new-title btn">+ Añadir jugador</button>
-        </div>
+        <app-info-player *ngFor="let playerForm of form.controls; let indexPlayer = index"
+        [form]="form"
+        [playerNumber] = "indexPlayer"
+        (deleteBtn)="deleteBtnHandler($event)"></app-info-player>
+
+          <button (click)="onNewPlayer()" class="add-btn">+ Añadir jugador</button>
+
       </div>
 </div>

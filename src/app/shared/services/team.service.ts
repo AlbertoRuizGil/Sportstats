@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
+import { Team } from '../inteface/team.interface';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -36,5 +38,17 @@ export class TeamService {
     return this.teamGames;
   }
 
-  addTeam() {}
+  async addTeam(userId: string, team: Team): string {
+    const doc = this.firestore.collection('users')
+    .doc(userId)
+    .collection('teams');
+
+    let teamId: string;
+
+    doc.add(team).then(docRef => {
+      teamId = docRef.id;
+    });
+
+    return teamId;
+  }
 }

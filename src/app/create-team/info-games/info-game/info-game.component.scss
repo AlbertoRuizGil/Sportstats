@@ -1,0 +1,55 @@
+.matches {
+
+  &-data {
+    display: flex;
+    flex-direction: column;
+  }
+
+    &-field {
+      display: flex;
+      justify-content: left;
+      flex-direction: column;
+      width: 100%;
+    }
+}
+
+  .delete {
+    display: flex;
+    flex-direction: row-reverse;
+
+    &-btn {
+      width: 30px;
+      height: 30px;
+    }
+
+    &-icon {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+.match {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border-radius: 1.5rem;
+  border: 3px solid black;
+  background-color: rgb(215, 229, 235);
+
+  &-data {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  &-data:not(:last-child){
+    margin-bottom: 1rem;
+  }
+
+  &-label {
+    font-size: 1.9rem;
+    font-weight: bold;
+    margin-right: 2rem;
+  }
+
+  &-input {}
+}

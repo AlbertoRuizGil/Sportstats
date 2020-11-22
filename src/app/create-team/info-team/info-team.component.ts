@@ -13,6 +13,11 @@ export class InfoTeamComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    console.log(this.form);
+  }
+
+  onChange(files: FileList): void {
+    if (files && files.length && files.item(0)) {
+      this.form.get('teamShield').setValue(files.item(0));
+    }
   }
 }

@@ -1,17 +1,17 @@
 @import 'variables.scss';
 
 
-.container{
+.container {
   padding: 5rem;
   background-color: $color-light-blue;
 }
 
-.team-name{
+.team-name {
   font-size: 5rem;
   text-align: center;
 }
 
-.team-info{
+.team-info {
   display: flex;
   justify-items: center;
   align-items: center;
@@ -19,22 +19,22 @@
   margin-top: 5rem;
 }
 
-.team-form{
-  &-container_img{
+.team-form {
+  &-container_img {
     width: 20rem;
     height: 20rem;
     border: 5px solid #212428;
     border-radius: 50%;
   }
 
-  &-img{
+  &-img {
     height: 100%;
     shape-outside: circle(50% at 50% 50%);
     clip-path: circle(50% at 50% 50%);
   }
 }
 
-.team-games{
+.team-games {
   display: flex;
   flex-direction: column;
   border-radius: 1rem;
@@ -44,75 +44,29 @@
   color: white;
   border: 5px solid $color-dark-pink;
 
-  &-title{
+  &-title {
     font-size: 3.5rem;
     margin-bottom: 3rem;
     text-align: center;
   }
 }
 
-.team-nextgame{
+.team-nextgame {
   font-size: 2.5rem;
   text-align: center;
   font-style: italic;
 }
 
-.average{
-  margin: 15rem 0;
-  width: 100%;
-  height: 30rem;
-  font-size: 2.7rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-
-  &-table, &-th, &-td{
-    border-collapse: collapse;
-  }
-
-  &-th, &-td{
-    padding: 2rem;
-    text-align: center;
-    width: 20rem;
-    height: 18rem;
-  }
-
-  &-table{
-    border: 5px solid $color-dark-pink;
-    border-spacing: 0;
-  }
-
-  &-th{
-    text-transform: uppercase;
-    background: linear-gradient(to right bottom, #264c72 50%, #2f3c49 100%);
-  }
-
-  &-td{
-    font-size: 3rem;
-    //background-color: rgba(59, 85, 111, 0.438);
-    background-color: rgb(183, 194, 206);
-    font-weight: bold;
-    color: black;
-  }
-
-  &-td:not(:last-child),
-  &-th:not(:last-child){
-    border-right: 4px solid black;
-  }
-
-}
-
-.stats{
+.stats {
   width: 100%;
 
-  &-title{
+  &-title {
     font-size: 5rem;
     text-align: center;
     margin-bottom: 10rem;
   }
 
-  &-table-container{
+  &-table-container {
     margin: 15rem 0;
     width: 100%;
     height: 30rem;
@@ -122,12 +76,12 @@
     align-items: center;
   }
 
-  &-table{
+  &-table {
     border: 5px solid $color-dark-pink;
     border-spacing: 0;
   }
 
-  &-tr{
+  &-tr {
     background-color: rgb(183, 194, 206);
   }
 
@@ -139,17 +93,17 @@
     height: 8rem;
   }
 
-  &-th{
+  &-th {
     text-transform: uppercase;
     background: linear-gradient(to right bottom, #264c72 50%, #2f3c49 100%);
     color: white;
   }
 
-  &-th:not(:last-child){
+  &-th:not(:last-child) {
     border-right: 2px solid black;
   }
 
-  &-td:not(:last-child){
+  &-td:not(:last-child) {
     border-right: 2px solid grey;
   }
 
@@ -157,22 +111,22 @@
     background-color: rgb(202, 225, 231);
   }
 
-  &-name{
+  &-name {
     font-weight: bold;
   }
 
 }
 
-.players{
+.players {
   width: 100%;
 
-  &Title{
+  &Title {
     font-size: 5rem;
     text-align: center;
     margin-bottom: 10rem;
   }
 
-  &List{
+  &List {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -180,8 +134,8 @@
   }
 }
 
-.player{
-  &-file{
+.player {
+  &-file {
     &-container_img {
       width: 17rem;
       height: 17rem;
@@ -189,7 +143,7 @@
       border-radius: 50%;
       transition: all .3s;
 
-      &:hover{
+      &:hover {
         border-color: $color-dark-pink;
         transform: scale(1.1);
       }
@@ -201,7 +155,7 @@
       clip-path: circle(50% at 50% 50%);
     }
 
-    &-name{
+    &-name {
       font-size: 3rem;
       text-align: center;
       margin-top: 1rem;
@@ -210,4 +164,3 @@
 
 
 }
-

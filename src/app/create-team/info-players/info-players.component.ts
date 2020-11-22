@@ -18,9 +18,15 @@ export class InfoPlayersComponent implements OnInit {
     this.form.controls.push(this.newPlayerForm());
   }
 
-  private newPlayerForm() {
+  private newPlayerForm(): FormGroup {
     return new FormGroup({
       playerName: new FormControl('', Validators.required),
+      playerAge: new FormControl('', Validators.required),
+      playerNumber: new FormControl('', Validators.required),
     });
+  }
+
+  deleteBtnHandler(value: number){
+    this.form.controls.splice(value, 1);
   }
 }

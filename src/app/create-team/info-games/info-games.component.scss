@@ -1,0 +1,55 @@
+.matches {
+  width: 100%;
+
+  &-data {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-field {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border-radius: 1.5rem;
+    border: 3px solid black;
+    background-color: rgb(215, 229, 235);
+
+    &-new {
+      background-color: rgb(215, 229, 235);
+      height: 100%;
+      padding: 1rem 1.5rem;
+      border-radius: 1.5rem;
+      border: 3px solid black;
+
+      &:hover {
+        border-color: #da387d;
+        cursor: pointer;
+      }
+    }
+
+    &-new-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+  }
+}
+
+.add-btn {
+  background-color: rgb(215, 229, 235);
+  width: 100%;
+  height: 6.5rem;
+  padding: 1rem 1.5rem;
+  border-radius: 1.5rem;
+  border: 3px solid black;
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
+  cursor: pointer;
+
+  &:hover {
+    border-color: #da387d;
+    color: #da387d;
+  }
+}
