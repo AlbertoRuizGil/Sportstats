@@ -11,7 +11,7 @@ export class InfoPlayerComponent implements OnInit {
   form: FormGroup;
 
   @Input()
-  playerNumber: number;
+  playerArrayNumber: number;
 
   @Output()
   deleteBtn: EventEmitter<number> = new EventEmitter<number>();
@@ -23,6 +23,6 @@ export class InfoPlayerComponent implements OnInit {
   }
 
   deleteBtn_Click(){
-    this.deleteBtn.emit(this.playerNumber);
+    this.deleteBtn.emit(this.playerArrayNumber);
   }
 }

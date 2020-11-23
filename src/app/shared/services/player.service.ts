@@ -21,7 +21,7 @@ export class PlayerService {
     return this.playersCollection;
   }
 
-  getPlayerById(userId: string, teamId: string, playerId: string){
+  getPlayerInfo(userId: string, teamId: string, playerId: string){
     this.player = this.firestore.collection('users')
       .doc(userId)
       .collection('teams')
@@ -29,9 +29,5 @@ export class PlayerService {
       .collection('games')
       .doc(playerId);
     return this.player;
-  }
-
-  addTeam() {
-
   }
 }

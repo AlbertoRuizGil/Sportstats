@@ -16,6 +16,7 @@ export class InfoPlayersComponent implements OnInit {
 
   onNewPlayer() {
     this.form.controls.push(this.newPlayerForm());
+    console.log(this.form);
   }
 
   private newPlayerForm(): FormGroup {

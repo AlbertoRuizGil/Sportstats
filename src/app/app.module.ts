@@ -22,6 +22,8 @@ import { UserTeamsComponent } from './user-teams/user-teams.component';
 import { InfoGamesComponent } from './create-team/info-games/info-games.component';
 import { TableInfoTeamComponent } from './selected-team/table-info-team/table-info-team.component';
 import { InfoGameComponent } from './create-team/info-games/info-game/info-game.component';
+import { SelectedPlayerComponent } from './selected-player/selected-player.component';
+import { FillGameComponent } from './fill-game/fill-game.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { InfoGameComponent } from './create-team/info-games/info-game/info-game.
     InfoLeagueComponent,
     InfoGamesComponent,
     TableInfoTeamComponent,
-    InfoGameComponent
+    InfoGameComponent,
+    SelectedPlayerComponent,
+    FillGameComponent
   ],
   imports: [
     BrowserModule,

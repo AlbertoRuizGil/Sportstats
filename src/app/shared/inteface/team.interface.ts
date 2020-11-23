@@ -15,7 +15,14 @@ export interface Game {
 }
 
 export interface Player{
-  name: string;
-  age: number;
-  number: number;
+  playerName: string;
+  playerAge: number;
+  playerNumber: number;
+}
+
+export interface League{
+  points: number;
+  fieldPercent: number;
+  threePercent: number;
+  freePercent: number;
 }
