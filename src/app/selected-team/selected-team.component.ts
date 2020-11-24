@@ -55,12 +55,10 @@ export class SelectedTeamComponent implements OnInit {
     const today: number = new Date().getTime();
     let difference: number = Number.MAX_VALUE;
     games.forEach((game) => {
-      console.log(game, today);
-      if (game.date - today > 0 && game.date - today < difference) {
+      if (game.matchDate - today > 0 && game.matchDate - today < difference) {
         this.nextGame = game;
-        difference = game.date - today;
+        difference = game.matchDate - today;
       }
-      console.log(difference, game.date);
 
     });
   }

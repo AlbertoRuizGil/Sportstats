@@ -3,9 +3,11 @@ import { canActivate, redirectLoggedInTo, redirectUnauthorizedTo } from '@angula
 import { RouterModule, Routes } from '@angular/router';
 
 import { CreateTeamComponent } from './create-team/create-team.component';
+import { FillGameComponent } from './fill-game/fill-game.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { SelectedPlayerComponent } from './selected-player/selected-player.component';
 import { SelectedTeamComponent } from './selected-team/selected-team.component';
 import { UserTeamsComponent } from './user-teams/user-teams.component';
 
@@ -41,6 +43,16 @@ const routes: Routes = [
   {
     path: 'team/:teamId',
     component: SelectedTeamComponent,
+    ...canActivate(redirectUnauthorizedToLogin),
+  },
+  {
+    path: 'team/:teamId/players/:playerId',
+    component: SelectedPlayerComponent,
+    ...canActivate(redirectUnauthorizedToLogin),
+  },
+  {
+    path: 'team/:teamId/games',
+    component: FillGameComponent,
     ...canActivate(redirectUnauthorizedToLogin),
   },
   { path: '**', redirectTo: 'home' },

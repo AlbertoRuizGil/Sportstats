@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { FormGroup } from '@angular/forms';
 
-import { League, Player, Team } from '../inteface/team.interface';
+import { Game, League, Player, Team } from '../inteface/team.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -39,7 +38,7 @@ export class TeamService {
     return this.teamGames;
   }
 
-  addTeam(userId: string, team: Team, league: League, players: Player[]): void {
+  addTeam(userId: string, team: Team, league: League, players: Player[], games: Game[]): void {
     const doc = this.firestore.collection('users')
     .doc(userId)
     .collection('teams');
@@ -50,6 +49,7 @@ export class TeamService {
       newTeamId = docRef.id;
       this.addTeamLeague(userId, newTeamId, league);
       this.addTeamPlayers(userId, newTeamId, players);
+      this.addTeamGames(userId, newTeamId, games);
     });
   }
 
@@ -75,7 +75,15 @@ export class TeamService {
     });
   }
 
-  addTeamGames(userId: string, teamId: string, formGames: FormGroup){
-
+  addTeamGames(userId: string, teamId: string, games: Game[]){
+    games.forEach((game: Game) => {
+      this.firestore
+      .collection('users')
+      .doc(userId)
+      .collection('teams')
+      .doc(teamId)
+      .collection('games')
+      .add(game);
+    });
   }
 }

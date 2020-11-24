@@ -10,19 +10,14 @@ export class InfoPlayerComponent implements OnInit {
   @Input()
   form: FormGroup;
 
-  @Input()
-  playerArrayNumber: number;
-
   @Output()
-  deleteBtn: EventEmitter<number> = new EventEmitter<number>();
+  deleteBtn: EventEmitter<void> = new EventEmitter<void>();
 
   constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
-  }
-
-  deleteBtn_Click(){
-    this.deleteBtn.emit(this.playerArrayNumber);
+  deleteBtnClick() {
+    this.deleteBtn.emit();
   }
 }

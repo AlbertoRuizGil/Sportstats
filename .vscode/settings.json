@@ -9,6 +9,7 @@
   },
   "typescriptHero.imports.organizeOnSave": true,
   "html.format.wrapAttributes": "force-aligned",
+  "prettier.enable": false,
   "beautify.language": {
     "js": {
       "type": [
@@ -27,4 +28,5 @@
     ],
     "html": []
   },
+  "editor.defaultFormatter": "HookyQR.beautify",
 }

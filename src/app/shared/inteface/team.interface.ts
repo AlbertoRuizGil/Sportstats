@@ -8,9 +8,9 @@ export enum Sport {
 }
 
 export interface Game {
-  date: number;
-  goalsAgainst: number;
-  goalsFor: number;
+  matchDate: number;
+  goalsAgainst?: number;
+  goalsFor?: number;
   rivalTeam: string;
 }
 

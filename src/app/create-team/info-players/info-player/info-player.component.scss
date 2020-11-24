@@ -13,18 +13,29 @@
     }
   }
 
-  .delete{
+  .delete {
     display: flex;
     flex-direction: row-reverse;
 
-    &-btn{
+    &-btn {
       width: 30px;
       height: 30px;
-    }
+      background-image: url('/assets/img/cross.svg');
+      background-size: 25px;
+      background-position: center;
+      border: none;
+      background-color: #dd5790;
+      border-radius: 50%;
+      cursor: pointer;
 
-    &-icon{
-      width: 30px;
-      height: 30px;
+      &:hover {
+        background-color: #da387d;
+      }
+
+      &:focus,
+      &:active {
+        outline: none;
+      }
     }
   }
 

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { League, Player, Team } from '../shared/inteface/team.interface';
+import { Game, League, Player, Team } from '../shared/inteface/team.interface';
 import { AuthService } from '../shared/services/auth.service';
 
 @Component({
@@ -71,11 +71,10 @@ export class CreateTeamComponent implements OnInit {
 
   onSaveTeam() {
 
-    console.log(this.formPlayers);
-
-    if (this.formPlayers.length < 2) { }{
+    if (this.formPlayers.length < 2) {
       console.log('No hay jugadores suficientes');
     }
+    console.log(this.form);
 
     const newTeam: Team = {
       name: this.formTeam.controls.teamName.value
@@ -98,7 +97,19 @@ export class CreateTeamComponent implements OnInit {
       newPlayers.push(newPlayer);
     });
 
-    this.teamService.addTeam(this.user.uid, newTeam, newLeague, newPlayers);
+    const newGames: Game[] = [];
+    this.formGames.controls.forEach((formGame: FormGroup) => {
+      const chunks = formGame.controls.matchDate.value.split('-');
+      const matchDateNoFormat = new Date(chunks[0], chunks[1], chunks[2]);
+      const matchDateFormat = matchDateNoFormat.getTime();
+      const newGame: Game = {
+        matchDate: matchDateFormat,
+        rivalTeam: formGame.controls.rivalTeam.value
+      };
+      newGames.push(newGame);
+    });
+
+    this.teamService.addTeam(this.user.uid, newTeam, newLeague, newPlayers, newGames);
 
     /* console.log(this.form);
     console.log(this.formTeam);

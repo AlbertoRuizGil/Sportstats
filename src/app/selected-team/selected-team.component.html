@@ -14,7 +14,7 @@
       <h3 class="team-games-title">Proximo partido</h3>
       <hr class="hr">
       <p *ngIf="nextGame === undefined" class="team-nextgame">No hay próximos partidos</p>
-      <p *ngIf="nextGame != null" class="team-nextgame">{{nextGame.date | date:'dd/MM/yyyy'}} vs {{nextGame.rivalTeam}}</p>
+      <p *ngIf="nextGame != null" class="team-nextgame">{{nextGame.matchDate | date:'dd/MM/yyyy'}} vs {{nextGame.rivalTeam}}</p>
       <!-- <p *ngFor="let game of games | async">{{game.date}}</p> -->
       <hr class="hr">
     </div>

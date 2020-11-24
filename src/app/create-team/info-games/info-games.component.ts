@@ -27,8 +27,8 @@ export class InfoGamesComponent implements OnInit {
     });
   }
 
-  deleteBtnHandler(value: number): void{
-    this.form.controls.splice(value, 1);
+  deleteBtnHandler(value: FormGroup): void{
+    this.form.controls.splice(this.form.controls.indexOf(value), 1);
   }
 
 }

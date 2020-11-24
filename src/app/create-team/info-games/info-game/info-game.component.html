@@ -1,8 +1,8 @@
-<div class="match mb-2 animatedSlow appear">
+<form [formGroup]= "form" class="match mb-2 animatedSlow appear">
 
   <div class="delete">
     <button class="delete-btn"
-            (click)="deleteBtn_Click()"><span class="delete-icon"></span></button>
+            (click)="deleteBtnClick()"><span class="delete-icon"></span></button>
   </div>
 
   <div class="matches-field mb-5">
@@ -11,6 +11,7 @@
              class="match-label">Nombre del equipo rival</label>
       <input type="text"
              name="rivalTeam"
+             formControlName = "rivalTeam"
              class="input match-input" />
     </div>
     <div class="match-data">
@@ -18,10 +19,11 @@
              class="match-label">Fecha del partido</label>
       <input type="date"
              name="matchDate"
+             formControlName = "matchDate"
              class="input match-input" />
     </div>
   </div>
 
-</div>
+</form>
 
 

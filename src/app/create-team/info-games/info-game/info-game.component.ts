@@ -4,10 +4,9 @@ import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-info-game',
   templateUrl: './info-game.component.html',
-  styleUrls: ['./info-game.component.scss']
+  styleUrls: ['./info-game.component.scss'],
 })
 export class InfoGameComponent implements OnInit {
-
   @Input()
   form: FormGroup;
 
@@ -15,16 +14,12 @@ export class InfoGameComponent implements OnInit {
   gameNumber: number;
 
   @Output()
-  deleteBtn: EventEmitter<number> = new EventEmitter<number>();
+  deleteBtn: EventEmitter<void> = new EventEmitter<void>();
 
+  constructor() {}
+  ngOnInit(): void {}
 
-  constructor() { }
-
-  ngOnInit(): void {
+  deleteBtnClick() {
+    this.deleteBtn.emit();
   }
-
-  deleteBtn_Click(){
-    this.deleteBtn.emit(this.gameNumber);
-  }
-
 }

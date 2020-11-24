@@ -3,13 +3,14 @@
     width: 100%;
     height: 100%;
   }
+
   &-data {
     display: flex;
     flex-direction: column;
   }
 }
 
-.player-field-new{
+.player-field-new {
   background-color: rgb(215, 229, 235);
   height: 100%;
   padding: 1rem 1.5rem;
@@ -27,7 +28,7 @@
   }
 }
 
-.add-btn{
+.add-btn {
   background-color: rgb(215, 229, 235);
   width: 100%;
   height: 6.5rem;
@@ -36,11 +37,15 @@
   border: 3px solid black;
   font-size: 2.5rem;
   font-weight: bold;
-  font-family: 'Open Sans',sans-serif;
+  font-family: 'Open Sans', sans-serif;
   cursor: pointer;
 
   &:hover {
     border-color: #da387d;
     color: #da387d;
+  }
+
+  &:focus {
+    outline: none;
   }
 }
