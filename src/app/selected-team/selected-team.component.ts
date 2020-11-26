@@ -1,4 +1,5 @@
-import { Game, Player, Team } from '@/app/shared/inteface/team.interface';
+import { Player } from '@/app/shared/inteface/player.interface';
+import { Game, Team } from '@/app/shared/inteface/team.interface';
 import { AuthService } from '@/app/shared/services/auth.service';
 import { PlayerService } from '@/app/shared/services/player.service';
 import { TeamService } from '@/app/shared/services/team.service';
@@ -12,12 +13,11 @@ import { Observable } from 'rxjs';
   styleUrls: ['./selected-team.component.scss'],
 })
 export class SelectedTeamComponent implements OnInit {
+  public teamId: string;
   public teamInfo: Team;
   public players: Observable<Player[]>;
   public games: Game[];
   public nextGame: Game = undefined;
-
-  public teamId: string;
 
   constructor(
     public teamService: TeamService,
@@ -28,24 +28,24 @@ export class SelectedTeamComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const teamId = this.route.snapshot.paramMap.get('teamId');
+    this.teamId = this.route.snapshot.paramMap.get('teamId');
     this.authService.currentUser$.subscribe((user: firebase.User) => {
       if (user) {
         this.teamService
-          .getTeamById(user.uid, teamId)
+          .getTeamById(user.uid, this.teamId)
           .valueChanges()
           .subscribe((team: Team) => {
             this.teamInfo = team;
           });
         this.teamService
-          .getGames(user.uid, teamId)
+          .getGames(user.uid, this.teamId)
           .valueChanges()
           .subscribe((games: Game[]) => {
             this.games = games;
             this.getNextGame(games);
           });
         this.players = this.playerService
-          .getPlayers(user.uid, teamId)
+          .getPlayers(user.uid, this.teamId)
           .valueChanges();
       }
     });

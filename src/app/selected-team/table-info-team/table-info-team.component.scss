@@ -25,13 +25,16 @@
   }
 
   &-table {
-    border: 5px solid $color-dark-pink;
+    //border: 5px solid $color-dark-pink;
+    border: 3px solid black;
     border-spacing: 0;
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.747);
   }
 
   &-th {
     text-transform: uppercase;
-    background: linear-gradient(to right bottom, #264c72 50%, #2f3c49 100%);
+    //background: linear-gradient(to right bottom, #264c72 50%, #2f3c49 100%);
+    background-color: #264c72;
   }
 
   &-td {
@@ -44,7 +47,7 @@
 
   &-td:not(:last-child),
   &-th:not(:last-child) {
-    border-right: 4px solid black;
+    //border-right: 4px solid black;
   }
 
 }

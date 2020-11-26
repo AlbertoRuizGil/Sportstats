@@ -1,5 +1,9 @@
 export interface Team {
   name: string;
+
+  sport?: Sport;
+
+  teamId?: string;
 }
 
 export enum Sport {
@@ -8,16 +12,11 @@ export enum Sport {
 }
 
 export interface Game {
+  matchId?: string;
   matchDate: number;
   goalsAgainst?: number;
   goalsFor?: number;
   rivalTeam: string;
-}
-
-export interface Player{
-  playerName: string;
-  playerAge: number;
-  playerNumber: number;
 }
 
 export interface League{

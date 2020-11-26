@@ -3,8 +3,32 @@
             [route]="'/userTeams'"
             [showBack]="true"></app-navbar>
 
-<div class="container">
+<div class="container animated fadeIn">
 
+  <div class="select-container mb-5">
+    <form [formGroup]="form">
+      <select formControlName="match" class="select-form" (change)="onChangeSelect()">
+        <option value selected="selected" disabled>Selecciona un partido</option>
+        <option *ngFor="let game of games" value="{{game.matchId}}" >
+          {{game.rivalTeam}} - {{game.matchDate | date:'dd/MM/yyyy'}}
+        </option>
+      </select>
+    </form>
+  </div>
+
+  <div class="player-form">
+
+    <div class="player-info">
+      <figure class="player-container_img">
+        <img src="../../../assets/img/avatar-generico.png"
+           alt="Foto de jugador"
+           class="player-img" />
+      </figure>
+      <h4 class="player-name">Nombre del Jugador</h4>
+    </div>
+
+
+  </div>
 
 
 </div>

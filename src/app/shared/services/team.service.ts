@@ -1,41 +1,37 @@
+import { Player } from '@/app/shared/inteface/player.interface';
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 
-import { Game, League, Player, Team } from '../inteface/team.interface';
+import { Game, League, Team } from '../inteface/team.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TeamService {
-  private teamsCollection: AngularFirestoreCollection<any>;
-
-  private teamGames: AngularFirestoreCollection<any>;
 
   constructor(private firestore: AngularFirestore) {}
 
-  getTeamById(userId: string, teamId: string) {
+  getTeamById(userId: string, teamId: string): AngularFirestoreDocument<Team> {
     return this.firestore
       .collection('users')
       .doc(userId)
       .collection('teams')
       .doc(teamId);
   }
-  getTeams(userId: string) {
-    this.teamsCollection = this.firestore
+  getTeams(userId: string): AngularFirestoreCollection<Team> {
+    return this.firestore
       .collection('users')
       .doc(userId)
       .collection('teams');
-    return this.teamsCollection;
   }
 
-  getGames(userId: string, teamId: string) {
-    this.teamGames = this.firestore
+  getGames(userId: string, teamId: string): AngularFirestoreCollection<Game>{
+    return this.firestore
       .collection('users')
       .doc(userId)
       .collection('teams')
       .doc(teamId)
       .collection('games');
-    return this.teamGames;
   }
 
   addTeam(userId: string, team: Team, league: League, players: Player[], games: Game[]): void {

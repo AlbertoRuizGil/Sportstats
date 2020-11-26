@@ -1,9 +1,10 @@
+import { Player } from '@/app/shared/inteface/player.interface';
 import { TeamService } from '@/app/shared/services/team.service';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { Game, League, Player, Team } from '../shared/inteface/team.interface';
+import { Game, League, Sport, Team } from '../shared/inteface/team.interface';
 import { AuthService } from '../shared/services/auth.service';
 
 @Component({
@@ -77,7 +78,8 @@ export class CreateTeamComponent implements OnInit {
     console.log(this.form);
 
     const newTeam: Team = {
-      name: this.formTeam.controls.teamName.value
+      name: this.formTeam.controls.teamName.value,
+      sport: Sport.Basketball
     };
 
     const newLeague: League = {

@@ -6,6 +6,30 @@
   background-color: $color-light-blue;
 }
 
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10rem 0;
+}
+
+.btn-big {
+  font-size: 3rem;
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.747);
+  ;
+
+  &:active {
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.747);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.pad {
+  padding: 2rem;
+}
+
 .team-name {
   font-size: 5rem;
   text-align: center;
@@ -57,64 +81,10 @@
   font-style: italic;
 }
 
-.stats {
-  width: 100%;
-
-  &-title {
-    font-size: 5rem;
-    text-align: center;
-    margin-bottom: 10rem;
-  }
-
-  &-table-container {
-    margin: 15rem 0;
-    width: 100%;
-    height: 30rem;
-    font-size: 1.7rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  &-table {
-    border: 5px solid $color-dark-pink;
-    border-spacing: 0;
-  }
-
-  &-tr {
-    background-color: rgb(183, 194, 206);
-  }
-
-  &-th,
-  &-td {
-    padding: 2rem;
-    text-align: center;
-    width: 12rem;
-    height: 8rem;
-  }
-
-  &-th {
-    text-transform: uppercase;
-    background: linear-gradient(to right bottom, #264c72 50%, #2f3c49 100%);
-    color: white;
-  }
-
-  &-th:not(:last-child) {
-    border-right: 2px solid black;
-  }
-
-  &-td:not(:last-child) {
-    border-right: 2px solid grey;
-  }
-
-  &-tr:nth-child(odd) {
-    background-color: rgb(202, 225, 231);
-  }
-
-  &-name {
-    font-weight: bold;
-  }
-
+.stats-title {
+  font-size: 5rem;
+  text-align: center;
+  margin-bottom: 10rem;
 }
 
 .players {

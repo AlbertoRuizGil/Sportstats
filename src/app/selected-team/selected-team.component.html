@@ -1,6 +1,7 @@
 <app-navbar [status]="'end'" [route]="'/userTeams'" [showBack]="true"></app-navbar>
 
 <div class="container">
+
   <h3 class="team-name">{{teamInfo?.name}}</h3>
   <div class="team-info">
 <div>
@@ -15,40 +16,21 @@
       <hr class="hr">
       <p *ngIf="nextGame === undefined" class="team-nextgame">No hay próximos partidos</p>
       <p *ngIf="nextGame != null" class="team-nextgame">{{nextGame.matchDate | date:'dd/MM/yyyy'}} vs {{nextGame.rivalTeam}}</p>
-      <!-- <p *ngFor="let game of games | async">{{game.date}}</p> -->
       <hr class="hr">
     </div>
+  </div>
+
+  <div class="buttons">
+    <a class="btn btn-dark btn-big pad" [routerLink]="['/team/', teamId, 'games']" >Rellenar partido</a>
+    <button class="btn btn-dark btn-big pad">Añadir partido</button>
   </div>
 
   <app-table-info-team *ngIf="games && games.length" [games]="games"></app-table-info-team>
   <span *ngIf="!games || !games.length">No hay estadísticas.</span>
 
-  <div class="stats">
-    <h4 class="stats-title">Estadísticas</h4>
+  <h4 class="stats-title">Estadísticas</h4>
 
-    <div class="stats-table-container">
-      <table class="stats-table">
-        <tr>
-          <th class="stats-th">Jugadores</th>
-          <th title="Partidos jugados" class="stats-th">PJ</th>
-          <th class="stats-th">PTS</th>
-          <th class="stats-th">FG%</th>
-          <th class="stats-th">3P%</th>
-          <th class="stats-th">FT%</th>
-          <th class="stats-th">AST</th>
-        </tr>
-        <tr *ngFor="let player of players | async" class="stats-tr">
-          <td class="stats-td stats-name">{{player.name}}</td>
-          <td class="stats-td">4</td>
-          <td class="stats-td">40</td>
-          <td class="stats-td">70%</td>
-          <td class="stats-td">55%</td>
-          <td class="stats-td">80%</td>
-          <td class="stats-td">15</td>
-        </tr>
-      </table>
-    </div>
-  </div>
+  <app-table-info-players></app-table-info-players>
 
   <div class="players">
     <h4 class="playersTitle">Jugadores</h4>
@@ -59,10 +41,10 @@
           <figure class="player-file-container_img">
             <img class="player-file-img"
                  src="../../../assets/img/avatar-generico.png"
-                 alt={{player.name}}>
+                 alt={{player.playerName}}>
           </figure>
         </a>
-        <h6 class="player-file-name">{{player.name}}</h6>
+        <h6 class="player-file-name">{{player.playerName}}</h6>
       </div>
     </div>
   </div>
