@@ -1,0 +1,196 @@
+@import 'variables.scss';
+
+.player {
+
+  &-dontPlay {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(215, 229, 235);
+    border: 3px solid black;
+    border-radius: 2rem;
+    min-height: 8rem;
+    padding: 2rem;
+
+    &-info {
+      display: flex;
+      align-items: center;
+    }
+
+    &-container_img {
+      width: 4rem;
+      height: 4rem;
+      border: 3px solid #212428;
+      border-radius: 50%;
+      margin-right: 2rem;
+    }
+
+    &-img {
+      height: 100%;
+      shape-outside: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%);
+    }
+
+    &-name {
+      font-size: 2rem;
+    }
+  }
+
+  &-form {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 0.5fr 2.5fr 1fr;
+    grid-template-areas:
+      "info info info"
+      "attack defense precission"
+      "attackDirection attackDirection didPlay";
+    width: 100%;
+    min-height: 80rem;
+    height: 100%;
+    border: 3px solid black;
+    background-color: rgb(215, 229, 235);
+    border-radius: 2rem;
+    padding: 3rem 2rem;
+  }
+
+  &-info {
+    grid-area: info;
+    justify-content: center;
+    align-self: start;
+
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  &-container_img {
+    width: 5rem;
+    height: 5rem;
+    border: 3px solid #212428;
+    border-radius: 50%;
+    margin-right: 2rem;
+  }
+
+  &-img {
+    height: 100%;
+    shape-outside: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+  }
+
+  &-name {
+    font-size: 2.3rem;
+  }
+
+  &-attack {
+    grid-area: attack;
+    border-right: 2px solid black;
+
+    &-forms {
+      display: flex;
+      width: 100%;
+      height: 100%;
+
+      &-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 50%;
+        height: 100%;
+      }
+
+      &-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  &-defense {
+    grid-area: defense;
+    border-right: 2px solid black;
+
+
+    &-forms {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+  }
+
+  &-precission {
+    grid-area: precission;
+
+    &-forms {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+  }
+
+  &-attackDirection {
+    grid-area: attackDirection;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    &-forms {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+  }
+
+  &-didPlay {
+    grid-area: didPlay;
+    justify-self: center;
+    align-self: center;
+  }
+
+}
+
+.form-title {
+  text-align: center;
+  font-size: 2.3rem;
+}
+
+.label-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.label {
+  font-size: 1.7rem;
+}
+
+.input-number {
+  width: 5rem;
+  height: 3.5rem;
+  text-align: right;
+  border-radius: .5rem;
+  -moz-appearance: textfield;
+  outline-offset: 0px !important;
+  outline: none !important;
+  border: 3px solid #dbdbdb;
+  font-size: 1.5rem;
+
+  &:hover,
+  &:focus {
+    border-color: $color-dark-pink;
+  }
+}
+
+.inputSpan {
+  font-size: 2.5rem;
+}

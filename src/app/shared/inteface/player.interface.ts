@@ -7,6 +7,9 @@ export interface Player{
 
 export interface PlayerGame{
   assists: number;
+  attackRight?: number;
+  attackLeft?: number;
+  attackCenter?: number;
   defRebound: number;
   fieldAttemp: number;
   fieldSuccess: number;
@@ -25,7 +28,7 @@ export interface PlayerGame{
 
 export interface PlayerGeneralTable{
   playerInfo: Player;
-  playerGeneralStats: PlayerGeneralStats;
+  playerGeneralStats?: PlayerGeneralStats;
 }
 
 export interface PlayerGeneralStats{

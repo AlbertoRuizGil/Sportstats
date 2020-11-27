@@ -2,8 +2,18 @@
 
 .container {
   background-color: $color-light-blue;
-  height: 90vh;
   padding: 10rem;
+}
+
+.main-title {
+  font-size: 5rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.hr {
+  border-color: black;
+  border-width: 2px;
 }
 
 .select {
@@ -29,42 +39,6 @@
     &:focus {
       outline: none;
     }
-  }
-
-}
-
-.player {
-
-  &-form {
-    width: 100%;
-    height: 100%;
-    border: 3px solid black;
-    background-color: rgb(215, 229, 235);
-    border-radius: 2rem;
-    padding: 4rem;
-  }
-
-  &-info {
-    display: flex;
-    align-items: center;
-  }
-
-  &-container_img {
-    width: 10rem;
-    height: 10rem;
-    border: 3px solid #212428;
-    border-radius: 50%;
-    margin-right: 2rem;
-  }
-
-  &-img {
-    height: 100%;
-    shape-outside: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
-  }
-
-  &-name {
-    font-size: 2rem;
   }
 
 }

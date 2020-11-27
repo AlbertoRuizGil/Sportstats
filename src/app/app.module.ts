@@ -26,6 +26,7 @@ import { TableInfoTeamComponent } from './selected-team/table-info-team/table-in
 import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { UserTeamsComponent } from './user-teams/user-teams.component';
+import { PlayerGameComponent } from './fill-game/player-game/player-game.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { UserTeamsComponent } from './user-teams/user-teams.component';
     SelectedPlayerComponent,
     FillGameComponent,
     TableInfoPlayerComponent,
-    TableInfoPlayersComponent
+    TableInfoPlayersComponent,
+    PlayerGameComponent
   ],
   imports: [
     BrowserModule,

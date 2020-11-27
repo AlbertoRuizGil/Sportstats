@@ -37,7 +37,7 @@
     <div class="playersList">
       <div class="player-file"
            *ngFor="let player of players | async">
-        <a href="#">
+        <a [routerLink]="['/team/', teamId, 'players', player.playerId]">
           <figure class="player-file-container_img">
             <img class="player-file-img"
                  src="../../../assets/img/avatar-generico.png"
