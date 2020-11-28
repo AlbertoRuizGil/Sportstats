@@ -15,18 +15,17 @@ import { InfoPlayerComponent } from './create-team/info-players/info-player/info
 import { InfoPlayersComponent } from './create-team/info-players/info-players.component';
 import { InfoTeamComponent } from './create-team/info-team/info-team.component';
 import { FillGameComponent } from './fill-game/fill-game.component';
+import { PlayerGameComponent } from './fill-game/player-game/player-game.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SelectedPlayerComponent } from './selected-player/selected-player.component';
 import { SelectedTeamComponent } from './selected-team/selected-team.component';
-import { TableInfoPlayerComponent } from './selected-team/table-info-players/table-info-player/table-info-player.component';
 import { TableInfoPlayersComponent } from './selected-team/table-info-players/table-info-players.component';
 import { TableInfoTeamComponent } from './selected-team/table-info-team/table-info-team.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { UserTeamsComponent } from './user-teams/user-teams.component';
-import { PlayerGameComponent } from './fill-game/player-game/player-game.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +47,6 @@ import { PlayerGameComponent } from './fill-game/player-game/player-game.compone
     InfoGameComponent,
     SelectedPlayerComponent,
     FillGameComponent,
-    TableInfoPlayerComponent,
     TableInfoPlayersComponent,
     PlayerGameComponent
   ],

@@ -15,7 +15,7 @@
     </div>
   </div>
 
-  <div class="player-form mb-3" *ngIf="didPlay">
+  <form [formGroup]="form" class="player-form mb-3" *ngIf="didPlay">
 
     <div class="player-info">
       <figure class="player-container_img">
@@ -161,7 +161,7 @@
         <button name="didPlay" class="btn btn-dark" (click)="didPlay = !didPlay">No jugó</button>
     </div>
 
-  </div>
+  </form>
 
 
 </div>

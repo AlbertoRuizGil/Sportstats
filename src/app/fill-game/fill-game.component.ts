@@ -42,7 +42,9 @@ export class FillGameComponent implements OnInit {
 
         this.playerService.getPlayers(user.uid, this.teamId).valueChanges({idField: 'playerId'})
         .subscribe((players: Player[]) => {
-
+          players.forEach((player: Player) => {
+            this.onNewPlayer();
+          });
         });
       }
     });
@@ -61,7 +63,7 @@ export class FillGameComponent implements OnInit {
 
   private newPlayerForm(): FormGroup{
     return new FormGroup({
-      assists: new FormControl(0, Validators.required),
+      assist: new FormControl(0, Validators.required),
       attackRight: new FormControl(0, Validators.required),
       attackLeft: new FormControl(0, Validators.required),
       attackCenter: new FormControl(0, Validators.required),
@@ -89,7 +91,7 @@ export class FillGameComponent implements OnInit {
 
 
   onChangeSelect(): void{
-    console.log('Select');
+    this.playersForm = new FormArray([]);
   }
 
 }

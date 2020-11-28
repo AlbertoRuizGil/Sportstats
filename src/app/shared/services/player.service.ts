@@ -38,4 +38,15 @@ export class PlayerService {
       .doc(playerId)
       .collection('games');
   }
+
+  getPlayerGame(userId: string, teamId: string, playerId: string, gameId: string): AngularFirestoreDocument<PlayerGame>{
+    return this.firestore.collection('users')
+      .doc(userId)
+      .collection('teams')
+      .doc(teamId)
+      .collection('players')
+      .doc(playerId)
+      .collection('games')
+      .doc(gameId);
+  }
 }

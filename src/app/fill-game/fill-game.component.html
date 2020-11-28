@@ -18,7 +18,7 @@
     </form>
   </div>
 
-  <app-player-game *ngFor="let playerForm of playersForm" [form] = "playerForm"></app-player-game>
+  <app-player-game *ngFor="let playerForm of playersForm.controls" [form] = "playerForm"></app-player-game>
 
 </div>
 
