@@ -25,6 +25,15 @@ export class TeamService {
       .collection('teams');
   }
 
+  getTeamLeague(userId: string, teamId: string): AngularFirestoreCollection<League>{
+    return this.firestore
+    .collection('users')
+    .doc(userId)
+    .collection('teams')
+    .doc(teamId)
+    .collection('league');
+  }
+
   getGames(userId: string, teamId: string): AngularFirestoreCollection<Game>{
     return this.firestore
       .collection('users')

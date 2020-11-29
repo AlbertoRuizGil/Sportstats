@@ -1,0 +1,11 @@
+<div class="bar-chart">
+
+  <app-points *ngIf="playerStats" [playerPoints]="playerStats.points" [leaguePoints]="league.points"></app-points>
+
+  <app-field-goal *ngIf="playerStats" [playerField]="playerStats.fieldPercent" [leagueField]="league.fieldPercent"></app-field-goal>
+
+  <app-free-throw *ngIf="playerStats" [playerFree]="playerStats.freePercent" [leagueFree]="league.freePercent"></app-free-throw>
+
+  <app-three-throw *ngIf="playerStats" [playerThree]="playerStats.threePercent" [leagueThree]="league.threePercent"></app-three-throw>
+
+</div>

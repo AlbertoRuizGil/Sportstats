@@ -46,7 +46,7 @@ export class SelectedTeamComponent implements OnInit {
           });
         this.players = this.playerService
           .getPlayers(user.uid, this.teamId)
-          .valueChanges();
+          .valueChanges({idField: 'playerId'});
       }
     });
   }

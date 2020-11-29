@@ -6,7 +6,7 @@ export interface Player{
 }
 
 export interface PlayerGame{
-  assists: number;
+  assist: number;
   attackRight?: number;
   attackLeft?: number;
   attackCenter?: number;
