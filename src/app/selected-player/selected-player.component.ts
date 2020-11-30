@@ -36,7 +36,7 @@ export class SelectedPlayerComponent implements OnInit {
         .valueChanges()
         .subscribe((games: PlayerGame[]) => {
           games.forEach( (game: PlayerGame) => {
-            this.playerGames.push(game);
+            this.playerGames = [...this.playerGames, game];
           });
         });
 

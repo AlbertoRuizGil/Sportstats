@@ -32,6 +32,9 @@ import { PointsComponent } from './selected-player/bar-chart/points/points.compo
 import { FreeThrowComponent } from './selected-player/bar-chart/free-throw/free-throw.component';
 import { ThreeThrowComponent } from './selected-player/bar-chart/three-throw/three-throw.component';
 import { FieldGoalComponent } from './selected-player/bar-chart/field-goal/field-goal.component';
+import { PolarChartComponent } from './selected-player/polar-chart/polar-chart.component';
+import { CourtStatsComponent } from './selected-player/court-stats/court-stats.component';
+import { TableStatsComponent } from './selected-player/table-stats/table-stats.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +62,10 @@ import { FieldGoalComponent } from './selected-player/bar-chart/field-goal/field
     PointsComponent,
     FreeThrowComponent,
     ThreeThrowComponent,
-    FieldGoalComponent
+    FieldGoalComponent,
+    PolarChartComponent,
+    CourtStatsComponent,
+    TableStatsComponent
   ],
   imports: [
     BrowserModule,

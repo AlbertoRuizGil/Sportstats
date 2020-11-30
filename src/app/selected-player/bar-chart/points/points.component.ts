@@ -15,9 +15,7 @@ export class PointsComponent implements OnInit {
   @Input()
   leaguePoints: number;
 
-  public barChartOptions: ChartOptions = {
-    responsive: true,
-  };
+  public barChartOptions: ChartOptions;
   public barChartLabels: Label[] = ['PPP'];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
@@ -29,9 +27,47 @@ export class PointsComponent implements OnInit {
 
   ngOnInit(): void {
     this.barChartData = [
-      { data: [this.playerPoints], label: 'Jugador' },
-      { data: [this.leaguePoints], label: 'Media de la liga' }
+      {
+        backgroundColor: ' rgba(218, 56, 125, 01)',
+        maxBarThickness: 40,
+        data: [this.playerPoints], label: 'Jugador'
+      },
+      {
+        backgroundColor: 'rgba(59, 85, 111, 1)',
+        maxBarThickness: 40,
+        data: [this.leaguePoints], label: 'Media de la liga'
+      }
     ];
+
+    this.barChartOptions = {
+    responsive: true,
+    legend: {
+      labels: {
+        fontColor: 'black',
+        fontFamily: '"Open Sans", sans-serif',
+        fontStyle: 'bold'
+      }
+    },
+    scales : {
+      yAxes: [{
+        ticks: {
+          fontFamily: '"Open Sans", sans-serif',
+          fontColor: 'black',
+          fontStyle: 'bold',
+            stepSize: 10,
+            min: 0,
+            max: Math.max(this.playerPoints, this.leaguePoints) + 10
+        }
+      }],
+      xAxes: [{
+        ticks: {
+          fontFamily: '"Open Sans", sans-serif',
+          fontColor: 'black',
+          fontStyle: 'bold'
+        }
+      }]
+    }};
+
   }
 
 }

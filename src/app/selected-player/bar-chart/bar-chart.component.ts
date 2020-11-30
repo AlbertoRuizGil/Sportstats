@@ -10,17 +10,25 @@ import { Component, Input, OnInit } from '@angular/core';
 export class BarChartComponent implements OnInit {
 
   @Input()
-  playerGames: PlayerGame[];
+  get playerGames(): PlayerGame[]{
+    return this._playerGames;
+  }
+
+  set playerGames(newPlayerGames: PlayerGame[]){
+    this._playerGames = newPlayerGames;
+    this.setPlayerStats();
+  }
 
   @Input()
   league: League;
+
+  private _playerGames: PlayerGame[];
 
   playerStats: League;
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.playerGames);
     this.setPlayerStats();
   }
 
@@ -43,7 +51,7 @@ export class BarChartComponent implements OnInit {
       }
     });
 
-    return fieldSucceed / fieldAttemps;
+    return Math.round((fieldSucceed / fieldAttemps) * 100);
   }
 
   setFreePer(): number{
@@ -56,7 +64,7 @@ export class BarChartComponent implements OnInit {
       }
     });
 
-    return freeSucceed / freeAttemps;
+    return Math.round((freeSucceed / freeAttemps) * 100);
   }
 
   setThreePer(): number{
@@ -69,13 +77,12 @@ export class BarChartComponent implements OnInit {
       }
     });
 
-    return threeSucced / threeAttemps;
+    return Math.round((threeSucced / threeAttemps) * 100);
   }
 
   setPointsPerGame(): number{
     let totalPoints = 0;
     this.playerGames.forEach((playerGame: PlayerGame) => {
-      console.log('array');
       totalPoints += playerGame.points;
     });
 
