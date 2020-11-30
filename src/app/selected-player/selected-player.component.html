@@ -3,32 +3,37 @@
 
 <div class="container">
 
-  <div class="player mb-5">
+  <div class="file" >
+    <div class="player mb-5">
 
-    <div class="player-container">
-      <figure class="player-container_img">
-        <img src="../../../assets/img/avatar-generico.png"
-           alt="Foto de jugador"
-           class="player-img" />
-      </figure>
-      <h4 class="player-name">Nombre del Jugador</h4>
+      <div class="player-container">
+        <figure class="player-container_img">
+          <img src="../../../assets/img/avatar-generico.png"
+             alt="Foto de jugador"
+             class="player-img" />
+        </figure>
+        <div class="player-info" *ngIf="player">
+          <h4 class="player-name">{{player.playerName}}</h4>
+          <h5 class="player-number">{{player.playerNumber}}</h5>
+          <h5 class="player-age">{{player.playerAge}} años</h5>
+        </div>
+      </div>
+
+
+      <app-polar-chart [playerGames]="playerGames" class="player-chart"></app-polar-chart>
+
     </div>
 
+    <div class="player-barchart mb-5">
+      <app-bar-chart [league]="league" *ngIf="playerGames && league" [playerGames]="playerGames"></app-bar-chart>
+    </div>
+    <div class="player-table">
+      <app-table-stats></app-table-stats>
+    </div>
+    <div class="player-court">
+      <app-court-stats [playerGames]="playerGames" *ngIf="playerGames"></app-court-stats>
+    </div>
 
-    <app-polar-chart [playerGames]="playerGames" class="player-chart"></app-polar-chart>
-
-  </div>
-
-  <div class="player-barchart mb-5">
-    <app-bar-chart [league]="league" *ngIf="playerGames && league" [playerGames]="playerGames"></app-bar-chart>
-  </div>
-
-  <div class="player-table">
-
-  </div>
-
-  <div class="player-court">
-    <app-court-stats [playerGames]="playerGames" *ngIf="playerGames"></app-court-stats>
   </div>
 
 </div>

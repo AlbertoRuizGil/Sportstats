@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { PlayerGame } from '../shared/inteface/player.interface';
+import { Player, PlayerGame } from '../shared/inteface/player.interface';
 import { League } from '../shared/inteface/team.interface';
 import { AuthService } from '../shared/services/auth.service';
 import { PlayerService } from '../shared/services/player.service';
@@ -17,6 +17,7 @@ export class SelectedPlayerComponent implements OnInit {
   teamId: string;
 
   playerId: string;
+  player: Player;
 
   playerGames: PlayerGame[] = [];
   league: League;
@@ -32,7 +33,14 @@ export class SelectedPlayerComponent implements OnInit {
     this.playerId = this.route.snapshot.paramMap.get('playerId');
     this.authService.currentUser$.subscribe((user: firebase.User) => {
       if (user) {
-        this.playerService.getPlayerGames(user.uid, this.teamId, this.playerId)
+        this.playerService
+        .getPlayerInfo(user.uid, this.teamId, this.playerId)
+        .valueChanges()
+        .subscribe((playerInfo) => {
+          this.player = playerInfo;
+        });
+        this.playerService
+        .getPlayerGames(user.uid, this.teamId, this.playerId)
         .valueChanges()
         .subscribe((games: PlayerGame[]) => {
           games.forEach( (game: PlayerGame) => {
@@ -40,7 +48,8 @@ export class SelectedPlayerComponent implements OnInit {
           });
         });
 
-        this.teamService.getTeamLeague(user.uid, this.teamId)
+        this.teamService
+        .getTeamLeague(user.uid, this.teamId)
         .valueChanges()
         .subscribe((leagues: League[]) => {
           this.league =  leagues[0];

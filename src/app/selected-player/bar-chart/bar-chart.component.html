@@ -1,6 +1,9 @@
 <div class="bar-charts">
 
-  <div class="bar-chart-group">
+  <h4 class="bar-charts-title mb-5">Comparativa Jugador/Liga</h4>
+
+  <div class="bar-charts-stats">
+    <div class="bar-chart-group">
     <div class="bar-chart">
       <app-points *ngIf="playerStats && league" [playerPoints]="playerStats.points" [leaguePoints]="league.points"></app-points>
     </div>
@@ -19,6 +22,9 @@
       <app-three-throw *ngIf="playerStats && league" [playerThree]="playerStats.threePercent" [leagueThree]="league.threePercent"></app-three-throw>
     </div>
   </div>
+  </div>
+
+
 
 
 </div>

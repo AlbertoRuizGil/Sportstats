@@ -1,8 +1,19 @@
 .bar-charts {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  width: 100%;
+  padding: 2rem 4rem;
+  background-color: rgb(215, 229, 235);
+
+  &-title {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &-stats {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+  }
 }
 
 .bar-chart {

@@ -25,7 +25,6 @@ export class CourtStatsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log('court-stats', this.playerGames);
     this.setPercents();
   }
 

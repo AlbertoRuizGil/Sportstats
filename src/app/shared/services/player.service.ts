@@ -8,8 +8,6 @@ import { Player, PlayerGame } from '../inteface/player.interface';
 })
 export class PlayerService {
 
-  private playersCollection: AngularFirestoreCollection<any>;
-
   constructor(private firestore: AngularFirestore) { }
 
   getPlayers(userId: string, teamId: string): AngularFirestoreCollection<Player> {

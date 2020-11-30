@@ -39,3 +39,22 @@ export interface PlayerGeneralStats{
   freePer: number;
 }
 
+export interface PlayerTable{
+  playerInfo: Player;
+  playerCompleteStats: PlayerCompleteStats;
+}
+
+export interface PlayerCompleteStats{
+  games: number;
+  pointsPerGame: number;
+  fieldPerGame: number;
+  fieldPercent: number;
+  threePercent: number;
+  freePercent: number;
+  offRebound: number;
+  defRebound: number;
+  assists: number;
+  steals: number;
+  foulsMade: number;
+}
+
