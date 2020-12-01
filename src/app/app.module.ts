@@ -35,6 +35,7 @@ import { FieldGoalComponent } from './selected-player/bar-chart/field-goal/field
 import { PolarChartComponent } from './selected-player/polar-chart/polar-chart.component';
 import { CourtStatsComponent } from './selected-player/court-stats/court-stats.component';
 import { TableStatsComponent } from './selected-player/table-stats/table-stats.component';
+import { TeamGameComponent } from './fill-game/team-game/team-game.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { TableStatsComponent } from './selected-player/table-stats/table-stats.c
     FieldGoalComponent,
     PolarChartComponent,
     CourtStatsComponent,
-    TableStatsComponent
+    TableStatsComponent,
+    TeamGameComponent
   ],
   imports: [
     BrowserModule,

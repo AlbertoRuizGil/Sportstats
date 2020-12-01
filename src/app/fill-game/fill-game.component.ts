@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
-import { Player } from '../shared/inteface/player.interface';
+import { Player, PlayerForm } from '../shared/inteface/player.interface';
 import { Game } from '../shared/inteface/team.interface';
 import { AuthService } from '../shared/services/auth.service';
 import { PlayerService } from '../shared/services/player.service';
@@ -15,9 +15,12 @@ import { TeamService } from '../shared/services/team.service';
 })
 export class FillGameComponent implements OnInit {
 
+  private userId: string;
   teamId: string;
   selectForm: FormGroup;
-  playersForm: FormArray;
+  tableForm: FormGroup;
+  playersForm: PlayerForm[] = [];
+  matchId: string = null;
   games: Game[];
 
   constructor(
@@ -29,23 +32,19 @@ export class FillGameComponent implements OnInit {
 
   ngOnInit(): void {
     this.buildSelectForm();
-    this.buildPlayerForm();
+    this.buildTableForm();
 
     this.teamId = this.route.snapshot.paramMap.get('teamId');
     this.authService.currentUser$.subscribe((user: firebase.User) => {
       if (user) {
+        this.userId = user.uid;
         this.teamService.getGames(user.uid, this.teamId)
         .valueChanges({idField: 'matchId'})
         .subscribe((gamesReturned: Game[]) => {
           this.games = gamesReturned;
         });
 
-        this.playerService.getPlayers(user.uid, this.teamId).valueChanges({idField: 'playerId'})
-        .subscribe((players: Player[]) => {
-          players.forEach((player: Player) => {
-            this.onNewPlayer();
-          });
-        });
+
       }
     });
 
@@ -57,9 +56,13 @@ export class FillGameComponent implements OnInit {
     });
   }
 
-  buildPlayerForm(): void{
-    this.playersForm = new FormArray([]);
+  buildTableForm(): void{
+    this.tableForm = new FormGroup({
+      goalsFor: new FormControl('0', Validators.required),
+      goalsAgainst: new FormControl('0', Validators.required)
+    });
   }
+
 
   private newPlayerForm(): FormGroup{
     return new FormGroup({
@@ -84,14 +87,29 @@ export class FillGameComponent implements OnInit {
     });
   }
 
-  onNewPlayer(): void {
-    this.playersForm.controls.push(this.newPlayerForm());
+  onNewPlayer(player: Player): void {
+    let newplayerForm: PlayerForm;
+
+    newplayerForm = {
+      playerInfo: player,
+      playerform: this.newPlayerForm()
+    };
+
+    this.playersForm.push(newplayerForm);
   }
 
 
 
   onChangeSelect(): void{
-    this.playersForm = new FormArray([]);
+    this.matchId = this.selectForm.controls.match.value;
+
+    this.playerService.getPlayers(this.userId, this.teamId).valueChanges({idField: 'playerId'})
+      .subscribe((players: Player[]) => {
+        players.forEach((player: Player) => {
+          console.log('fill-game: create player-game', player);
+          this.onNewPlayer(player);
+        });
+      });
   }
 
 }

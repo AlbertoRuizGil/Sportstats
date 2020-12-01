@@ -1,5 +1,5 @@
+import { PlayerForm } from '@/app/shared/inteface/player.interface';
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-player-game',
@@ -9,12 +9,14 @@ import { FormGroup } from '@angular/forms';
 export class PlayerGameComponent implements OnInit {
 
   @Input()
-  form: FormGroup;
+  onePlayerForm: PlayerForm;
   didPlay = true;
 
   constructor() { }
 
   ngOnInit(): void {
+
+    console.log(this.onePlayerForm);
   }
 
 }

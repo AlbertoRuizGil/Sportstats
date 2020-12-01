@@ -1,3 +1,5 @@
+import { FormGroup } from '@angular/forms';
+
 export interface Player{
   playerId?: string;
   playerName: string;
@@ -56,5 +58,10 @@ export interface PlayerCompleteStats{
   assists: number;
   steals: number;
   foulsMade: number;
+}
+
+export interface PlayerForm{
+  playerInfo: Player;
+  playerform: FormGroup;
 }
 

@@ -194,3 +194,35 @@
 .inputSpan {
   font-size: 2.5rem;
 }
+
+@media (max-width: 1024px) {
+  .player {
+    &-form {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 0.5fr 2.5fr 1fr 1fr;
+      grid-template-areas:
+        "info info"
+        "attack attack "
+        "defense precission"
+        "attackDirection didPlay";
+    }
+
+    &-attack {
+      border-right: none;
+
+      &-forms {
+        justify-items: center;
+        align-items: center;
+
+        &-left {
+          width: 100%;
+        }
+      }
+    }
+
+    &-didPlay {
+      align-self: end;
+    }
+
+  }
+}

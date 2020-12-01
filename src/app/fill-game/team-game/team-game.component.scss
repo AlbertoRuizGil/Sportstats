@@ -1,0 +1,79 @@
+@import 'variables.scss';
+
+.table-container {
+  margin-bottom: 10rem;
+  width: 100%;
+  height: 30rem;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table {
+  //border: 3px solid $color-dark-pink;
+  min-width: 50rem;
+  border: 3px solid black;
+  border-spacing: 0;
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.747);
+}
+
+.tr {
+  background-color: rgb(183, 194, 206);
+}
+
+.th,
+.td {
+  padding: 2rem;
+  text-align: center;
+  width: 12rem;
+  height: 10rem;
+}
+
+.th {
+  text-transform: uppercase;
+  //background: linear-gradient(to right bottom, #264c72 50%, #2f3c49 100%);
+  background-color: #264c72;
+  color: white;
+}
+
+.th:not(:last-child) {
+  border-right: 4px solid black;
+}
+
+.td:not(:last-child) {
+  border-right: 4px solid black;
+}
+
+.tr:nth-child(odd) {
+  background-color: rgb(215, 229, 235);
+}
+
+.input-number {
+  text-align: center;
+  font-size: 3rem;
+  width: 7rem;
+  height: 6rem;
+  border: 4px solid #dbdbdb;
+  -moz-appearance: textfield;
+  outline-offset: 0px !important;
+  outline: none !important;
+
+  &:hover,
+  &:focus {
+    border-color: $color-dark-pink;
+  }
+}
+
+@media (max-width: 1024px) {
+  .table {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .table {
+    font-size: 2rem;
+    min-width: 40rem;
+  }
+}

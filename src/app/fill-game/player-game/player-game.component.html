@@ -1,4 +1,4 @@
-<div class="player">
+<div class="player mb-5">
 
   <div class="player-dontPlay mb-3" *ngIf="!didPlay">
     <div class="player-dontPlay-info">
@@ -15,7 +15,7 @@
     </div>
   </div>
 
-  <form [formGroup]="form" class="player-form mb-3" *ngIf="didPlay">
+  <form [formGroup]="onePlayerForm.playerform" *ngIf="didPlay" class="player-form mb-3">
 
     <div class="player-info">
       <figure class="player-container_img">
@@ -40,7 +40,7 @@
 
           <div class="label-input">
             <label for="offRebound" class="label mb-1">Rebotes ofensivos</label>
-            <input type="number" name="offRebound" class="input-number">
+            <input type="number" name="offRebound" class="input-number" formControlName="offRebound">
           </div>
 
           <div class="label-input">
@@ -140,17 +140,17 @@
 
         <div class="hoz-label-input">
           <label for="attackLeft" class="label mr-1">Izquierda</label>
-          <input type="number" name="attackLeft" class="input-number">
+          <input type="number" name="attackLeft" class="input-number" formControlName="attackLeft">
         </div>
 
         <div class="hoz-label-input">
           <label for="attackCenter" class="label mr-1">Centro</label>
-          <input type="number" name="attackCenter" class="input-number">
+          <input type="number" name="attackCenter" class="input-number" formControlName="attackCenter">
         </div>
 
         <div class="hoz-label-input">
           <label for="attackRight" class="label mr-1">Derecha</label>
-          <input type="number" name="attackRight" class="input-number">
+          <input type="number" name="attackRight" class="input-number" formControlName="attackRight">
         </div>
 
       </div>

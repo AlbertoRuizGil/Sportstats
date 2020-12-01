@@ -18,7 +18,14 @@
     </form>
   </div>
 
-  <app-player-game *ngFor="let playerForm of playersForm.controls" [form] = "playerForm"></app-player-game>
+  <div class="table-form" *ngIf="selectForm.controls.match.value !==''">
+    <app-team-game [form]="tableForm"></app-team-game>
+  </div>
+
+  <div class="players-form" *ngIf="selectForm.controls.match.value !==''">
+    <app-player-game  *ngFor="let onePlayerForm of playersForm"></app-player-game>
+  </div>
+
 
 </div>
 
