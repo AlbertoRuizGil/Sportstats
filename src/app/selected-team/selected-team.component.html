@@ -25,10 +25,12 @@
     <button class="btn btn-dark btn-big pad">Añadir partido</button>
   </div>
 
+  <h4 class="stats-title">Estadísticas equipo</h4>
+
   <app-table-info-team *ngIf="games && games.length" [games]="games"></app-table-info-team>
   <span *ngIf="!games || !games.length">No hay estadísticas.</span>
 
-  <h4 class="stats-title">Estadísticas</h4>
+  <h4 class="stats-title">Estadísticas jugadores</h4>
 
   <app-table-info-players></app-table-info-players>
 

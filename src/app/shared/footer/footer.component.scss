@@ -15,52 +15,52 @@
   border: 1px solid rgba(255, 255, 255, 0.452);
 }
 
-.privacy-social{
+.privacy-social {
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
   width: 100%;
 }
 
-.social{
+.social {
   display: flex;
   flex-direction: column;
 
-  &-text{
+  &-text {
     margin-bottom: 2rem;
   }
 
-  &-title{
+  &-title {
     font-size: 2rem;
     text-transform: uppercase;
     font-family: 'Ranchers',
-    cursive;
+      cursive;
     text-align: center;
   }
 
-  &-logos{
+  &-logos {
     & :not(:last-child) {
       margin-right: 1rem;
     }
   }
 
 
-  &-logo{
+  &-logo {
     width: 4rem;
     transition: all .3s;
 
-    &:hover{
+    &:hover {
       transform: scale(1.2);
     }
   }
 }
 
 .privacy {
-  &-text{
+  &-text {
     font-size: 1rem;
   }
 
-  &-designer{
+  &-designer {
     font-weight: bold;
   }
 }
@@ -100,8 +100,8 @@
     }
   }
 
-  .privacy{
-    &-text{
+  .privacy {
+    &-text {
       font-size: .7rem;
     }
   }

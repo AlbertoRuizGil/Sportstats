@@ -48,4 +48,46 @@
   .container {
     padding: 6rem;
   }
+
+  .select {
+
+    &-form {
+      width: 25rem;
+      font-size: 1.8rem;
+    }
+  }
+
+  .main-title {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .container {
+    min-height: 65vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 3rem;
+  }
+
+  .select {
+
+    &-form {
+      width: 23rem;
+      font-size: 1.6rem;
+    }
+  }
+
+  .main-title {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .container {
+    min-height: 70vh;
+  }
 }
