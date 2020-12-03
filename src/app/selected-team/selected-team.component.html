@@ -2,7 +2,10 @@
 
 <div class="container animated fadeIn">
 
-  <h3 class="team-name">{{teamInfo?.name}}</h3>
+  <div class="team">
+    <h3 class="team-name">{{teamInfo?.name}}</h3>
+  </div>
+
   <div class="team-info">
 <div>
     <figure class="team-form-container_img">
@@ -35,7 +38,7 @@
   <app-table-info-players></app-table-info-players>
 
   <div class="players">
-    <h4 class="playersTitle">Jugadores</h4>
+    <h4 class="stats-title">Jugadores</h4>
     <div class="playersList">
       <div class="player-file"
            *ngFor="let player of players | async">
