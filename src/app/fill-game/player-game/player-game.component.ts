@@ -15,8 +15,6 @@ export class PlayerGameComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
-    console.log(this.onePlayerForm);
   }
 
 }

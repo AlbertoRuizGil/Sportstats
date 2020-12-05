@@ -43,8 +43,20 @@ export class FillGameComponent implements OnInit {
         .subscribe((gamesReturned: Game[]) => {
           this.games = gamesReturned;
         });
+      }
+    });
 
-
+    this.selectForm.get('match').valueChanges.subscribe((value: string) => {
+      this.playersForm = [];
+      if (value) {
+        this.matchId = value;
+        this.playerService.getPlayers(this.userId, this.teamId).valueChanges({idField: 'playerId'})
+        .subscribe((players: Player[]) => {
+          for (const player of players) {
+              console.log('fill-game: create player-game', player);
+              this.onNewPlayer(player);
+            }
+          });
       }
     });
 
@@ -58,7 +70,7 @@ export class FillGameComponent implements OnInit {
 
   buildTableForm(): void{
     this.tableForm = new FormGroup({
-      goalsFor: new FormControl('0', Validators.required),
+      goalsFor: new FormControl({ value: '0', disabled: true }, Validators.required),
       goalsAgainst: new FormControl('0', Validators.required)
     });
   }
@@ -88,28 +100,11 @@ export class FillGameComponent implements OnInit {
   }
 
   onNewPlayer(player: Player): void {
-    let newplayerForm: PlayerForm;
-
-    newplayerForm = {
+    const newplayerForm: PlayerForm = {
       playerInfo: player,
       playerform: this.newPlayerForm()
     };
 
     this.playersForm.push(newplayerForm);
   }
-
-
-
-  onChangeSelect(): void{
-    this.matchId = this.selectForm.controls.match.value;
-
-    this.playerService.getPlayers(this.userId, this.teamId).valueChanges({idField: 'playerId'})
-      .subscribe((players: Player[]) => {
-        players.forEach((player: Player) => {
-          console.log('fill-game: create player-game', player);
-          this.onNewPlayer(player);
-        });
-      });
-  }
-
 }
