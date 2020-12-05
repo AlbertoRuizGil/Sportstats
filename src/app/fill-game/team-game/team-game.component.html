@@ -1,12 +1,20 @@
-<form class="table-container" [formGroup]="form">
+<form class="table-container"
+      [formGroup]="form">
   <table class="table">
     <tr class="tr">
       <th class="th">Puntos a favor</th>
       <th class="th">Puntos en contra</th>
     </tr>
     <tr class="tr">
-      <td class="td"><input type="number" name="goalsFor" class="input-number" formControlName="goalsFor" disabled></td>
-      <td class="td"><input type="number" name="goalsAgainst" class="input-number" formControlName="goalsAgainst"></td>
+      <td class="td"><input type="number"
+               name="goalsFor"
+               class="input-number"
+               formControlName="goalsFor"
+               disabled></td>
+      <td class="td"><input type="number"
+               name="goalsAgainst"
+               class="input-number"
+               formControlName="goalsAgainst"></td>
     </tr>
   </table>
 </form>

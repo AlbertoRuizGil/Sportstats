@@ -1,4 +1,6 @@
-<app-navbar [status]="'end'" [route]="'/userTeams'" [showBack]="true"></app-navbar>
+<app-navbar [status]="'end'"
+            [route]="'/userTeams'"
+            [showBack]="true"></app-navbar>
 
 <div class="container animated fadeIn">
 
@@ -7,30 +9,34 @@
   </div>
 
   <div class="team-info">
-<div>
-    <figure class="team-form-container_img">
-      <img src="/assets/img/genericShield.jpg"
-           alt="Escudo"
-           class="team-form-img" />
-    </figure>
-</div>
+    <div>
+      <figure class="team-form-container_img">
+        <img src="/assets/img/genericShield.jpg"
+             alt="Escudo"
+             class="team-form-img" />
+      </figure>
+    </div>
     <div class="team-games">
       <h3 class="team-games-title">Proximo partido</h3>
       <hr class="hr">
-      <p *ngIf="nextGame === undefined" class="team-nextgame">No hay próximos partidos</p>
-      <p *ngIf="nextGame != null" class="team-nextgame">{{nextGame.matchDate | date:'dd/MM/yyyy'}} vs {{nextGame.rivalTeam}}</p>
+      <p *ngIf="nextGame === undefined"
+         class="team-nextgame">No hay próximos partidos</p>
+      <p *ngIf="nextGame != null"
+         class="team-nextgame">{{nextGame.matchDate | date:'dd/MM/yyyy'}} vs {{nextGame.rivalTeam}}</p>
       <hr class="hr">
     </div>
   </div>
 
   <div class="buttons">
-    <a class="btn btn-dark btn-big pad" [routerLink]="['/team/', teamId, 'games']" >Rellenar partido</a>
+    <a class="btn btn-dark btn-big pad"
+       [routerLink]="['/team/', teamId, 'games']">Rellenar partido</a>
     <button class="btn btn-dark btn-big pad">Añadir partido</button>
   </div>
 
   <h4 class="stats-title">Estadísticas equipo</h4>
 
-  <app-table-info-team *ngIf="games && games.length" [games]="games"></app-table-info-team>
+  <app-table-info-team *ngIf="games && games.length"
+                       [games]="games"></app-table-info-team>
   <span *ngIf="!games || !games.length">No hay estadísticas.</span>
 
   <h4 class="stats-title">Estadísticas jugadores</h4>

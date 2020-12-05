@@ -102,98 +102,101 @@
 }
 
 
-@media (max-width: 1024px){
-  .container-session{
+@media (max-width: 1024px) {
+  .container-session {
     background-position: center;
   }
-  .logo{
-    &-img{
+
+  .logo {
+    &-img {
       width: 4rem;
       height: 4rem;
     }
 
-    &-title{
+    &-title {
       font-size: 2.5rem;
     }
   }
 
-  .form-session{
+  .form-session {
     min-width: 40%;
     height: 65vh;
-    &-label{
+
+    &-label {
       font-size: 1.8rem;
     }
 
-    &-inpput{
+    &-inpput {
       height: 3.5rem;
       font-size: 1.5rem;
     }
 
-    &-submit{
+    &-submit {
       font-size: 1.5rem;
     }
   }
 
-  .wrong{
-
-  }
+  .wrong {}
 }
 
 @media (max-width: 1024px) {
-  .form-session{
+  .form-session {
     min-width: 400px;
 
-    &-input{
+    &-input {
       height: 3.5rem;
       font-size: 1.2rem;
     }
   }
 
-  .wrong{
+  .wrong {
     font-size: 1.2rem;
   }
 }
 
 @media (max-width: 425px) {
-  .logo{
-    &-img{
+  .logo {
+    &-img {
       width: 3rem;
       height: 3rem;
     }
-    &-title{
+
+    &-title {
       font-size: 2rem;
     }
   }
-  .container-session{
+
+  .container-session {
     background-position: right;
     padding: 2rem;
   }
-  .form-session{
+
+  .form-session {
     min-width: 90%;
     min-height: 70%;
     top: 50%;
 
-    &-label{
+    &-label {
       font-size: 1.5rem;
     }
 
-    &-input{
+    &-input {
       font-size: 1.3rem;
       height: 3rem;
     }
 
-    &-submit{
+    &-submit {
       font-size: 1.2rem;
     }
 
-    &-text{
+    &-text {
       font-size: 1.2rem;
     }
   }
 }
 
 @media (max-width: 350px) {
-  .form-session{
+  .form-session {
     min-height: 90%;
   }
 }

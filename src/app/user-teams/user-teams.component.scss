@@ -1,6 +1,6 @@
 @import 'variables.scss';
 
-.teams-container{
+.teams-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -12,7 +12,7 @@
   background-image: linear-gradient(to right bottom, #60ccf3 50%, rgba(96, 204, 243, 0.8));
 }
 
-.team-box{
+.team-box {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -27,21 +27,21 @@
   color: white;
   cursor: pointer;
 
-  &:hover{
+  &:hover {
     transform: scale(1.1);
     border-color: $color-dark-pink;
-    color:$color-dark-pink;
+    color: $color-dark-pink;
   }
 
-  &_plus{
+  &_plus {
     font-size: 7rem;
   }
 
-  &_name{
+  &_name {
     font-size: 3.5rem;
   }
 
-  &_sport{
+  &_sport {
     font-size: 3rem;
     font-style: italic;
   }
@@ -52,6 +52,7 @@
   .team-box {
     width: 20rem;
     height: 20rem;
+
     &_plus {
       font-size: 5rem;
     }
@@ -68,9 +69,10 @@
 }
 
 @media (max-width: 768px) {
-  .teams-container{
+  .teams-container {
     min-height: 65vh;
   }
+
   .team-box {
     width: 17rem;
     height: 17rem;
@@ -90,9 +92,8 @@
   }
 }
 
-@media (max-width: 425px){
-  .teams-container{
+@media (max-width: 425px) {
+  .teams-container {
     min-height: 70vh;
   }
 }
-

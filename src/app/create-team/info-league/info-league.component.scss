@@ -28,29 +28,29 @@
 }
 
 @media (max-width: 1024px) {
-  .basket-field{
-    &-input{
+  .basket-field {
+    &-input {
       width: 5rem;
     }
   }
 }
 
 @media (max-width: 600px) {
-  .basket-field{
+  .basket-field {
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    &-label{
+    &-label {
       font-size: 1.3rem;
     }
   }
 }
 
 @media (max-width: 450px) {
-.basket-field {
-  &-input {
-    width: 4rem;
+  .basket-field {
+    &-input {
+      width: 4rem;
+    }
   }
-}
 }

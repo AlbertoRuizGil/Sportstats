@@ -1,35 +1,49 @@
 <div class="stats-table-container">
-      <table class="stats-table">
-        <tr>
-          <th class="stats-th">Jugador</th>
-          <th title="Partidos jugados" class="stats-th">PJ</th>
-          <th title="Puntos por partido" class="stats-th">PPP</th>
-          <th title="Canastas de campo por partido" class="stats-th">CC</th>
-          <th title="% Canastas de campo" class="stats-th">CC%</th>
-          <th title="% Triples" class="stats-th">3P%</th>
-          <th title="% Tiros libres" class="stats-th">TL%</th>
-          <th title="Rebotes ofensivos" class="stats-th">RO</th>
-          <th title="Rebotes defensivos" class="stats-th">RD</th>
-          <th title="Asistencias" class="stats-th">A</th>
-          <th title="Robos" class="stats-th">R</th>
-          <th title="Faltas" class="stats-th">F</th>
-        </tr>
-        <tr class="stats-tr" *ngIf="playerTable">
-          <td class="stats-td stats-name">{{playerTable.playerInfo.playerName}}</td>
-          <td class="stats-td">{{playerTable.playerCompleteStats.games | number:'1.2-2'}}</td>
-          <td class="stats-td">{{playerTable.playerCompleteStats.pointsPerGame | number:'1.2-2'}}</td>
-          <td class="stats-td">{{playerTable.playerCompleteStats.fieldPerGame | number:'1.2-2'}}</td>
-          <td class="stats-td">{{playerTable.playerCompleteStats.fieldPercent | number:'1.2-2'}}%</td>
-          <td class="stats-td">{{playerTable.playerCompleteStats.threePercent | number:'1.2-2'}}%</td>
-          <td class="stats-td">{{playerTable.playerCompleteStats.freePercent | number:'1.2-2'}}%</td>
-          <td class="stats-td">{{playerTable.playerCompleteStats.offRebound | number:'1.2-2'}}</td>
-          <td class="stats-td">{{playerTable.playerCompleteStats.defRebound | number:'1.2-2'}}</td>
-          <td class="stats-td">{{playerTable.playerCompleteStats.assists | number:'1.2-2'}}</td>
-          <td class="stats-td">{{playerTable.playerCompleteStats.steals | number:'1.2-2'}}</td>
-          <td class="stats-td">{{playerTable.playerCompleteStats.foulsMade | number:'1.2-2'}}</td>
-        </tr>
-        <tr class="stats-tr" *ngIf="!playerTable">
-          <td class="stats-td" colspan="12">No hay Estadísticas de este jugador</td>
-        </tr>
-      </table>
+  <table class="stats-table">
+    <tr>
+      <th class="stats-th">Jugador</th>
+      <th title="Partidos jugados"
+          class="stats-th">PJ</th>
+      <th title="Puntos por partido"
+          class="stats-th">PPP</th>
+      <th title="Canastas de campo por partido"
+          class="stats-th">CC</th>
+      <th title="% Canastas de campo"
+          class="stats-th">CC%</th>
+      <th title="% Triples"
+          class="stats-th">3P%</th>
+      <th title="% Tiros libres"
+          class="stats-th">TL%</th>
+      <th title="Rebotes ofensivos"
+          class="stats-th">RO</th>
+      <th title="Rebotes defensivos"
+          class="stats-th">RD</th>
+      <th title="Asistencias"
+          class="stats-th">A</th>
+      <th title="Robos"
+          class="stats-th">R</th>
+      <th title="Faltas"
+          class="stats-th">F</th>
+    </tr>
+    <tr class="stats-tr"
+        *ngIf="playerTable">
+      <td class="stats-td stats-name">{{playerTable.playerInfo.playerName}}</td>
+      <td class="stats-td">{{playerTable.playerCompleteStats.games | number:'1.2-2'}}</td>
+      <td class="stats-td">{{playerTable.playerCompleteStats.pointsPerGame | number:'1.2-2'}}</td>
+      <td class="stats-td">{{playerTable.playerCompleteStats.fieldPerGame | number:'1.2-2'}}</td>
+      <td class="stats-td">{{playerTable.playerCompleteStats.fieldPercent | number:'1.2-2'}}%</td>
+      <td class="stats-td">{{playerTable.playerCompleteStats.threePercent | number:'1.2-2'}}%</td>
+      <td class="stats-td">{{playerTable.playerCompleteStats.freePercent | number:'1.2-2'}}%</td>
+      <td class="stats-td">{{playerTable.playerCompleteStats.offRebound | number:'1.2-2'}}</td>
+      <td class="stats-td">{{playerTable.playerCompleteStats.defRebound | number:'1.2-2'}}</td>
+      <td class="stats-td">{{playerTable.playerCompleteStats.assists | number:'1.2-2'}}</td>
+      <td class="stats-td">{{playerTable.playerCompleteStats.steals | number:'1.2-2'}}</td>
+      <td class="stats-td">{{playerTable.playerCompleteStats.foulsMade | number:'1.2-2'}}</td>
+    </tr>
+    <tr class="stats-tr"
+        *ngIf="!playerTable">
+      <td class="stats-td"
+          colspan="12">No hay Estadísticas de este jugador</td>
+    </tr>
+  </table>
 </div>

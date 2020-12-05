@@ -1,11 +1,11 @@
-
 <div class="matches-data mb-5">
 
   <app-info-game *ngFor="let gameForm of form.controls; let indexGame = index"
-  [form]= "gameForm"
-  [gameNumber] = "indexGame"
-  (deleteBtn)="deleteBtnHandler(gameForm)"></app-info-game>
+                 [form]="gameForm"
+                 [gameNumber]="indexGame"
+                 (deleteBtn)="deleteBtnHandler(gameForm)"></app-info-game>
 
-  <button (click)="onNewGame()" class="add-btn">+ Añadir partido</button>
+  <button (click)="onNewGame()"
+          class="add-btn">+ Añadir partido</button>
 
 </div>

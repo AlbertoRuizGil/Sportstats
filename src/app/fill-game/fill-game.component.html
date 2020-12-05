@@ -9,21 +9,29 @@
 
   <div class="select-container mb-5">
     <form [formGroup]="selectForm">
-      <select formControlName="match" class="select-form" (change)="onChangeSelect()">
-        <option value selected="selected" disabled>Selecciona un partido</option>
-        <option *ngFor="let game of games" value="{{game.matchId}}" >
+      <select formControlName="match"
+              class="select-form"
+              (change)="onChangeSelect()">
+        <option value
+                selected="selected"
+                disabled>Selecciona un partido</option>
+        <option *ngFor="let game of games"
+                value="{{game.matchId}}">
           {{game.rivalTeam}} - {{game.matchDate | date:'dd/MM/yyyy'}}
         </option>
       </select>
     </form>
   </div>
 
-  <div class="table-form" *ngIf="selectForm.controls.match.value !==''">
+  <div class="table-form"
+       *ngIf="selectForm.controls.match.value !==''">
     <app-team-game [form]="tableForm"></app-team-game>
   </div>
 
-  <div class="players-form" *ngIf="playersForm">
-    <app-player-game  *ngFor="let onePlayerForm of playersForm" [onePlayerForm]=playersForm></app-player-game>
+  <div class="players-form"
+       *ngIf="playersForm">
+    <app-player-game *ngFor="let onePlayerForm of playersForm"
+                     [onePlayerForm]=playersForm></app-player-game>
   </div>
 
 

@@ -1,16 +1,17 @@
-<app-navbar [status]="'end'" [route]="'/userTeams'" [showBack]="false"></app-navbar>
+<app-navbar [status]="'end'"
+            [route]="'/userTeams'"
+            [showBack]="false"></app-navbar>
 
 <div class="teams-container">
-  <a class="team-box" [routerLink]="['/createTeam']">
+  <a class="team-box"
+     [routerLink]="['/createTeam']">
     <h4 class="team-box_name">Añadir equipo</h4>
     <p class="team-box_plus">+</p>
   </a>
 
-  <a
-    class="team-box"
-    *ngFor="let team of teams | async"
-    [routerLink]="['/team/', team.teamId]"
-  >
+  <a class="team-box"
+     *ngFor="let team of teams | async"
+     [routerLink]="['/team/', team.teamId]">
     <h4 class="team-box_name">{{ (team.name.length > 10) ? (team.name | slice:0:10)+'...':(team.name) }}</h4>
     <p class="team-box_sport">{{ team.sport }}</p>
   </a>

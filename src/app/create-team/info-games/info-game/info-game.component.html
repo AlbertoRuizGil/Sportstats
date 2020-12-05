@@ -1,4 +1,5 @@
-<form [formGroup]= "form" class="match mb-2 animatedSlow appear">
+<form [formGroup]="form"
+      class="match mb-2 animatedSlow appear">
 
   <div class="delete">
     <button class="delete-btn"
@@ -11,7 +12,7 @@
              class="match-label">Nombre del equipo rival</label>
       <input type="text"
              name="rivalTeam"
-             formControlName = "rivalTeam"
+             formControlName="rivalTeam"
              class="input match-input" />
     </div>
     <div class="match-data">
@@ -19,11 +20,9 @@
              class="match-label">Fecha del partido</label>
       <input type="date"
              name="matchDate"
-             formControlName = "matchDate"
+             formControlName="matchDate"
              class="input match-input" />
     </div>
   </div>
 
 </form>
-
-

@@ -17,25 +17,25 @@ import { InfoPlayersComponent } from './create-team/info-players/info-players.co
 import { InfoTeamComponent } from './create-team/info-team/info-team.component';
 import { FillGameComponent } from './fill-game/fill-game.component';
 import { PlayerGameComponent } from './fill-game/player-game/player-game.component';
+import { TeamGameComponent } from './fill-game/team-game/team-game.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BarChartComponent } from './selected-player/bar-chart/bar-chart.component';
+import { FieldGoalComponent } from './selected-player/bar-chart/field-goal/field-goal.component';
+import { FreeThrowComponent } from './selected-player/bar-chart/free-throw/free-throw.component';
+import { PointsComponent } from './selected-player/bar-chart/points/points.component';
+import { ThreeThrowComponent } from './selected-player/bar-chart/three-throw/three-throw.component';
+import { CourtStatsComponent } from './selected-player/court-stats/court-stats.component';
+import { PolarChartComponent } from './selected-player/polar-chart/polar-chart.component';
 import { SelectedPlayerComponent } from './selected-player/selected-player.component';
+import { TableStatsComponent } from './selected-player/table-stats/table-stats.component';
 import { SelectedTeamComponent } from './selected-team/selected-team.component';
 import { TableInfoPlayersComponent } from './selected-team/table-info-players/table-info-players.component';
 import { TableInfoTeamComponent } from './selected-team/table-info-team/table-info-team.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { UserTeamsComponent } from './user-teams/user-teams.component';
-import { PointsComponent } from './selected-player/bar-chart/points/points.component';
-import { FreeThrowComponent } from './selected-player/bar-chart/free-throw/free-throw.component';
-import { ThreeThrowComponent } from './selected-player/bar-chart/three-throw/three-throw.component';
-import { FieldGoalComponent } from './selected-player/bar-chart/field-goal/field-goal.component';
-import { PolarChartComponent } from './selected-player/polar-chart/polar-chart.component';
-import { CourtStatsComponent } from './selected-player/court-stats/court-stats.component';
-import { TableStatsComponent } from './selected-player/table-stats/table-stats.component';
-import { TeamGameComponent } from './fill-game/team-game/team-game.component';
 
 @NgModule({
   declarations: [

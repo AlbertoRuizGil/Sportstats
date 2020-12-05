@@ -10,11 +10,11 @@ import { Component, Input, OnInit } from '@angular/core';
 export class BarChartComponent implements OnInit {
 
   @Input()
-  get playerGames(): PlayerGame[]{
+  get playerGames(): PlayerGame[] {
     return this._playerGames;
   }
 
-  set playerGames(newPlayerGames: PlayerGame[]){
+  set playerGames(newPlayerGames: PlayerGame[]) {
     this._playerGames = newPlayerGames;
     this.setPlayerStats();
   }
@@ -22,9 +22,9 @@ export class BarChartComponent implements OnInit {
   @Input()
   league: League;
 
-  private _playerGames: PlayerGame[];
-
   playerStats: League;
+
+  private _playerGames: PlayerGame[];
 
   constructor() { }
 

@@ -52,7 +52,7 @@ export class SelectedPlayerComponent implements OnInit {
         .getTeamLeague(user.uid, this.teamId)
         .valueChanges()
         .subscribe((leagues: League[]) => {
-          this.league =  leagues[0];
+          this.league = leagues[0];
         });
       }
     });

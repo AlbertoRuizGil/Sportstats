@@ -1,20 +1,26 @@
 <div class="stats-table-container">
-      <table class="stats-table">
-        <tr>
-          <th class="stats-th">Jugadores</th>
-          <th title="Partidos jugados" class="stats-th">PJ</th>
-          <th title="Puntos por partido" class="stats-th">PPP</th>
-          <th title="% Canastas de campo" class="stats-th">CC%</th>
-          <th title="% Triples" class="stats-th">3P%</th>
-          <th title="% Tiros libres" class="stats-th">TL%</th>
-        </tr>
-        <tr *ngFor="let player of playersGeneralTable" class="stats-tr">
-          <td class="stats-td stats-name">{{player.playerInfo.playerName}}</td>
-          <td class="stats-td">{{player.playerGeneralStats.games | number:'1.2-2'}}</td>
-          <td class="stats-td">{{player.playerGeneralStats.pointsPerGame | number:'1.2-2'}}</td>
-          <td class="stats-td">{{player.playerGeneralStats.fieldPer * 100 | number:'1.2-2'}}%</td>
-          <td class="stats-td">{{player.playerGeneralStats.threePer * 100 | number:'1.2-2'}}%</td>
-          <td class="stats-td">{{player.playerGeneralStats.freePer * 100 | number:'1.2-2'}}%</td>
-        </tr>
-      </table>
+  <table class="stats-table">
+    <tr>
+      <th class="stats-th">Jugadores</th>
+      <th title="Partidos jugados"
+          class="stats-th">PJ</th>
+      <th title="Puntos por partido"
+          class="stats-th">PPP</th>
+      <th title="% Canastas de campo"
+          class="stats-th">CC%</th>
+      <th title="% Triples"
+          class="stats-th">3P%</th>
+      <th title="% Tiros libres"
+          class="stats-th">TL%</th>
+    </tr>
+    <tr *ngFor="let player of playersGeneralTable"
+        class="stats-tr">
+      <td class="stats-td stats-name">{{player.playerInfo.playerName}}</td>
+      <td class="stats-td">{{player.playerGeneralStats.games | number:'1.2-2'}}</td>
+      <td class="stats-td">{{player.playerGeneralStats.pointsPerGame | number:'1.2-2'}}</td>
+      <td class="stats-td">{{player.playerGeneralStats.fieldPer * 100 | number:'1.2-2'}}%</td>
+      <td class="stats-td">{{player.playerGeneralStats.threePer * 100 | number:'1.2-2'}}%</td>
+      <td class="stats-td">{{player.playerGeneralStats.freePer * 100 | number:'1.2-2'}}%</td>
+    </tr>
+  </table>
 </div>

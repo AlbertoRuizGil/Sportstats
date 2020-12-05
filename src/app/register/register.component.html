@@ -31,7 +31,8 @@
     <label for="password"
            class="form-session-label">Contraseña</label>
     <span class="wrong"
-          *ngIf="password.invalid && (password.dirty || password.touched)">Debe contener al menos 6 letras</span>
+          *ngIf="password.invalid && (password.dirty || password.touched)">Debe contener al menos 6
+      letras</span>
     <input type="password"
            class="input form-session-input"
            formControlName="password">
@@ -43,9 +44,9 @@
           *ngIf="registerForm.invalid && (registerForm.dirty || registerForm.touched)">Debe rellenar todos los
       campos</span>
     <hr>
-    <p class="form-session-text">¿Ya te registraste? <a [routerLink]="[ '/login']"
+    <p class="form-session-text">¿Ya te registraste? <a [routerLink]="['/login']"
          class="form-session-link">Inicia sesión aquí</a></p>
-    <p class="form-session-text"><a [routerLink]="[ '/home' ]"
+    <p class="form-session-text"><a [routerLink]="['/home']"
          class="form-session-link">Volver al inicio</a></p>
   </form>
 </div>

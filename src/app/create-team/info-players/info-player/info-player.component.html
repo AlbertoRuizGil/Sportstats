@@ -1,7 +1,9 @@
-<form [formGroup]= "form" class="player mb-2 animatedSlow appear">
+<form [formGroup]="form"
+      class="player mb-2 animatedSlow appear">
 
   <div class="delete">
-    <button class="delete-btn" (click)="deleteBtnClick()"></button>
+    <button class="delete-btn"
+            (click)="deleteBtnClick()"></button>
   </div>
 
   <div class="player-field mb-5">
@@ -17,7 +19,7 @@
                class="player-label">Nombre</label>
         <input type="text"
                name="playerName"
-               formControlName = "playerName"
+               formControlName="playerName"
                class="input player-input" />
       </div>
 
@@ -26,7 +28,7 @@
                class="player-label">Edad</label>
         <input type="number"
                name="playerAge"
-               formControlName = "playerAge"
+               formControlName="playerAge"
                class="input player-input-number" />
       </div>
 
@@ -35,7 +37,7 @@
                class="player-label">Número</label>
         <input type="number"
                name="playerNumber"
-               formControlName = "playerNumber"
+               formControlName="playerNumber"
                class="input player-input-number" />
       </div>
       <div class="player-data">
@@ -52,5 +54,3 @@
   </div>
 
 </form>
-
-

@@ -1,18 +1,21 @@
 <!-- NAVBAR -->
-<app-navbar [status]="'end'" [route]="'/userTeams'" [showBack]="true"></app-navbar>
+<app-navbar [status]="'end'"
+            [route]="'/userTeams'"
+            [showBack]="true"></app-navbar>
 
 <div class="container">
 
-  <div class="file" >
+  <div class="file">
     <div class="player mb-5">
 
       <div class="player-container">
         <figure class="player-container_img">
           <img src="../../../assets/img/avatar-generico.png"
-             alt="Foto de jugador"
-             class="player-img" />
+               alt="Foto de jugador"
+               class="player-img" />
         </figure>
-        <div class="player-info" *ngIf="player">
+        <div class="player-info"
+             *ngIf="player">
           <h4 class="player-name">{{player.playerName}}</h4>
           <h5 class="player-number">{{player.playerNumber}}</h5>
           <h5 class="player-age">{{player.playerAge}} años</h5>
@@ -20,19 +23,23 @@
       </div>
 
 
-      <app-polar-chart [playerGames]="playerGames" class="player-chart"></app-polar-chart>
+      <app-polar-chart [playerGames]="playerGames"
+                       class="player-chart"></app-polar-chart>
 
     </div>
 
     <div class="player-barchart mb-5">
-      <app-bar-chart [league]="league" *ngIf="playerGames && league" [playerGames]="playerGames"></app-bar-chart>
+      <app-bar-chart [league]="league"
+                     *ngIf="playerGames && league"
+                     [playerGames]="playerGames"></app-bar-chart>
     </div>
     <div class="player-table">
       <h4 class="player-table-title mb-5">Estadísticas generales</h4>
       <app-table-stats></app-table-stats>
     </div>
     <div class="player-court">
-      <app-court-stats [playerGames]="playerGames" *ngIf="playerGames"></app-court-stats>
+      <app-court-stats [playerGames]="playerGames"
+                       *ngIf="playerGames"></app-court-stats>
     </div>
 
   </div>

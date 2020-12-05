@@ -4,24 +4,32 @@
 
   <div class="bar-charts-stats">
     <div class="bar-chart-group">
-    <div class="bar-chart">
-      <app-points *ngIf="playerStats && league" [playerPoints]="playerStats.points" [leaguePoints]="league.points"></app-points>
+      <div class="bar-chart">
+        <app-points *ngIf="playerStats && league"
+                    [playerPoints]="playerStats.points"
+                    [leaguePoints]="league.points"></app-points>
+      </div>
+
+      <div class="bar-chart">
+        <app-field-goal *ngIf="playerStats && league"
+                        [playerField]="playerStats.fieldPercent"
+                        [leagueField]="league.fieldPercent"></app-field-goal>
+      </div>
     </div>
 
-    <div class="bar-chart">
-      <app-field-goal *ngIf="playerStats && league" [playerField]="playerStats.fieldPercent" [leagueField]="league.fieldPercent"></app-field-goal>
-    </div>
-  </div>
+    <div class="bar-chart-group">
+      <div class="bar-chart">
+        <app-free-throw *ngIf="playerStats && league"
+                        [playerFree]="playerStats.freePercent"
+                        [leagueFree]="league.freePercent"></app-free-throw>
+      </div>
 
-  <div class="bar-chart-group">
-    <div class="bar-chart">
-      <app-free-throw *ngIf="playerStats && league" [playerFree]="playerStats.freePercent" [leagueFree]="league.freePercent"></app-free-throw>
+      <div class="bar-chart">
+        <app-three-throw *ngIf="playerStats && league"
+                         [playerThree]="playerStats.threePercent"
+                         [leagueThree]="league.threePercent"></app-three-throw>
+      </div>
     </div>
-
-    <div class="bar-chart">
-      <app-three-throw *ngIf="playerStats && league" [playerThree]="playerStats.threePercent" [leagueThree]="league.threePercent"></app-three-throw>
-    </div>
-  </div>
   </div>
 
 

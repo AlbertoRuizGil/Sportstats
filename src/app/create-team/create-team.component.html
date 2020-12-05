@@ -1,11 +1,13 @@
-
 <!-- NAVBAR -->
-<app-navbar [status]="'end'" [route]="'/userTeams'" [showBack]="true"></app-navbar>
+<app-navbar [status]="'end'"
+            [route]="'/userTeams'"
+            [showBack]="true"></app-navbar>
 
 <!-- MAIN BODY -->
 <div class="container">
 
-  <form [formGroup]="form" class="form-container">
+  <form [formGroup]="form"
+        class="form-container">
 
     <h4 class="form-title">Equipo</h4>
     <hr class="hr-form mb-5" />
@@ -31,8 +33,11 @@
 
 
     <div class="buttons">
-      <a class="btn btn-pink m-2" [routerLink]="['/user-teams']">Cancelar</a>
-      <button class="btn btn-dark m-2" (click)="onSaveTeam()" [disabled]="!formTeam.valid">Guardar</button>
+      <a class="btn btn-pink m-2"
+         [routerLink]="['/user-teams']">Cancelar</a>
+      <button class="btn btn-dark m-2"
+              (click)="onSaveTeam()"
+              [disabled]="!formTeam.valid">Guardar</button>
     </div>
   </form>
 </div>
