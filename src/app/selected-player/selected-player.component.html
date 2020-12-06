@@ -23,24 +23,32 @@
       </div>
 
 
-      <app-polar-chart [playerGames]="playerGames"
+      <app-polar-chart *ngIf="playerGames && playerGames.length" [playerGames]="playerGames"
                        class="player-chart"></app-polar-chart>
 
+      <div class="noData" *ngIf="!playerGames">
+        <h5 class="noData-text">No hay datos</h5>
+      </div>
+
     </div>
 
-    <div class="player-barchart mb-5">
-      <app-bar-chart [league]="league"
-                     *ngIf="playerGames && league"
-                     [playerGames]="playerGames"></app-bar-chart>
+    <div class="allStats" *ngIf="playerGames && playerGames.length">
+      <div class="player-barchart mb-5">
+        <app-bar-chart [league]="league"
+                       *ngIf="playerGames && league"
+                       [playerGames]="playerGames"></app-bar-chart>
+      </div>
+      <div class="player-table">
+        <h4 class="player-table-title mb-5">Estadísticas generales</h4>
+        <app-table-stats></app-table-stats>
+      </div>
+      <div class="player-court">
+        <app-court-stats [playerGames]="playerGames"
+                         *ngIf="playerGames"></app-court-stats>
+      </div>
     </div>
-    <div class="player-table">
-      <h4 class="player-table-title mb-5">Estadísticas generales</h4>
-      <app-table-stats></app-table-stats>
-    </div>
-    <div class="player-court">
-      <app-court-stats [playerGames]="playerGames"
-                       *ngIf="playerGames"></app-court-stats>
-    </div>
+
+
 
   </div>
 

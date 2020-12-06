@@ -113,7 +113,8 @@ export class CreateTeamComponent implements OnInit {
       newGames.push(newGame);
     });
 
-    this.teamService.addTeam(this.user.uid, newTeam, newLeague, newPlayers, newGames);
+    const teamId = this.teamService.addTeam(this.user.uid, newTeam, newLeague, newPlayers, newGames);
+    this.router.navigateByUrl('/userTeams' );
 
   }
 

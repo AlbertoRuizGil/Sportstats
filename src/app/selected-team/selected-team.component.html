@@ -48,33 +48,41 @@
   </div>
 
 
+  <div class="allStats" *ngIf="games && games.length">
+    <h4 class="stats-title">Estadísticas equipo</h4>
 
-  <h4 class="stats-title">Estadísticas equipo</h4>
+    <app-table-info-team *ngIf="games && games.length"
+                         [games]="games"></app-table-info-team>
+    <span *ngIf="!games || !games.length" class="noData">No hay estadísticas.</span>
 
-  <app-table-info-team *ngIf="games && games.length"
-                       [games]="games"></app-table-info-team>
-  <span *ngIf="!games || !games.length">No hay estadísticas.</span>
+    <h4 class="stats-title">Estadísticas jugadores</h4>
 
-  <h4 class="stats-title">Estadísticas jugadores</h4>
+    <app-table-info-players></app-table-info-players>
 
-  <app-table-info-players></app-table-info-players>
+  </div>
 
-  <div class="players">
-    <h4 class="stats-title">Jugadores</h4>
-    <div class="playersList">
-      <div class="player-file"
-           *ngFor="let player of players | async">
-        <a [routerLink]="['/team/', teamId, 'players', player.playerId]">
-          <figure class="player-file-container_img">
-            <img class="player-file-img"
-                 src="../../../assets/img/avatar-generico.png"
-                 alt={{player.playerName}}>
-          </figure>
-        </a>
-        <h6 class="player-file-name">{{player.playerName}}</h6>
-      </div>
+  <div class="noData" *ngIf="!games">
+    <div class="noData-table">
+      <h5 class="noData-text">No hay estadísticas</h5>
     </div>
   </div>
+
+  <div class="players">
+      <h4 class="stats-title">Jugadores</h4>
+      <div class="playersList">
+        <div class="player-file"
+             *ngFor="let player of players | async">
+          <a [routerLink]="['/team/', teamId, 'players', player.playerId]">
+            <figure class="player-file-container_img">
+              <img class="player-file-img"
+                   src="../../../assets/img/avatar-generico.png"
+                   alt={{player.playerName}}>
+            </figure>
+          </a>
+          <h6 class="player-file-name">{{player.playerName}}</h6>
+        </div>
+      </div>
+    </div>
 
 </div>
 

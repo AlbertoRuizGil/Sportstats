@@ -48,6 +48,7 @@ export class SelectedTeamComponent implements OnInit {
           .valueChanges()
           .subscribe((games: Game[]) => {
             this.games = games;
+            console.log(games);
             this.getNextGame(games);
           });
         this.players = this.playerService

@@ -35,8 +35,8 @@ export class PolarChartComponent implements OnInit {
         fontStyle: 'bold'
       },
       ticks: {
-        suggestedMax: 100,
-        stepSize: 10,
+        max: 100,
+        stepSize: 25,
 
       }
     }
