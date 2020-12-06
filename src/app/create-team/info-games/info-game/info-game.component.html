@@ -1,7 +1,7 @@
 <form [formGroup]="form"
       class="match mb-2 animatedSlow appear">
 
-  <div class="delete">
+  <div *ngIf="showDelete" class="delete">
     <button class="delete-btn"
             (click)="deleteBtnClick()"><span class="delete-icon"></span></button>
   </div>
@@ -24,5 +24,9 @@
              class="input match-input" />
     </div>
   </div>
+
+  <span class="error">
+    Debe rellenar todos los campos
+  </span>
 
 </form>

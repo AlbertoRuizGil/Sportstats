@@ -1,6 +1,9 @@
 export interface Team {
   name: string;
 
+  shieldUrl?: string;
+  shield?: File;
+
   sport?: Sport;
 
   teamId?: string;

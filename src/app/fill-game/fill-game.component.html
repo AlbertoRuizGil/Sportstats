@@ -33,6 +33,13 @@
                      [onePlayerForm]="onePlayerForm"></app-player-game>
   </div>
 
+  <div class="buttons" *ngIf="selectForm.controls.match.value !==''">
+      <a class="btn btn-pink btn-shadow m-2"
+         [routerLink]="['/user-teams']">Cancelar</a>
+      <button class="btn btn-dark btn-shadow m-2"
+              (click)="onSaveGame()"
+              [disabled]="!tableForm.valid">Guardar</button>
+  </div>
 
 </div>
 

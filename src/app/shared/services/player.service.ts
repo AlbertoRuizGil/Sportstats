@@ -47,4 +47,33 @@ export class PlayerService {
       .collection('games')
       .doc(gameId);
   }
+
+  addPlayerGame(userId: string, teamId: string, playerId: string, playerGame: PlayerGame, gameId: string): void{
+
+    this.getPlayerGame(userId, teamId, playerId, gameId)
+    .valueChanges()
+    .subscribe( value => {
+      if (value === undefined){
+        this.firestore.collection('users')
+        .doc(userId)
+        .collection('teams')
+        .doc(teamId)
+        .collection('players')
+        .doc(playerId)
+        .collection('games')
+        .add(playerGame);
+      }else{
+        this.firestore.collection('users')
+        .doc(userId)
+        .collection('teams')
+        .doc(teamId)
+        .collection('players')
+        .doc(playerId)
+        .collection('games')
+        .doc(gameId)
+        .set(playerGame);
+      }
+    });
+
+  }
 }

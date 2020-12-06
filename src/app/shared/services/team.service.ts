@@ -1,6 +1,7 @@
 import { Player } from '@/app/shared/inteface/player.interface';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 import { Game, League, Team } from '../inteface/team.interface';
 
@@ -9,7 +10,7 @@ import { Game, League, Team } from '../inteface/team.interface';
 })
 export class TeamService {
 
-  constructor(private firestore: AngularFirestore) {}
+  constructor(private firestore: AngularFirestore, private storage: AngularFireStorage) {}
 
   getTeamById(userId: string, teamId: string): AngularFirestoreDocument<Team> {
     return this.firestore
@@ -50,6 +51,13 @@ export class TeamService {
 
     let newTeamId: string;
 
+    if (team.shield) {
+      // this.storage.upload(team.)
+      // TODO call service to save image in Firebase Storage
+      // team.shieldUrl =
+      delete team.shield;
+    }
+
     doc.add(team).then(docRef => {
       newTeamId = docRef.id;
       this.addTeamLeague(userId, newTeamId, league);
@@ -58,7 +66,7 @@ export class TeamService {
     });
   }
 
-  addTeamLeague(userId: string, teamId: string, league: League){
+  addTeamLeague(userId: string, teamId: string, league: League): void{
 
     this.firestore
       .collection('users')
@@ -68,7 +76,7 @@ export class TeamService {
       .collection('league')
       .add(league);
   }
-  addTeamPlayers(userId: string, teamId: string, players: Player[]){
+  addTeamPlayers(userId: string, teamId: string, players: Player[]): void{
     players.forEach((player: Player) => {
       this.firestore
       .collection('users')
@@ -80,7 +88,7 @@ export class TeamService {
     });
   }
 
-  addTeamGames(userId: string, teamId: string, games: Game[]){
+  addTeamGames(userId: string, teamId: string, games: Game[]): void{
     games.forEach((game: Game) => {
       this.firestore
       .collection('users')
@@ -90,5 +98,26 @@ export class TeamService {
       .collection('games')
       .add(game);
     });
+  }
+
+  addTeamGame(userId: string, teamId: string, game: Game): void{
+    if (game.matchId === undefined){
+      this.firestore
+      .collection('users')
+      .doc(userId)
+      .collection('teams')
+      .doc(teamId)
+      .collection('games')
+      .add(game);
+    }else{
+      this.firestore
+      .collection('users')
+      .doc(userId)
+      .collection('teams')
+      .doc(teamId)
+      .collection('games')
+      .doc(game.matchId)
+      .set(game);
+    }
   }
 }

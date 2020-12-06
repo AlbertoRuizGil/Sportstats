@@ -1,35 +1,53 @@
-<form [formGroup]="form"
+<div class="component">
+  <form [formGroup]="form"
       class="basket-average mb-5">
-  <div class="basket-field">
-    <label for=""
-           class="basket-field-label">Puntos</label>
-    <input type="number"
-           name="points"
-           formControlName="points"
-           class="input basket-field-input" />
-  </div>
-  <div class="basket-field">
-    <label for=""
-           class="basket-field-label">%FG</label>
-    <input type="number"
-           name="fieldPercent"
-           formControlName="fieldPercent"
-           class="input basket-field-input" />
-  </div>
-  <div class="basket-field">
-    <label for=""
-           class="basket-field-label">%3P</label>
-    <input type="number"
-           name="threePercent"
-           formControlName="threePercent"
-           class="input basket-field-input" />
-  </div>
-  <div class="basket-field">
-    <label for=""
-           class="basket-field-label">%FT</label>
-    <input type="number"
-           name="freePercent"
-           formControlName="freePercent"
-           class="input basket-field-input" />
-  </div>
-</form>
+    <div class="basket-field">
+      <label for=""
+             class="basket-field-label"
+             title="Puntos por partido">PPP</label>
+      <input type="number"
+             name="points"
+             formControlName="points"
+             title="Puntos por partido"
+             class="input basket-field-input" />
+    </div>
+    <div class="basket-field">
+      <label for=""
+             class="basket-field-label"
+             title="%Canastas de campo">%FG</label>
+      <input type="number"
+             name="fieldPercent"
+             formControlName="fieldPercent"
+             title="%Canastas de campo"
+             class="input basket-field-input" />
+    </div>
+    <div class="basket-field">
+      <label for=""
+             class="basket-field-label"
+             title="%Triples">%3P</label>
+      <input type="number"
+             name="threePercent"
+             formControlName="threePercent"
+             title="%Triples"
+             class="input basket-field-input" />
+    </div>
+    <div class="basket-field">
+      <label for=""
+             class="basket-field-label"
+             title="%Tiros libres">%FT</label>
+      <input type="number"
+             name="freePercent"
+             formControlName="freePercent"
+             title="%Tiros libres"
+             class="input basket-field-input" />
+    </div>
+  </form>
+  <!-- <span class="error"
+  *ngIf="form && (form.get('points').dirty || form.get('points').touched) && form.get('points').errors &&
+  (form.get('fieldPercent').dirty || form.get('fieldPercent').touched) && form.get('fieldPercent').errors &&
+  (form.get('freePercent').dirty || form.get('freePercent').touched) && form.get('freePercent').errors &&
+  (form.get('freePercent').dirty || form.get('freePercent').touched) && form.get('freePercent').errors">
+    Debe rellenar todos los campos
+  </span> -->
+</div>
+

@@ -13,8 +13,7 @@ import { AuthService } from '../shared/services/auth.service';
   styleUrls: ['./create-team.component.scss'],
 })
 export class CreateTeamComponent implements OnInit {
-  items = [];
-
+  haveEnoughPlayers = true;
   private user: firebase.User;
   form: FormGroup;
   formTeam: FormGroup;
@@ -55,10 +54,10 @@ export class CreateTeamComponent implements OnInit {
 
   private buildFormLeague(): void {
     this.formLeague = new FormGroup({
-      points: new FormControl('', [Validators.min(1) ]),
-      fieldPercent: new FormControl('', [Validators.min(1) ]),
-      threePercent: new FormControl('', [Validators.min(1) ]),
-      freePercent: new FormControl('', [Validators.min(1) ]),
+      points: new FormControl(0, [Validators.min(1) ]),
+      fieldPercent: new FormControl(0, [Validators.min(1), Validators.max(100) ]),
+      threePercent: new FormControl(0, [Validators.min(1), Validators.max(100) ]),
+      freePercent: new FormControl(0, [Validators.min(1), Validators.max(100) ]),
     });
   }
 
@@ -71,14 +70,17 @@ export class CreateTeamComponent implements OnInit {
   }
 
   onSaveTeam() {
+    console.log('onSaveTeam');
 
-    if (this.formPlayers.length < 2) {
-      console.log('No hay jugadores suficientes');
+    if (this.formPlayers.length < 5) {
+      console.log(this.formPlayers.length);
+      this.haveEnoughPlayers = false;
+      return;
     }
-    console.log(this.form);
 
     const newTeam: Team = {
       name: this.formTeam.controls.teamName.value,
+      shield: this.formTeam.controls.teamShield.value,
       sport: Sport.Basketball
     };
 
@@ -112,12 +114,6 @@ export class CreateTeamComponent implements OnInit {
     });
 
     this.teamService.addTeam(this.user.uid, newTeam, newLeague, newPlayers, newGames);
-
-    /* console.log(this.form);
-    console.log(this.formTeam);
-    console.log(this.formLeague);
-    console.log(this.formPlayers);
-    console.log(this.formGames); */
 
   }
 

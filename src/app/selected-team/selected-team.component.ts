@@ -4,6 +4,7 @@ import { AuthService } from '@/app/shared/services/auth.service';
 import { PlayerService } from '@/app/shared/services/player.service';
 import { TeamService } from '@/app/shared/services/team.service';
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
@@ -13,11 +14,15 @@ import { Observable } from 'rxjs';
   styleUrls: ['./selected-team.component.scss'],
 })
 export class SelectedTeamComponent implements OnInit {
+
+  public userId: string;
   public teamId: string;
   public teamInfo: Team;
   public players: Observable<Player[]>;
   public games: Game[];
   public nextGame: Game = undefined;
+  public formGame: FormGroup;
+  public showNewGame = false;
 
   constructor(
     public teamService: TeamService,
@@ -31,8 +36,9 @@ export class SelectedTeamComponent implements OnInit {
     this.teamId = this.route.snapshot.paramMap.get('teamId');
     this.authService.currentUser$.subscribe((user: firebase.User) => {
       if (user) {
+        this.userId = user.uid;
         this.teamService
-          .getTeamById(user.uid, this.teamId)
+          .getTeamById(this.userId, this.teamId)
           .valueChanges()
           .subscribe((team: Team) => {
             this.teamInfo = team;
@@ -61,5 +67,25 @@ export class SelectedTeamComponent implements OnInit {
       }
 
     });
+  }
+
+  onNewGame(): void {
+    this.formGame = new FormGroup({
+      rivalTeam: new FormControl('', Validators.required),
+      matchDate: new FormControl('', Validators.required),
+    });
+    this.showNewGame = true;
+  }
+
+  onSaveNewGame(): void {
+    const chunks = this.formGame.controls.matchDate.value.split('-');
+    const matchDateNoFormat = new Date(chunks[0], chunks[1], chunks[2]);
+    const matchDateFormat = matchDateNoFormat.getTime();
+    const newGame: Game = {
+      matchDate: matchDateFormat,
+      rivalTeam: this.formGame.controls.rivalTeam.value
+    };
+    this.teamService.addTeamGame(this.userId, this.teamId, newGame);
+    this.showNewGame = false;
   }
 }

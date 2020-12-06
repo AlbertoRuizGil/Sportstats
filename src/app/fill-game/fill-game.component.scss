@@ -44,6 +44,12 @@
 
 }
 
+.buttons {
+  display: flex;
+  justify-content: right;
+  flex-direction: row-reverse;
+}
+
 @media (max-width: 1024px) {
   .container {
     padding: 6rem;

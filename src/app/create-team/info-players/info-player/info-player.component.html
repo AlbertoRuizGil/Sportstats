@@ -1,56 +1,60 @@
-<form [formGroup]="form"
+  <form [formGroup]="form"
       class="player mb-2 animatedSlow appear">
 
-  <div class="delete">
-    <button class="delete-btn"
-            (click)="deleteBtnClick()"></button>
-  </div>
+    <div class="delete">
+      <button class="delete-btn"
+              (click)="deleteBtnClick()"></button>
+    </div>
 
-  <div class="player-field mb-5">
+    <div class="player-field mb-5">
 
-    <figure class="team-form-container_img">
-      <img src="../../../assets/img/avatar-generico.png"
-           alt="Foto de jugador"
-           class="team-form-img" />
-    </figure>
-    <div class="player-info">
-      <div class="player-data">
-        <label for="playerName"
-               class="player-label">Nombre</label>
-        <input type="text"
-               name="playerName"
-               formControlName="playerName"
-               class="input player-input" />
-      </div>
+      <figure class="team-form-container_img">
+        <img src="../../../assets/img/avatar-generico.png"
+             alt="Foto de jugador"
+             class="team-form-img" />
+      </figure>
+      <div class="player-info">
+        <div class="player-data">
+          <label for="playerName"
+                 class="player-label">Nombre</label>
+          <input type="text"
+                 name="playerName"
+                 formControlName="playerName"
+                 class="input player-input" />
+        </div>
 
-      <div class="player-data">
-        <label for="playerAge"
-               class="player-label">Edad</label>
-        <input type="number"
-               name="playerAge"
-               formControlName="playerAge"
-               class="input player-input-number" />
-      </div>
+        <div class="player-data">
+          <label for="playerAge"
+                 class="player-label">Edad</label>
+          <input type="number"
+                 name="playerAge"
+                 formControlName="playerAge"
+                 class="input player-input-number" />
+        </div>
 
-      <div class="player-data">
-        <label for="playerNumber"
-               class="player-label">Número</label>
-        <input type="number"
-               name="playerNumber"
-               formControlName="playerNumber"
-               class="input player-input-number" />
-      </div>
-      <div class="player-data">
-        <label for=""
-               class="player-label">Imagen jugador</label>
-        <label for="playerImg"
-               class="player-label-file">Elija imagen</label>
-        <input type="file"
-               name="playerImg"
-               class="input player-input-file"
-               id="playerImg" />
+        <div class="player-data">
+          <label for="playerNumber"
+                 class="player-label">Número</label>
+          <input type="number"
+                 name="playerNumber"
+                 formControlName="playerNumber"
+                 class="input player-input-number" />
+        </div>
+        <div class="player-data">
+          <label for=""
+                 class="player-label">Imagen jugador</label>
+          <label for="playerImg"
+                 class="player-label-file">Elija imagen</label>
+          <input type="file"
+                 name="playerImg"
+                 class="input player-input-file"
+                 id="playerImg" />
+        </div>
       </div>
     </div>
-  </div>
+    <span class="error">
+      Debe rellenar todos los campos
+    </span>
+  </form>
 
-</form>
+

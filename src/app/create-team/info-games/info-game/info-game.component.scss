@@ -75,3 +75,37 @@
     }
   }
 }
+
+.error {
+  color: red;
+  font-weight: bold;
+  font-size: 1.9rem;
+  text-align: right;
+}
+
+@media (max-width: 1024px) {
+  .match {
+    &-label {
+      font-size: 1.5rem;
+    }
+
+    &-input {
+      font-size: 1.6rem;
+    }
+
+  }
+
+  .error {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .match {
+    &-data {
+      flex-direction: column;
+      align-items: center;
+    }
+
+  }
+}

@@ -30,8 +30,24 @@
   <div class="buttons">
     <a class="btn btn-dark btn-big pad"
        [routerLink]="['/team/', teamId, 'games']">Rellenar partido</a>
-    <button class="btn btn-dark btn-big pad">Añadir partido</button>
+    <button class="btn btn-dark btn-big pad" (click)="onNewGame()">Añadir partido</button>
   </div>
+
+  <div class="newGame" *ngIf="formGame && showNewGame">
+    <div  class="newGame-form">
+      <app-info-game class="newGame-panel" [form]="formGame" [showDelete]="false"></app-info-game>
+    </div>
+    <div class="newGame-buttons">
+      <div class="buttons">
+        <button class="btn btn-dark btn-shadow m-2"
+                (click)="onSaveNewGame()">Guardar</button>
+        <button class="btn btn-pink btn-shadow m-2" (click)="showNewGame = !showNewGame">Cancelar</button>
+
+      </div>
+    </div>
+  </div>
+
+
 
   <h4 class="stats-title">Estadísticas equipo</h4>
 

@@ -29,6 +29,7 @@ export class SelectedPlayerComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.teamId = this.route.snapshot.paramMap.get('teamId');
     this.playerId = this.route.snapshot.paramMap.get('playerId');
     this.authService.currentUser$.subscribe((user: firebase.User) => {

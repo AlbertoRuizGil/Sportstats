@@ -140,6 +140,13 @@
 
   }
 
+  .error {
+    color: red;
+    font-weight: bold;
+    font-size: 1.9rem;
+    text-align: right;
+  }
+
   @media (max-width: 1024px) {
     .player {
       &-label {
@@ -155,6 +162,10 @@
         height: 3rem;
         font-size: 1.2rem;
       }
+    }
+
+    .error {
+      font-size: 1.5rem;
     }
   }
 
@@ -192,6 +203,10 @@
         align-items: center;
         min-height: 10vh;
       }
+    }
+
+    .error {
+      text-align: center;
     }
 
   }

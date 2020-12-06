@@ -1,8 +1,8 @@
 <div class="matches-data mb-5">
 
-  <app-info-game *ngFor="let gameForm of form.controls; let indexGame = index"
+  <app-info-game *ngFor="let gameForm of form.controls"
                  [form]="gameForm"
-                 [gameNumber]="indexGame"
+                 [showDelete]="true"
                  (deleteBtn)="deleteBtnHandler(gameForm)"></app-info-game>
 
   <button (click)="onNewGame()"

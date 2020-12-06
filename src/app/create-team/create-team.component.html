@@ -15,7 +15,7 @@
     <app-info-team [form]="formTeam"></app-info-team>
 
 
-    <h4 class="form-title">Liga</h4>
+    <h4 class="form-title">Media de la Liga</h4>
     <hr class="hr-form mb-5" />
 
     <app-info-league [form]="formLeague"></app-info-league>
@@ -33,11 +33,15 @@
 
 
     <div class="buttons">
-      <a class="btn btn-pink m-2"
+      <a class="btn btn-pink btn-shadow m-2"
          [routerLink]="['/user-teams']">Cancelar</a>
-      <button class="btn btn-dark m-2"
+      <button class="btn btn-dark btn-shadow m-2"
               (click)="onSaveTeam()"
-              [disabled]="!formTeam.valid">Guardar</button>
+              [disabled]="!formTeam.valid || !formLeague.valid">Guardar</button>
+    </div>
+
+    <div class="error" *ngIf="!haveEnoughPlayers">
+      <p class="error-paragraph">El equipo debe tener al menos 5 jugadores</p>
     </div>
   </form>
 </div>

@@ -4,7 +4,7 @@
   <div class="team-form-data mb-5">
 
     <figure class="team-form-container_img">
-      <img src="/assets/img/genericShield.jpg"
+      <img [src]="shieldUrl"
            alt="Escudo"
            class="team-form-img" />
     </figure>
@@ -16,9 +16,12 @@
         <input class="team-form-text input"
                formControlName="teamName"
                type="text" />
-        <span
-              *ngIf="form && (form.get('teamName').dirty || form.get('teamName').touched) && form.get('teamName').errors">error</span>
       </div>
+
+      <span
+              *ngIf="form && (form.get('teamName').dirty || form.get('teamName').touched) && form.get('teamName').errors" class="error">
+              El nombre debe contener al menos una letra
+      </span>
 
       <div class="team-form-formlabel">
         <label class="team-form-label"

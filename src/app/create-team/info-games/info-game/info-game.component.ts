@@ -11,7 +11,7 @@ export class InfoGameComponent implements OnInit {
   form: FormGroup;
 
   @Input()
-  gameNumber: number;
+  showDelete = false;
 
   @Output()
   deleteBtn: EventEmitter<void> = new EventEmitter<void>();
