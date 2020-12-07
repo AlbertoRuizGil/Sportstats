@@ -1,5 +1,10 @@
 @import 'variables.scss';
 
+.appName {
+  font-family: 'Ranchers', cursive;
+  text-transform: uppercase;
+}
+
 .header {
   width: 100%;
   height: 100vh;
@@ -9,7 +14,6 @@
   color: $color-black;
   padding-top: 1.5rem;
   background: linear-gradient(315deg, $color-light-blue 0, $color-light-blue 100%);
-  /* clip-path: polygon(0 0, 100% 0%, 100% 88%, 0 100%); */
 
 
   &-left-side {
@@ -56,7 +60,6 @@
   }
 }
 
-
 .section {
   height: 90vh;
   width: 100%;
@@ -65,12 +68,14 @@
   align-items: center;
   justify-items: center;
   justify-content: space-evenly;
+  background-color: rgb(215, 229, 235);
 
   &-img {
     width: 100%;
 
     &__img {
       width: 65rem;
+      border: 6px solid black;
     }
   }
 
@@ -80,10 +85,289 @@
 
     &__title {
       font-size: 4rem;
+      margin-bottom: 7rem;
+      text-decoration: underline;
     }
 
     &__paragraph {
       font-size: 3rem;
+    }
+  }
+}
+
+@media (max-width: 1600px) {
+  .section {
+
+    &-img {
+
+      &__img {
+        width: 60rem;
+        border: 6px solid black;
+      }
+    }
+
+    &-paragraph {
+
+
+
+      &__title {
+        font-size: 3.5rem;
+      }
+
+      &__paragraph {
+        font-size: 2.8rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 1492px) {
+  .header {
+    &-paragraph-container {
+      display: block;
+    }
+  }
+
+  .section {
+    padding: 4rem 2rem;
+
+    &-img {
+
+      &__img {
+        width: 54rem;
+      }
+    }
+
+    &-paragraph {
+
+      &__title {
+        font-size: 3.2rem;
+      }
+
+      &__paragraph {
+        font-size: 2.6rem;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 1200px) {
+  .header {
+    height: 100%;
+    flex-direction: column;
+
+    &-left-side {
+      width: 70%;
+      margin-top: 7rem;
+      margin-bottom: 10rem;
+
+    }
+
+    &-paragraph-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    &-right-side {
+      margin-bottom: 5rem;
+    }
+  }
+
+  .section {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    &-img {
+      width: 50%;
+
+    }
+
+    &-paragraph {
+      width: 70%;
+      margin-bottom: 10rem;
+      margin-top: 5rem;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .header {
+    &-main-title {
+      font-size: 3.3rem;
+    }
+
+    &-paragraph {
+      font-size: 1.9rem;
+    }
+  }
+
+  .section {
+    &-img {
+      width: 60%;
+
+      &__img {
+        width: 55rem;
+      }
+
+    }
+
+    &-paragraph {
+      width: 75%;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .section {
+    &-img {
+
+      &__img {
+        width: 50rem;
+      }
+
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    &-main-title {
+      font-size: 2.8rem;
+    }
+
+    &-left-side {
+      padding: 1.5rem;
+      width: 70%;
+      height: 20%;
+    }
+
+    &-paragraph {
+      font-size: 1.5rem;
+    }
+
+    &--img {
+      width: 40rem;
+    }
+  }
+
+  .section {
+    &-img {
+      width: 60%;
+
+      &__img {
+        width: 37rem;
+      }
+
+    }
+
+    &-paragraph {
+
+      &__title {
+        font-size: 3rem;
+      }
+
+      &__paragraph {
+        font-size: 2.3rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    &-img {
+
+      &__img {
+        width: 30rem;
+      }
+
+    }
+
+    &-paragraph {
+
+      &__title {
+        font-size: 2.5rem;
+        margin-bottom: 6rem;
+      }
+
+      &__paragraph {
+        font-size: 1.9rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .header {
+    &-main-title {
+      font-size: 2.5rem;
+    }
+
+    &-left-side {
+      width: 80%;
+    }
+
+    &-paragraph {
+      font-size: 1.3rem;
+    }
+
+    &--img {
+      width: 30rem;
+    }
+  }
+
+  .section {
+    &-img {
+      &__img {
+        width: 23rem;
+      }
+
+    }
+
+    &-paragraph {
+
+      &__title {
+        font-size: 2.3rem;
+        margin-bottom: 4rem;
+      }
+
+      &__paragraph {
+        font-size: 1.8rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .header {
+
+    &--img {
+      width: 25rem;
+    }
+  }
+
+  .section {
+    &-img {
+      &__img {
+        width: 19rem;
+      }
+
+    }
+
+    &-paragraph {
+
+      &__title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      &__paragraph {
+        font-size: 1.5rem;
+      }
     }
   }
 }

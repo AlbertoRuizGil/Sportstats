@@ -10,20 +10,24 @@ export class InfoPlayersComponent implements OnInit {
   @Input()
   form: FormArray;
 
+  private maxPlayers = 10;
+
   constructor() {}
 
   ngOnInit(): void {}
 
   onNewPlayer() {
-    this.form.controls.push(this.newPlayerForm());
-    console.log(this.form);
+    if (this.form.length < this.maxPlayers){
+      this.form.controls.push(this.newPlayerForm());
+    }
   }
 
   private newPlayerForm(): FormGroup {
     return new FormGroup({
-      playerName: new FormControl('', [Validators.required, Validators.min(3)]),
+      playerName: new FormControl('', Validators.required),
       playerAge: new FormControl('', [Validators.required, Validators.min(3)]),
-      playerNumber: new FormControl('', [Validators.required, Validators.min(3)]),
+      playerNumber: new FormControl('', Validators.required),
+      playerAvatar: new FormControl('')
     });
   }
 

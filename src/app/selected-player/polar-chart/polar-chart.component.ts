@@ -47,9 +47,7 @@ export class PolarChartComponent implements OnInit {
   public radarChartType: ChartType = 'radar';
 
   ngOnInit(): void {
-    console.log( this.playerGames );
     this.setData();
-    console.log( this.attack, this.defense, this.passes );
     this.radarChartData = [
     { data: [this.attack, this.defense, this.passes], label: 'Jugador' },
   ];

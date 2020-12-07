@@ -1,9 +1,13 @@
-.court {
+@import 'variables.scss';
 
+.court {
+  display: flex;
+  justify-content: center;
 
   &-stats {
-    height: 50rem;
-    width: 100rem;
+    height: 535px;
+    width: 840px;
+    border: 5px solid black;
     background-image: url('../../../assets/img/half-basketball-court.png');
     background-repeat: no-repeat;
     background-size: contain;
@@ -11,4 +15,120 @@
   }
 }
 
-.stat {}
+.stat {
+  position: relative;
+  color: $color-light-blue;
+  font-size: 2.7rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  padding: .5rem;
+  background-color: rgb(215, 229, 235);
+
+  &-left {
+    top: 37rem;
+    left: 14rem;
+  }
+
+  &-center {
+    top: 24rem;
+    left: 40rem;
+  }
+
+  &-right {
+    top: 12rem;
+    left: 5rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .court {
+
+    &-stats {
+      height: 400px;
+      width: 628.04px;
+    }
+  }
+
+  .stat {
+    font-size: 2rem;
+    padding: .5rem;
+
+    &-left {
+      top: 27rem;
+      left: 11rem;
+    }
+
+    &-center {
+      top: 18rem;
+      left: 29rem;
+    }
+
+    &-right {
+      top: 9rem;
+      left: 3rem;
+    }
+  }
+
+}
+
+@media (max-width: 900px) {
+  .court {
+
+    &-stats {
+      height: 200px;
+      width: 317.75px;
+    }
+  }
+
+  .stat {
+    font-size: 1.2rem;
+    padding: .3rem;
+
+    &-left {
+      top: 13.5rem;
+      left: 4.5rem;
+    }
+
+    &-center {
+      top: 8.5rem;
+      left: 15rem;
+    }
+
+    &-right {
+      top: 4rem;
+      left: 0;
+    }
+  }
+
+}
+
+@media (max-width: 574px) {
+  .court {
+
+    &-stats {
+      height: 100px;
+      width: 158.87px;
+    }
+  }
+
+  .stat {
+    font-size: 1rem;
+    padding: .3rem;
+
+    &-left {
+      top: 6.5rem;
+      left: -.5rem;
+    }
+
+    &-center {
+      top: 3.5rem;
+      left: 6rem;
+    }
+
+    &-right {
+      top: 1rem;
+      left: -5rem;
+    }
+  }
+
+}

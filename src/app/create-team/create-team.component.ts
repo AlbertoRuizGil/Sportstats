@@ -62,7 +62,7 @@ export class CreateTeamComponent implements OnInit {
   }
 
   private buildFormPlayers(): void {
-    this.formPlayers = new FormArray([]);
+    this.formPlayers = new FormArray([], [Validators.required]);
   }
 
   private buildFormGames(): void {
@@ -70,13 +70,15 @@ export class CreateTeamComponent implements OnInit {
   }
 
   onSaveTeam() {
-    console.log('onSaveTeam');
+    console.log('is valid form?', this.formPlayers.valid);
 
     if (this.formPlayers.length < 5) {
       console.log(this.formPlayers.length);
       this.haveEnoughPlayers = false;
       return;
     }
+
+    this.haveEnoughPlayers = true;
 
     const newTeam: Team = {
       name: this.formTeam.controls.teamName.value,

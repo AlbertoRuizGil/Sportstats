@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Player, PlayerForm, PlayerGame } from '../shared/inteface/player.interface';
@@ -22,6 +22,33 @@ export class FillGameComponent implements OnInit {
   playersForm: PlayerForm[] = [];
   matchId: string = null;
   games: Game[];
+  RangeValidator: ValidatorFn = (fg: FormGroup) => {
+    let answer: boolean;
+    console.log("Validator");
+    this.playersForm.forEach((playerForm: PlayerForm) => {
+      const freeSuccess = playerForm.playerform.get('freeSuccess').value;
+      const freeAttemp = playerForm.playerform.get('freeAttemp').value;
+      const threeSuccess = playerForm.playerform.get('threeSuccess').value;
+      const threeAttemp = playerForm.playerform.get('threeAttemp').value;
+      const fieldSuccess = playerForm.playerform.get('fieldSuccess').value;
+      const fieldAttemp = playerForm.playerform.get('fieldAttemp').value;
+      const passSuccess = playerForm.playerform.get('passSuccess').value;
+      const passAttemp = playerForm.playerform.get('passAttemp').value;
+
+      if ( freeAttemp < freeSuccess ||
+        fieldAttemp < fieldSuccess ||
+        threeAttemp < threeSuccess ||
+        passAttemp < passSuccess){
+        answer = false;
+      }else{
+        answer = true;
+      }
+    });
+
+    return answer
+     ? null
+     : { range: true };
+  }
 
   constructor(
     private authService: AuthService,
@@ -96,7 +123,7 @@ export class FillGameComponent implements OnInit {
       steals: new FormControl(info.steals, Validators.required),
       threeAttemp: new FormControl(info.threeAttemp, Validators.required),
       threeSuccess: new FormControl(info.threeSuccess, Validators.required)
-    });
+    }, this.RangeValidator);
   }
 
 
@@ -122,6 +149,8 @@ export class FillGameComponent implements OnInit {
     });
   }
 
+
+
   onNewPlayer(player: Player): void {
     const newplayerForm: PlayerForm = {
       playerInfo: player,
@@ -132,6 +161,12 @@ export class FillGameComponent implements OnInit {
   }
 
   onSaveGame(): void{
+    this.playersForm.forEach((playerForm: PlayerForm) => {
+      console.log(playerForm.playerform.valid);
+    });
+
+    return;
+
     let totalpoints = 0;
 
     this.playersForm.forEach((playerForm: PlayerForm) => {
