@@ -21,9 +21,9 @@ export class InfoPlayersComponent implements OnInit {
 
   private newPlayerForm(): FormGroup {
     return new FormGroup({
-      playerName: new FormControl('', Validators.required),
-      playerAge: new FormControl('', Validators.required),
-      playerNumber: new FormControl('', Validators.required),
+      playerName: new FormControl('', [Validators.required, Validators.min(3)]),
+      playerAge: new FormControl('', [Validators.required, Validators.min(3)]),
+      playerNumber: new FormControl('', [Validators.required, Validators.min(3)]),
     });
   }
 

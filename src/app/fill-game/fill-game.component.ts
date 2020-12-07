@@ -83,7 +83,7 @@ export class FillGameComponent implements OnInit {
       attackLeft: new FormControl(info.attackLeft, Validators.required),
       attackCenter: new FormControl(info.attackCenter, Validators.required),
       defRebound: new FormControl(info.defRebound, Validators.required),
-      fieldAttemp: new FormControl(info.fieldAttemp, Validators.required),
+      fieldAttemp: new FormControl(info.fieldAttemp, [Validators.required]),
       fieldSuccess: new FormControl(info.fieldSuccess, Validators.required),
       foulsMade: new FormControl(info.foulsMade, Validators.required),
       foulsRec: new FormControl(info.foulsRec, Validators.required),
@@ -107,8 +107,8 @@ export class FillGameComponent implements OnInit {
       attackLeft: new FormControl(0, Validators.required),
       attackCenter: new FormControl(0, Validators.required),
       defRebound: new FormControl(0, Validators.required),
-      fieldAttemp: new FormControl(0, Validators.required),
       fieldSuccess: new FormControl(0, Validators.required),
+      fieldAttemp: new FormControl(0, Validators.required),
       foulsMade: new FormControl(0, Validators.required),
       foulsRec: new FormControl(0, Validators.required),
       freeAttemp: new FormControl(0, Validators.required),
@@ -116,7 +116,6 @@ export class FillGameComponent implements OnInit {
       offRebound: new FormControl(0, Validators.required),
       passAttemp: new FormControl(0, Validators.required),
       passSuccess: new FormControl(0, Validators.required),
-      points: new FormControl({value: 0, disabled: true}, Validators.required),
       steals: new FormControl(0, Validators.required),
       threeAttemp: new FormControl(0, Validators.required),
       threeSuccess: new FormControl(0, Validators.required)
@@ -133,11 +132,7 @@ export class FillGameComponent implements OnInit {
   }
 
   onSaveGame(): void{
-    const newGame: Game = this.games.find((game: Game) => game.matchId === this.matchId);
-    newGame.goalsFor = this.tableForm.controls.goalsFor.value;
-    newGame.goalsAgainst = this.tableForm.controls.goalsAgainst.value;
-
-    this.teamService.addTeamGame(this.userId, this.teamId, newGame);
+    let totalpoints = 0;
 
     this.playersForm.forEach((playerForm: PlayerForm) => {
       const playerId = playerForm.playerInfo.playerId;
@@ -156,13 +151,22 @@ export class FillGameComponent implements OnInit {
       offRebound: playerForm.playerform.controls.offRebound.value,
       passAttemp: playerForm.playerform.controls.passAttemp.value,
       passSuccess: playerForm.playerform.controls.passSuccess.value,
-      points: playerForm.playerform.controls.points.value,
+      points: (playerForm.playerform.controls.freeSuccess.value +
+        (playerForm.playerform.controls.fieldSuccess.value * 2) +
+        (playerForm.playerform.controls.threeSuccess.value * 3)),
       steals: playerForm.playerform.controls.steals.value,
       threeAttemp: playerForm.playerform.controls.threeAttemp.value,
       threeSuccess: playerForm.playerform.controls.threeSuccess.value
     };
+      totalpoints += newPlayerGame.points;
       this.playerService.addPlayerGame(this.userId, this.teamId, playerId, newPlayerGame, this.selectForm.controls.match.value);
     });
+
+    const newGame: Game = this.games.find((game: Game) => game.matchId === this.matchId);
+    newGame.goalsFor = totalpoints;
+    newGame.goalsAgainst = this.tableForm.controls.goalsAgainst.value;
+
+    this.teamService.addTeamGame(this.userId, this.teamId, newGame);
 
     this.router.navigateByUrl('/team/' + this.teamId);
   }

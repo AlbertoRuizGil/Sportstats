@@ -77,10 +77,15 @@
 }
 
 .error {
-  color: red;
-  font-weight: bold;
-  font-size: 1.9rem;
-  text-align: right;
+  display: flex;
+  flex-direction: row-reverse;
+
+  &-err {
+    color: red;
+    font-weight: bold;
+    font-size: 1.9rem;
+    text-align: right;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -95,7 +100,7 @@
 
   }
 
-  .error {
+  .error-err {
     font-size: 1.5rem;
   }
 }
@@ -107,5 +112,18 @@
       align-items: center;
     }
 
+  }
+}
+
+@media (max-width: 550px) {
+  .error {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 450px) {
+  .match-input {
+    width: 60%;
   }
 }

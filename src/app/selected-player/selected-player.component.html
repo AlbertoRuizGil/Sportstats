@@ -26,7 +26,7 @@
       <app-polar-chart *ngIf="playerGames && playerGames.length" [playerGames]="playerGames"
                        class="player-chart"></app-polar-chart>
 
-      <div class="noData" *ngIf="!playerGames">
+      <div class="noData" *ngIf="!playerGames || !playerGames.length">
         <h5 class="noData-text">No hay datos</h5>
       </div>
 

@@ -96,4 +96,13 @@
   .container {
     min-height: 70vh;
   }
+
+  .select {
+
+    &-form {
+      width: 22rem;
+      height: 4rem;
+      font-size: 1.2rem;
+    }
+  }
 }

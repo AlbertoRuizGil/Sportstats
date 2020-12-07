@@ -23,6 +23,7 @@ export class SelectedTeamComponent implements OnInit {
   public nextGame: Game = undefined;
   public formGame: FormGroup;
   public showNewGame = false;
+  public showStats = false;
 
   constructor(
     public teamService: TeamService,
@@ -48,7 +49,7 @@ export class SelectedTeamComponent implements OnInit {
           .valueChanges()
           .subscribe((games: Game[]) => {
             this.games = games;
-            console.log(games);
+            this.needToShowStats();
             this.getNextGame(games);
           });
         this.players = this.playerService
@@ -88,5 +89,13 @@ export class SelectedTeamComponent implements OnInit {
     };
     this.teamService.addTeamGame(this.userId, this.teamId, newGame);
     this.showNewGame = false;
+  }
+
+  needToShowStats(): void{
+    this.games.forEach((game: Game) => {
+      if (game.goalsAgainst !== undefined && game.goalsFor !== undefined){
+        this.showStats = true;
+      }
+    });
   }
 }

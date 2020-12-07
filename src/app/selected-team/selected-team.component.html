@@ -34,7 +34,7 @@
   </div>
 
   <div class="newGame" *ngIf="formGame && showNewGame">
-    <div  class="newGame-form">
+    <div class="newGame-form">
       <app-info-game class="newGame-panel" [form]="formGame" [showDelete]="false"></app-info-game>
     </div>
     <div class="newGame-buttons">
@@ -48,7 +48,7 @@
   </div>
 
 
-  <div class="allStats" *ngIf="games && games.length">
+  <div class="allStats" *ngIf="games && games.length && showStats">
     <h4 class="stats-title">Estadísticas equipo</h4>
 
     <app-table-info-team *ngIf="games && games.length"
@@ -61,7 +61,7 @@
 
   </div>
 
-  <div class="noData" *ngIf="!games">
+  <div class="noData" *ngIf="!games || !showStats">
     <div class="noData-table">
       <h5 class="noData-text">No hay estadísticas</h5>
     </div>

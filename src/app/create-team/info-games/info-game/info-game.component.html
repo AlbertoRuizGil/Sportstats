@@ -13,7 +13,7 @@
       <input type="text"
              name="rivalTeam"
              formControlName="rivalTeam"
-             class="input match-input" />
+             class="input match-input match-input-rivalTeam" />
     </div>
     <div class="match-data">
       <label for="matchDate"
@@ -25,8 +25,11 @@
     </div>
   </div>
 
-  <span class="error">
-    Debe rellenar todos los campos
-  </span>
+  <div class="error">
+    <span class="error-err" *ngIf="form && ((form.get('rivalTeam').dirty || form.get('rivalTeam').touched) && form.get('rivalTeam').errors) ||
+                        ((form.get('matchDate').dirty || form.get('matchDate').touched) && form.get('matchDate').errors)">
+      Debe rellenar todos los campos
+    </span>
+  </div>
 
 </form>

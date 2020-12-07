@@ -21,6 +21,7 @@ export class SelectedPlayerComponent implements OnInit {
 
   playerGames: PlayerGame[] = [];
   league: League;
+  showData = false;
 
   constructor(
     private teamService: TeamService,
@@ -57,6 +58,10 @@ export class SelectedPlayerComponent implements OnInit {
         });
       }
     });
+  }
+
+  needToShow(): void{
+
   }
 
 }

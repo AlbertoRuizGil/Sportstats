@@ -109,8 +109,13 @@
   }
 
   &-panel {
-    width: 50%;
+    width: 75%;
     margin-bottom: 0;
+  }
+
+  &-buttons {
+    margin-top: -10rem;
+    margin-bottom: 2rem;
   }
 }
 
@@ -298,12 +303,23 @@
     }
   }
 
+  .newGame {
+    &-panel {
+      width: 95%;
+    }
+  }
+
   .stats-title {
     font-size: 3.7rem;
+    margin-bottom: -3rem;
   }
 }
 
 @media (max-width: 500px) {
+  .container {
+    padding: 1rem;
+  }
+
   .team-nextgame {
     font-size: 1.5rem;
   }

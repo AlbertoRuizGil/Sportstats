@@ -9,7 +9,7 @@
     <div class="player-field mb-5">
 
       <figure class="team-form-container_img">
-        <img src="../../../assets/img/avatar-generico.png"
+        <img [src]="playerUrl"
              alt="Foto de jugador"
              class="team-form-img" />
       </figure>
@@ -48,12 +48,16 @@
           <input type="file"
                  name="playerImg"
                  class="input player-input-file"
-                 id="playerImg" />
+                 id="playerImg"
+                 formControlName="playerAvatar"
+                 (change)="onChange($event.target.files)" />
         </div>
       </div>
     </div>
-    <span class="error">
-      Debe rellenar todos los campos
+    <span class="error" *ngIf="form && ((form.get('playerName').dirty || form.get('playerName').touched) && form.get('playerName').errors)||
+                          ((form.get('playerAge').dirty || form.get('playerAge').touched) && form.get('playerAge').errors) ||
+                          ((form.get('playerNumber').dirty || form.get('playerNumber').touched) && form.get('playerNumber').errors)">
+      Debe rellenar todos los campos correctamente
     </span>
   </form>
 
