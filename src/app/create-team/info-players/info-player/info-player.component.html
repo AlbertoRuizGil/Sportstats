@@ -51,6 +51,7 @@
                  id="playerImg"
                  (change)="onChange($event.target.files)" />
         </div>
+        <p class="upload">{{ form?.get('playerAvatar')?.value?.name }}</p>
       </div>
     </div>
     <span class="error" *ngIf="form && ((form.get('playerName').dirty || form.get('playerName').touched) && form.get('playerName').errors)||

@@ -1,3 +1,5 @@
+@import 'variables.scss';
+
 .team-form {
 
   &-form {
@@ -80,6 +82,13 @@
   font-weight: bold;
   font-size: 1.7rem;
   transform: translateY(-30px);
+}
+
+.upload {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: $color-dark-pink;
 }
 
 @media (max-width: 1440px) {

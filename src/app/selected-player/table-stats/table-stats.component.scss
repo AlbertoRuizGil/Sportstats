@@ -55,3 +55,18 @@
   }
 
 }
+
+@media (max-width: 1024px) {
+  .stats {
+    &-table-container {
+      font-size: 1.4rem;
+    }
+
+    &-th,
+    &-td {
+      padding: 1.7rem;
+      width: 10rem;
+      height: 8rem;
+    }
+  }
+}

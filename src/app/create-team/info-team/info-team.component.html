@@ -32,8 +32,8 @@
                type="file"
                id="shield"
                (change)="onChange($event.target.files)" />
-        <div>{{ form?.get('teamShield')?.value?.name }}</div>
       </div>
+      <p class="upload">{{ form?.get('teamShield')?.value?.name }}</p>
     </div>
 
   </div>
