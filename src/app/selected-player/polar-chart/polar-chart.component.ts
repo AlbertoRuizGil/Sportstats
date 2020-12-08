@@ -79,9 +79,9 @@ export class PolarChartComponent implements OnInit {
       totalFieldSuccess += playerGame.fieldSuccess;
     });
 
-    totalThree = totalThreeSuccess / totalThreeAttemps;
-    totalFree = totalFreeSuccess / totalFreeAttemps;
-    totalField = totalFieldSuccess / totalFieldAttemps;
+    totalThree = totalThreeAttemps ? totalThreeSuccess / totalThreeAttemps : 0;
+    totalFree = totalFreeAttemps ? totalFreeSuccess / totalFreeAttemps : 0;
+    totalField = totalFieldAttemps ? totalFieldSuccess / totalFieldAttemps : 0;
 
     this.attack = ((totalThree + totalFree + totalField) / 3) * 100;
   }
@@ -95,7 +95,7 @@ export class PolarChartComponent implements OnInit {
       totalPassSuccess += playerGame.passSuccess;
     });
 
-    this.passes = (totalPassSuccess / totalPassAttemps) * 100;
+    this.passes = totalPassAttemps ? ((totalPassSuccess / totalPassAttemps) * 100) : 0;
   }
 
   setDefense(): void {
@@ -112,9 +112,9 @@ export class PolarChartComponent implements OnInit {
       totalFoulsMade += playerGame.foulsMade;
     });
 
-    deffReboundsPercent = totalDefRebounds / (totalDefRebounds + totalOffRebounds);
-    totalSteals = (totalSteals / this.playerGames.length) * 0.05;
-    totalFoulsMade = (totalFoulsMade / this.playerGames.length) * 0.03;
+    deffReboundsPercent = (totalDefRebounds + totalOffRebounds) ? totalDefRebounds / (totalDefRebounds + totalOffRebounds) : 0;
+    totalSteals = this.playerGames.length ? (totalSteals / this.playerGames.length) * 0.05 : 0;
+    totalFoulsMade = this.playerGames.length ? (totalFoulsMade / this.playerGames.length) * 0.03 : 0;
 
     this.defense = (deffReboundsPercent + totalSteals - totalFoulsMade) * 100;
 
@@ -125,6 +125,4 @@ export class PolarChartComponent implements OnInit {
       this.defense = 0;
     }
   }
-
-
 }

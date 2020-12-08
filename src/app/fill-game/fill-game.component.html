@@ -33,12 +33,19 @@
                      [onePlayerForm]="onePlayerForm"></app-player-game>
   </div>
 
+    <div class="error"
+         *ngIf="!tableForm.valid || !isValid">
+      <p *ngIf="!tableForm.valid" class="error-paragraph">Debe rellenar la tabla y el valor debe ser positivo o 0</p>
+      <p *ngIf="!isValid" class="error-paragraph">Todos los campos deben estar rellenos, los intentos no pueden superar a los exitos y los valores deben ser positivos o 0</p>
+    </div>
+
+
   <div class="buttons" *ngIf="selectForm.controls.match.value !==''">
       <a class="btn btn-pink btn-shadow m-2"
-         [routerLink]="['/user-teams']">Cancelar</a>
+         [routerLink]="['/team', teamId]">Cancelar</a>
       <button class="btn btn-dark btn-shadow m-2"
               (click)="onSaveGame()"
-              [disabled]="!tableForm.valid">Guardar</button>
+              [disabled]="!tableForm.valid || !isValid">Guardar</button>
   </div>
 
 </div>

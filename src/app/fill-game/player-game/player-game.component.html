@@ -1,8 +1,8 @@
-<div class="player mb-5"
-     *ngIf="onePlayerForm.playerform">
+<form [formGroup]="onePlayerForm.form" class="player mb-5"
+     *ngIf="onePlayerForm.form">
 
   <div class="player-dontPlay mb-3"
-       *ngIf="!didPlay">
+       *ngIf="!onePlayerForm?.form?.get('didPlay').value">
     <div class="player-dontPlay-info">
       <figure class="player-dontPlay-container_img">
         <img src="../../../assets/img/avatar-generico.png"
@@ -14,12 +14,12 @@
 
     <div class="player-dontPlay-button">
       <button class="btn btn-dark"
-              (click)="didPlay = !didPlay">Jugó</button>
+              (click)="onCheck()">Jugó</button>
     </div>
   </div>
 
-  <form [formGroup]="onePlayerForm.playerform"
-        *ngIf="didPlay"
+  <div
+        *ngIf="onePlayerForm?.form?.get('didPlay').value"
         class="player-form mb-3">
 
     <div class="player-info">
@@ -66,12 +66,12 @@
               <input type="number"
                      name="fieldAttemp"
                      class="input-number"
-                     formControlName="fieldAttemp">
+                     formControlName="fieldSuccess">
               <span class="inputSpan">/</span>
               <input type="number"
                      name="fieldSuccess"
                      class="input-number"
-                     formControlName="fieldSuccess">
+                     formControlName="fieldAttemp">
             </div>
           </div>
 
@@ -82,12 +82,12 @@
               <input type="number"
                      name="threeAttemp"
                      class="input-number"
-                     formControlName="threeAttemp">
+                     formControlName="threeSuccess">
               <span class="inputSpan">/</span>
               <input type="number"
                      name="threeSuccess"
                      class="input-number"
-                     formControlName="threeSuccess">
+                     formControlName="threeAttemp">
             </div>
           </div>
 
@@ -98,12 +98,12 @@
               <input type="number"
                      name="freeAttemp"
                      class="input-number"
-                     formControlName="freeAttemp">
+                     formControlName="freeSuccess">
               <span class="inputSpan">/</span>
               <input type="number"
                      name="freeSuccess"
                      class="input-number"
-                     formControlName="freeSuccess">
+                     formControlName="freeAttemp">
             </div>
           </div>
         </div>
@@ -173,12 +173,12 @@
             <input type="number"
                    name="passAttemp"
                    class="input-number"
-                   formControlName="passAttemp">
+                   formControlName="passSuccess">
             <span class="inputSpan">/</span>
             <input type="number"
                    name="passSuccess"
                    class="input-number"
-                   formControlName="passSuccess">
+                   formControlName="passAttemp">
           </div>
         </div>
       </div>
@@ -225,10 +225,10 @@
     <div class="player-didPlay">
       <button name="didPlay"
               class="btn btn-dark"
-              (click)="didPlay = !didPlay">No jugó</button>
+              (click)="onCheck()">No jugó</button>
     </div>
 
-  </form>
+  </div>
 
 
-</div>
+</form>

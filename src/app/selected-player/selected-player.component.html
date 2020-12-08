@@ -10,7 +10,7 @@
 
       <div class="player-container">
         <figure class="player-container_img">
-          <img src="../../../assets/img/avatar-generico.png"
+          <img [src]="player && player.playerAvatarUrl ? player.playerAvatarUrl : '../../../assets/img/avatar-generico.png'"
                alt="Foto de jugador"
                class="player-img" />
         </figure>

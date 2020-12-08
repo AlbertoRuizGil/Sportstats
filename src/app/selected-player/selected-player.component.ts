@@ -37,13 +37,11 @@ export class SelectedPlayerComponent implements OnInit {
       if (user) {
         this.playerService
         .getPlayerInfo(user.uid, this.teamId, this.playerId)
-        .valueChanges()
         .subscribe((playerInfo) => {
           this.player = playerInfo;
         });
         this.playerService
         .getPlayerGames(user.uid, this.teamId, this.playerId)
-        .valueChanges()
         .subscribe((games: PlayerGame[]) => {
           games.forEach( (game: PlayerGame) => {
             this.playerGames = [...this.playerGames, game];
@@ -52,7 +50,6 @@ export class SelectedPlayerComponent implements OnInit {
 
         this.teamService
         .getTeamLeague(user.uid, this.teamId)
-        .valueChanges()
         .subscribe((leagues: League[]) => {
           this.league = leagues[0];
         });

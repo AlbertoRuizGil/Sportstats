@@ -26,10 +26,10 @@ export class TableInfoTeamComponent implements OnInit {
       if (game.goalsFor > game.goalsAgainst) {
         this.wins++;
       }
-      this.goals += game.goalsFor;
+      this.goals += game.goalsFor ? game.goalsFor : 0;
     });
 
-    this.winAverage = this.wins / games.length;
+    this.winAverage = games.length ? this.wins / games.length : 0;
   }
 }
 

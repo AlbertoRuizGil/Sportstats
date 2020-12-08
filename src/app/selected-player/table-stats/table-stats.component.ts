@@ -28,11 +28,9 @@ export class TableStatsComponent implements OnInit {
       if (user) {
         this.playerService
         .getPlayerInfo(user.uid, this.teamId, this.playerId)
-        .valueChanges()
         .subscribe((playerInfo: Player) => {
           this.playerService
           .getPlayerGames(user.uid, this.teamId, this.playerId)
-          .valueChanges()
           .subscribe((playerGames) => {
             this.playerTable = this.setPlayersTable(playerInfo, playerGames);
         });
@@ -83,7 +81,7 @@ export class TableStatsComponent implements OnInit {
       totalPoints += playerGame.points;
     });
 
-    return totalPoints / playerGames.length;
+    return playerGames.length ? totalPoints / playerGames.length : 0;
   }
 
   setFieldPerGame(playerGames: PlayerGame[]): number{
@@ -93,7 +91,7 @@ export class TableStatsComponent implements OnInit {
       totalField += playerGame.fieldSuccess;
     });
 
-    return totalField / playerGames.length;
+    return playerGames.length ? totalField / playerGames.length : 0;
   }
 
   setFieldPercent(playerGames: PlayerGame[]): number{
@@ -106,7 +104,7 @@ export class TableStatsComponent implements OnInit {
       }
     });
 
-    return (fieldSucceed / fieldAttemps) * 100;
+    return fieldAttemps ? ((fieldSucceed / fieldAttemps) * 100) : 0;
   }
 
   setFreePercent(playerGames: PlayerGame[]): number{
@@ -119,7 +117,7 @@ export class TableStatsComponent implements OnInit {
       }
     });
 
-    return (freeSucceed / freeAttemps) * 100;
+    return freeAttemps ? (freeSucceed / freeAttemps) * 100 : 0;
   }
 
   setThreePercent(playerGames: PlayerGame[]): number{
@@ -132,7 +130,7 @@ export class TableStatsComponent implements OnInit {
       }
     });
 
-    return (threeSucced / threeAttemps) * 100;
+    return threeAttemps ? ((threeSucced / threeAttemps) * 100) : 0;
   }
 
   setOReboundPerGame(playerGames: PlayerGame[]): number{
@@ -142,7 +140,7 @@ export class TableStatsComponent implements OnInit {
       totalORebounds += playerGame.offRebound;
     });
 
-    return totalORebounds / playerGames.length;
+    return playerGames.length ? totalORebounds / playerGames.length : 0;
   }
 
   setDReboundPerGame(playerGames: PlayerGame[]): number{
@@ -152,7 +150,7 @@ export class TableStatsComponent implements OnInit {
       totalDRebounds += playerGame.defRebound;
     });
 
-    return totalDRebounds / playerGames.length;
+    return playerGames.length ? totalDRebounds / playerGames.length : 0;
   }
 
   setAssistsPerGame(playerGames: PlayerGame[]): number{
@@ -162,7 +160,7 @@ export class TableStatsComponent implements OnInit {
       totalAssists += playerGame.assist;
     });
 
-    return totalAssists / playerGames.length;
+    return playerGames.length ? totalAssists / playerGames.length : 0;
   }
 
   setStealsPerGame(playerGames: PlayerGame[]): number{
@@ -172,7 +170,7 @@ export class TableStatsComponent implements OnInit {
       totalSteals += playerGame.steals;
     });
 
-    return totalSteals / playerGames.length;
+    return playerGames.length ? totalSteals / playerGames.length : 0;
   }
 
   setFoulsPerGame(playerGames: PlayerGame[]): number{
@@ -182,7 +180,7 @@ export class TableStatsComponent implements OnInit {
       totalFouls += playerGame.foulsMade;
     });
 
-    return totalFouls / playerGames.length;
+    return playerGames.length ? totalFouls / playerGames.length : 0;
   }
 
 }

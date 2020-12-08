@@ -40,7 +40,7 @@ export class CourtStatsComponent implements OnInit {
       totalRightAttacks += playerGame.attackRight;
     });
 
-    this.attackRight = (totalRightAttacks / this.getTotalAttacks()) * 100;
+    this.attackRight = this.getTotalAttacks() ? (totalRightAttacks / this.getTotalAttacks()) * 100 : 0;
   }
 
   setLeftPercent(): void{
@@ -49,7 +49,7 @@ export class CourtStatsComponent implements OnInit {
       totalLeftAttacks += playerGame.attackLeft;
     });
 
-    this.attackLeft = (totalLeftAttacks / this.getTotalAttacks()) * 100;
+    this.attackLeft = this.getTotalAttacks() ? (totalLeftAttacks / this.getTotalAttacks()) * 100 : 0;
   }
 
   setCenterPercent(): void{
@@ -58,7 +58,7 @@ export class CourtStatsComponent implements OnInit {
       totalCenterAttacks += playerGame.attackCenter;
     });
 
-    this.attackCenter = (totalCenterAttacks / this.getTotalAttacks()) * 100;
+    this.attackCenter = this.getTotalAttacks() ? (totalCenterAttacks / this.getTotalAttacks()) * 100 : 0;
 
   }
 

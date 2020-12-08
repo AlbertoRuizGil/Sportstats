@@ -28,16 +28,20 @@ export class TableInfoPlayersComponent implements OnInit {
     this.authService.currentUser$.subscribe((user: firebase.User) => {
       if (user) {
         this.playerService
-          .getPlayers(user.uid, this.teamId)
-          .valueChanges({idField: 'playerId'})
+          .getPlayers(user.uid, this.teamId, true)
           .subscribe(value => {
             this.players = value;
+            this.playersGeneralTable = [];
             this.players.forEach((player: Player) => {
               this.playerService
               .getPlayerGames(user.uid, this.teamId, player.playerId)
-              .valueChanges()
               .subscribe((playerGames: PlayerGame[]) => {
-                this.playersGeneralTable.push(this.createPlayerGeneralTable(player, playerGames));
+                const index = this.playersGeneralTable.findIndex((info: PlayerGeneralTable) => info.playerInfo.playerId === player.playerId);
+                if (index === -1) {
+                  this.playersGeneralTable.push(this.createPlayerGeneralTable(player, playerGames));
+                } else {
+                  this.playersGeneralTable[index] = this.createPlayerGeneralTable(player, playerGames);
+                }
               });
             });
           });
@@ -83,7 +87,7 @@ export class TableInfoPlayersComponent implements OnInit {
       }
     });
 
-    return fieldSucceed / fieldAttemps;
+    return fieldAttemps ? fieldSucceed / fieldAttemps : 0;
   }
 
   setFreePer(playerGames: PlayerGame[]): number{
@@ -96,7 +100,7 @@ export class TableInfoPlayersComponent implements OnInit {
       }
     });
 
-    return freeSucceed / freeAttemps;
+    return freeAttemps ? freeSucceed / freeAttemps : 0;
   }
 
   setThreePer(playerGames: PlayerGame[]): number{
@@ -109,7 +113,7 @@ export class TableInfoPlayersComponent implements OnInit {
       }
     });
 
-    return threeSucced / threeAttemps;
+    return threeAttemps ? threeSucced / threeAttemps : 0;
   }
 
   setPointsPerGame(playerGames: PlayerGame[]): number{
@@ -119,6 +123,6 @@ export class TableInfoPlayersComponent implements OnInit {
       totalPoints += playerGame.points;
     });
 
-    return totalPoints / playerGames.length;
+    return playerGames.length ? totalPoints / playerGames.length : 0;
   }
 }

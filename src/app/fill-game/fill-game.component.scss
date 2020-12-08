@@ -44,6 +44,17 @@
 
 }
 
+.error {
+  display: flex;
+  flex-direction: row-reverse;
+
+  &-paragraph {
+    color: red;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+}
+
 .buttons {
   display: flex;
   justify-content: right;
@@ -65,6 +76,10 @@
 
   .main-title {
     font-size: 4rem;
+  }
+
+  .error-paragraph {
+    font-size: 1.5rem;
   }
 }
 
@@ -90,6 +105,10 @@
   .main-title {
     font-size: 3rem;
   }
+
+  .error-paragraph {
+    font-size: 1.2rem;
+  }
 }
 
 @media (max-width: 550px) {
@@ -104,5 +123,9 @@
       height: 4rem;
       font-size: 1.2rem;
     }
+  }
+
+  .error-paragraph {
+    font-size: .8rem;
   }
 }

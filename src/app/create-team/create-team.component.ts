@@ -13,7 +13,6 @@ import { AuthService } from '../shared/services/auth.service';
   styleUrls: ['./create-team.component.scss'],
 })
 export class CreateTeamComponent implements OnInit {
-  haveEnoughPlayers = true;
   private user: firebase.User;
   form: FormGroup;
   formTeam: FormGroup;
@@ -54,15 +53,15 @@ export class CreateTeamComponent implements OnInit {
 
   private buildFormLeague(): void {
     this.formLeague = new FormGroup({
-      points: new FormControl(0, [Validators.min(1) ]),
-      fieldPercent: new FormControl(0, [Validators.min(1), Validators.max(100) ]),
-      threePercent: new FormControl(0, [Validators.min(1), Validators.max(100) ]),
-      freePercent: new FormControl(0, [Validators.min(1), Validators.max(100) ]),
+      points: new FormControl(0, [Validators.min(0) ]),
+      fieldPercent: new FormControl(0, [Validators.min(0), Validators.max(100) ]),
+      threePercent: new FormControl(0, [Validators.min(0), Validators.max(100) ]),
+      freePercent: new FormControl(0, [Validators.min(0), Validators.max(100) ]),
     });
   }
 
   private buildFormPlayers(): void {
-    this.formPlayers = new FormArray([], [Validators.required]);
+    this.formPlayers = new FormArray([]);
   }
 
   private buildFormGames(): void {
@@ -71,14 +70,6 @@ export class CreateTeamComponent implements OnInit {
 
   onSaveTeam() {
     console.log('is valid form?', this.formPlayers.valid);
-
-    if (this.formPlayers.length < 5) {
-      console.log(this.formPlayers.length);
-      this.haveEnoughPlayers = false;
-      return;
-    }
-
-    this.haveEnoughPlayers = true;
 
     const newTeam: Team = {
       name: this.formTeam.controls.teamName.value,
@@ -98,7 +89,8 @@ export class CreateTeamComponent implements OnInit {
       const newPlayer: Player = {
       playerName: formPlayer.controls.playerName.value,
       playerAge: formPlayer.controls.playerAge.value,
-      playerNumber: formPlayer.controls.playerNumber.value
+      playerNumber: formPlayer.controls.playerNumber.value,
+      playerAvatar: formPlayer.controls.playerAvatar.value
       };
       newPlayers.push(newPlayer);
     });
@@ -118,12 +110,5 @@ export class CreateTeamComponent implements OnInit {
     const teamId = this.teamService.addTeam(this.user.uid, newTeam, newLeague, newPlayers, newGames);
     this.router.navigateByUrl('/userTeams' );
 
-  }
-
-  private getTeamValues() {
-    return [
-      this.formTeam.get('teamName').value,
-      this.formTeam.get('teamShield').value,
-    ];
   }
 }

@@ -40,8 +40,9 @@
               [disabled]="!formTeam.valid || !formLeague.valid || !formPlayers.valid">Guardar</button>
     </div>
 
-    <div class="error" *ngIf="!haveEnoughPlayers">
-      <p class="error-paragraph">El equipo debe tener al menos 5 jugadores</p>
+    <div class="error"
+         *ngIf="!formPlayers.valid">
+      <p class="error-paragraph">El equipo debe tener entre 5 y 10 jugadores</p>
     </div>
   </form>
 </div>

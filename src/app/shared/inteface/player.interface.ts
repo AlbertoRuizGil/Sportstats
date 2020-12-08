@@ -5,6 +5,8 @@ export interface Player{
   playerName: string;
   playerAge: number;
   playerNumber: number;
+  playerAvatar?: File;
+  playerAvatarUrl?: string;
 }
 
 export interface PlayerGame{
@@ -62,6 +64,6 @@ export interface PlayerCompleteStats{
 
 export interface PlayerForm{
   playerInfo: Player;
-  playerform: FormGroup;
+  form: FormGroup;
 }
 

@@ -17,7 +17,7 @@ export class InfoGamesComponent implements OnInit {
   }
 
   onNewGame(): void {
-    this.form.controls.push(this.newGameForm());
+    this.form.push(this.newGameForm());
   }
 
   private newGameForm(): FormGroup{
@@ -28,7 +28,7 @@ export class InfoGamesComponent implements OnInit {
   }
 
   deleteBtnHandler(value: FormGroup): void{
-    this.form.controls.splice(this.form.controls.indexOf(value), 1);
+    this.form.removeAt(this.form.controls.indexOf(value));
   }
 
 }

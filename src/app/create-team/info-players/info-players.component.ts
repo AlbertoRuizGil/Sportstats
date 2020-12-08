@@ -1,3 +1,4 @@
+import { SportStatsValidators } from '@/app/shared/validators/sport-stats.validators';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -10,6 +11,7 @@ export class InfoPlayersComponent implements OnInit {
   @Input()
   form: FormArray;
 
+  private minPlayers = 5;
   private maxPlayers = 10;
 
   constructor() {}
@@ -17,9 +19,8 @@ export class InfoPlayersComponent implements OnInit {
   ngOnInit(): void {}
 
   onNewPlayer() {
-    if (this.form.length < this.maxPlayers){
-      this.form.controls.push(this.newPlayerForm());
-    }
+    this.form.setValidators(SportStatsValidators.range(this.minPlayers, this.maxPlayers));
+    this.form.push(this.newPlayerForm());
   }
 
   private newPlayerForm(): FormGroup {
@@ -27,11 +28,11 @@ export class InfoPlayersComponent implements OnInit {
       playerName: new FormControl('', Validators.required),
       playerAge: new FormControl('', [Validators.required, Validators.min(3)]),
       playerNumber: new FormControl('', Validators.required),
-      playerAvatar: new FormControl('')
+      playerAvatar: new FormControl()
     });
   }
 
   deleteBtnHandler(value: FormGroup) {
-    this.form.controls.splice(this.form.controls.indexOf(value), 1);
+    this.form.removeAt(this.form.controls.indexOf(value));
   }
 }

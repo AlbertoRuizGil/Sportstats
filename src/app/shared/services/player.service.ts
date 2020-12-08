@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 import { Player, PlayerGame } from '../inteface/player.interface';
 
@@ -10,34 +11,37 @@ export class PlayerService {
 
   constructor(private firestore: AngularFirestore) { }
 
-  getPlayers(userId: string, teamId: string): AngularFirestoreCollection<Player> {
+  getPlayers(userId: string, teamId: string, withIds = false): Observable<Player[]> {
     return this.firestore.collection('users')
       .doc(userId)
       .collection('teams')
       .doc(teamId)
-      .collection('players');
+      .collection<Player>('players')
+      .valueChanges(withIds ? { idField: 'playerId' } : {});
   }
 
-  getPlayerInfo(userId: string, teamId: string, playerId: string): AngularFirestoreDocument<Player>{
+  getPlayerInfo(userId: string, teamId: string, playerId: string): Observable<Player>{
     return this.firestore.collection('users')
       .doc(userId)
       .collection('teams')
       .doc(teamId)
       .collection('players')
-      .doc(playerId);
+      .doc<Player>(playerId)
+      .valueChanges();
   }
 
-  getPlayerGames(userId: string, teamId: string, playerId: string): AngularFirestoreCollection<PlayerGame>{
+  getPlayerGames(userId: string, teamId: string, playerId: string): Observable<PlayerGame[]>{
     return this.firestore.collection('users')
       .doc(userId)
       .collection('teams')
       .doc(teamId)
       .collection('players')
       .doc(playerId)
-      .collection('games');
+      .collection<PlayerGame>('games')
+      .valueChanges();
   }
 
-  getPlayerGame(userId: string, teamId: string, playerId: string, gameId: string): AngularFirestoreDocument<PlayerGame>{
+  getPlayerGame(userId: string, teamId: string, playerId: string, gameId: string): Observable<PlayerGame>{
     return this.firestore.collection('users')
       .doc(userId)
       .collection('teams')
@@ -45,7 +49,8 @@ export class PlayerService {
       .collection('players')
       .doc(playerId)
       .collection('games')
-      .doc(gameId);
+      .doc<PlayerGame>(gameId)
+      .valueChanges();
   }
 
   addPlayerGame(userId: string, teamId: string, playerId: string, playerGame: PlayerGame, gameId: string): void{
@@ -58,5 +63,19 @@ export class PlayerService {
     .collection('games')
     .doc(gameId)
     .set(playerGame);
+  }
+
+  deletePlayerGame(userId: string, teamId: string, playerId: string, gameId: string): void{
+    const doc = this.firestore.collection('users')
+    .doc(userId)
+    .collection('teams')
+    .doc(teamId)
+    .collection('players')
+    .doc(playerId)
+    .collection('games')
+    .doc(gameId);
+    if (doc){
+      doc.delete();
+    }
   }
 }

@@ -23,8 +23,7 @@ export class UserTeamsComponent implements OnInit {
     this.authService.currentUser$.subscribe((user: firebase.User) => {
       if (user) {
         this.teams = this.teamService
-          .getTeams(user.uid)
-          .valueChanges({ idField: 'teamId' });
+          .getTeams(user.uid, true);
       }
     });
   }

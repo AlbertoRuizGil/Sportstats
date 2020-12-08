@@ -25,6 +25,8 @@ export class SelectedTeamComponent implements OnInit {
   public showNewGame = false;
   public showStats = false;
 
+  private readonly defaultShieldUrl = '/assets/img/genericShield.jpg';
+
   constructor(
     public teamService: TeamService,
     private authService: AuthService,
@@ -40,21 +42,21 @@ export class SelectedTeamComponent implements OnInit {
         this.userId = user.uid;
         this.teamService
           .getTeamById(this.userId, this.teamId)
-          .valueChanges()
           .subscribe((team: Team) => {
             this.teamInfo = team;
+            if (!this.teamInfo.shieldUrl) {
+              this.teamInfo.shieldUrl = this.defaultShieldUrl;
+            }
           });
         this.teamService
           .getGames(user.uid, this.teamId)
-          .valueChanges()
           .subscribe((games: Game[]) => {
             this.games = games;
             this.needToShowStats();
             this.getNextGame(games);
           });
         this.players = this.playerService
-          .getPlayers(user.uid, this.teamId)
-          .valueChanges({idField: 'playerId'});
+          .getPlayers(user.uid, this.teamId, true);
       }
     });
   }
