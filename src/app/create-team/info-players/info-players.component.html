@@ -1,7 +1,7 @@
 <div class="players-form">
   <div class="players-data mb-5">
 
-    <app-info-player *ngFor="let playerForm of form.controls"
+    <app-info-player *ngFor="let playerForm of form.controls; let i = index" [indexPlayer]="i"
                      [form]="playerForm"
                      (deleteBtn)="deleteBtnHandler(playerForm)"></app-info-player>
 

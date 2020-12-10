@@ -44,7 +44,7 @@ export class SelectedTeamComponent implements OnInit {
           .getTeamById(this.userId, this.teamId)
           .subscribe((team: Team) => {
             this.teamInfo = team;
-            if (!this.teamInfo.shieldUrl) {
+            if (!this.teamInfo && !this.teamInfo.shieldUrl) {
               this.teamInfo.shieldUrl = this.defaultShieldUrl;
             }
           });

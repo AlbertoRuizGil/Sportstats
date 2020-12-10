@@ -43,12 +43,12 @@
         <div class="player-data">
           <label for=""
                  class="player-label">Imagen jugador</label>
-          <label for="playerImg"
+          <label for="playerImg{{indexPlayer}}"
                  class="player-label-file">Elija imagen</label>
           <input type="file"
-                 name="playerImg"
+                 name="playerImg{{indexPlayer}}"
                  class="input player-input-file"
-                 id="playerImg"
+                 id="playerImg{{indexPlayer}}"
                  (change)="onChange($event.target.files)" />
         </div>
         <p class="upload">{{ form?.get('playerAvatar')?.value?.name }}</p>

@@ -10,6 +10,9 @@ export class InfoPlayerComponent implements OnInit {
   @Input()
   form: FormGroup;
 
+  @Input()
+  indexPlayer: number;
+
   @Output()
   deleteBtn: EventEmitter<void> = new EventEmitter<void>();
 
